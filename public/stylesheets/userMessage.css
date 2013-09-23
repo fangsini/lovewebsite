@@ -1,0 +1,39 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #ddd;
+}
+
+.userMessage{
+	width: 800px;
+	height: 350px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -199px;
+	margin-left: -424px;
+	padding: 20px;
+	border: 4px solid #333;
+	background: #fff;
+	font-size: 40px;
+	font-family: Tahoma,"黑体";
+	line-height: 70px;
+	color: #222;
+	text-decoration: underline;
+	-webkit-box-shadow: 10px 10px 5px #000;
+	-moz-box-shadow: 10px 10px 5px #000;
+	-o-box-shadow: 10px 10px 5px #000;
+	box-shadow: 10px 10px 5px #000;
+}
+
+#usrLogo{
+	width: 150px;
+	height: 200px;
+	margin-right: 20px;
+	float: left;
+	border: 2px solid #333;
+	background: #fff;
+}

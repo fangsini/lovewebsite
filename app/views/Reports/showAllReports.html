@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>后续报道</title>
+	<link rel="stylesheet" href="/public/stylesheets/follow-reports.css" type="text/css" />
+	<script type="text/javascript" src="/public/javascripts/jquery-1.7.min.js"></script>
+	<script type="text/javascript" src="/public/javascripts/follow-reports.js"></script>
+	
+</head>
+<body>
+	 <!--header begin-->
+	<div id="header">
+		<ul>
+		    <li class="home nav-item"><a href="@{Application.index()}" class="home_icon">首页</a></li>
+            <li class="helpnews nav-item"><a href="@{Uploads.showAllUploads()}">求助资讯</a></li>
+            <li class="helpme nav-item">
+                #{if session.get("user") != null}
+                <a href="@{Uploads.index()}">我要求助</a>
+                #{/if}
+                #{else}
+                    <a href="@{Admin.index()}">我要求助</a>
+                #{/else}  
+                </li>
+            <li class="lovers nav-item"><a href="@{LovePersons.allLoveperson()}">爱心人物</a></li>
+            <li class="laternews nav-item"><a href="@{Reports.showAllReports()}">后续报道</a></li>
+            <li class="aboutus nav-item"><a href="@{Application.about()}">关于我们</a></li>
+            #{if session.get("user") == null}
+                <li class="login nav-item"><a href="@{Admin.index()}">登录</a></li>
+                <li class="register nav-item"><a href="@{Register.index()}">注册</a></li>
+            #{/if}
+            #{else}
+                <li class="logout nav-item"><a href="@{Secure.logout()}">注销</a>
+            #{/else}
+		</ul>
+	</div>
+	<!--header end-->
+	<!--laternews开始-->
+	<div id="lovers_body">
+		<h1 class="location">你现在的位置：首页>后续报道</h1>
+		<!--1-->
+		#{if allReports.size() >= 1}
+		#{list items: allReports , as: 'allReport'}
+	    	<div class="row">
+	    		<div class="span1">
+	    			<a href="@{Reports.showOneReport(allReport.id)}" class="img">
+	    				<img src="/public/images/${allReport.photoUrl}" alt="lovers" width=180 height=135 />
+	    			</a>
+	    		</div>
+	    		<div class="span2">
+	    			<a href="@{Reports.showOneReport(allReport.id)}"><p><h2>${allReport.title}</h2></a>
+	    			${allReport.content}</p> 
+	    		</div>
+	    	</div>
+	    #{/list}
+	    #{/if}
+        <div class="page-box">
+        	<button class="next-page-btn"><a class="next-page-btn-a" href="@{Reports.showPreviousReport(startPosition)}">上一页</a></button>
+            <div class="page-box-row">
+                <a href="" class="current-page-a">第 1 页</a>
+                <span class="triangle"></span>
+                <ul class="page-ul">
+                    %{
+						for(int i=0;i<totalReport/5;i++){
+                	}%
+                		<li class="page-item current-page-li"><a href="@{Reports.showAllReports(i)}">第 ${i+1} 页</a></li>
+                	%{
+						}
+                	}%
+                </ul>
+            </div>
+            <button class="next-page-btn"><a class="next-page-btn-a" href="@{Reports.showNextReport(startPosition)}">下一页</a></button>
+        </div>
+        <div class="footer">
+            <p>Copyright ? 2013 All Rights Reserved</p>
+        </div>
+	</div>
+</body>	
+</html>

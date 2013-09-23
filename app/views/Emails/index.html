@@ -1,0 +1,67 @@
+<html>
+<head>
+ <title>后台主页</title>
+ <link rel="stylesheet" type="text/css" href="/public/stylesheets/mail.css" />
+</head>
+<body>
+ <div class="page">
+        <p class="logo"><img src="/public/images/home.png" alt="首页"/ id="logo1"><strong>管理员</strong></p>
+        <p class="txt_right"><strong>华南农业大学管理员</strong>  <span class="v_line"> | </span> <a href="@{Secure.logout()}">退出</a></p>
+     <div class="menu1">
+        <a href="@{Application.index()}">前台主页</a>
+        <a href="@{Uploads.allUploads()}">所有上传信息</a>
+        <a href="@{Verifies.index()}">审核信息</a>
+        <a href="@{Emails.index()}">发送邮件</a>
+        <a href="@{MNews.index()}">发布信息</a>
+        <a href="@{Reports.index()}">后续报道</a>
+        <!--<span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>-->
+    </div>
+	<div class="right">
+		<div class="calen">
+			<img src="/public/images/cal3.png" alt="日历"/>
+			<div id="time">加载中</div>
+					<script >
+						setInterval("time.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+					</script>
+		</div>
+		<div class="decoration">
+			<img src="/public/images/mail3.png">
+			<p>发送邮件给用户</p>
+		</div>
+		<div class="server">	
+			<img src="/public/images/server2.png" alt="服务器"/>
+			<strong><p>S<span id="gray">C</span><span id="orange">A</span><span id="blue">U</span> <span id="gray">L</span><span id="orange">O</span><span id="blue">V</span>E <span id="orange">T</span><span id="gray">E</span><span id="blue">A</span>M</p></strong>
+		</div>
+	</div>
+	
+	<div class="content">
+		<div class="intro">
+			<p><img src="/public/images/email.png" alt="邮件发送"/>&nbsp;发送邮件</p>
+		</div>
+		<div class="line">
+		</div>
+		<div class="mailtype"> 
+			<ul>
+				<li id="per"><a href="@{Emails.personalMail()}"></a></li>
+				<li id="all"><a href="@{Emails.allEmails()}"></a></li>
+			</ul>
+		</div>
+		<div class="description"> 
+			<ul>
+				<li id="pert">单个用户</li>
+				<li id="allt">所有用户</li>
+			</ul>
+		</div>
+		<div class="line">
+		</div>
+		<div class="detail">
+			<p>选择一个方式发送邮件给用户</p>
+		</div>
+
+	</div>
+	<div class="footer">
+		<p>Copyright ? 2013 All Rights Reserved</p>
+	</div>
+ </div>
+</body>
+</html>
