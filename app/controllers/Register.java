@@ -24,7 +24,7 @@ public class Register extends Controller {
 			@Required(message="The length of the password must more than 6") @MinSize(value=6, message="The length of the password must more than 6")String password,
 			@Required String pass,
 			@Required(message="Email is required") String email,@Required String sex,
-			@Required String college) {
+			@Required String college, @Required String phone) {
 		User user1 = User.findById(userid);
 		
 		List<User> uid = User.find("order by userid desc").from(0).fetch();
@@ -41,7 +41,7 @@ public class Register extends Controller {
 		//sendMail(email,userid);
 		if(password.equals(pass)) {
 			password = encodeByMD5(password);
-			User user = new User(userid,name, password, email, sex, false, college).save();
+			User user = new User(userid, name, password, email, sex, false, college, phone).save();
 			Application.index();
 		}
 		else {

@@ -26,7 +26,8 @@ public class User extends GenericModel {
 	public String college;
 	public String phone;
 	
-	public User(String userid,String name, String password,String email,String sex,Boolean authority,String college, String phone) {
+	public User(String userid,String name, String password,String email,
+		String sex,Boolean authority,String college, String phone) {
 		this.userid = userid;
 		this.name = name;
 		this.password = password;

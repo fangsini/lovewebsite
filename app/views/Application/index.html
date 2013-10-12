@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/index.css" />
     <script type="text/javascript" src="/public/javascripts/gallery.js"></script>
     <script type="text/javascript" src="/public/javascripts/index.js"></script>
-    <title>scau爱心网</title>
+    <title>scau扶贫网</title>
 </head>
 <body>
     <div id="wholePage">
@@ -16,198 +16,136 @@
             </span>
             <span class="login">
                 #{if session.get("userId") == null}
-                <span>
-                    <a href="@{Admin.index()}">
-                        <img src="/public/images/loading.gif"></a>
-                </span>
-                <span>
-                    <a href="@{Register.index()}">
-                        <img src="/public/images/register.gif"></a>
-                </span>
+                    <span><a href="@{Admin.index()}"><img src="/public/images/loading.gif"></a></span>
+                    <span><a href="@{Register.index()}"><img src="/public/images/register.gif"></a></span>
                 #{/if}
                 #{else}
-                <span class="logindesc">
-                    <img src="/public/images/board.gif"/>
-                    &nbsp;&nbsp;欢迎回来,
-                    <span id="desc2">
-                        <a href="@{Users.userMessage()}">${session.get("user")}</a>
-                    </span>
-                    同学&nbsp;&nbsp;
-                    <span id="login_out">
-                        <a href="@{Secure.logout()}">注销&nbsp;</a>
-                        <span id="edit_pass">
-                            <a href="@{EditPassword.index()}">修改密码</a>
-                        </span>
-                    </span>
-                </span>
+                    <span class="logindesc">
+                        <img src="/public/images/board.gif"/>&nbsp;&nbsp;欢迎回来,<span id="desc2"><a href="@{Users.userMessage()}">${userName}</a></span>同学&nbsp;&nbsp<span id="login_out"><a href="@{Secure.logout()}">注销&nbsp;</a><span id="edit_pass"><a href="@{EditPassword.index()}">修改密码</a></span></span></span>
                 #{/else}
             </span>
-        </div>
-        <div class="header">
-            <!--header开始-->
-            <div class="menu">
-                <!--menu开始-->
+        </div><!--header1结束-->
+        <div class="header"><!--header开始-->
+            <div class="menu"><!--menu开始-->
                 <ul>
-                    <li >
-                        <a href="@{Application.index()}">首页</a>
-                    </li>
-                    <li >
-                        <a href="@{Uploads.showAllUploads()}">求助资讯</a>
-                    </li>
-                    <li >
+                    <li class="home nav-item"><a href="@{Application.index()}" class="home_icon">首页</a></li>
+                    <li class="helpnews nav-item"><a href="@{Uploads.showAllUploads()}">求助资讯</a></li>
+                    <li class="helpme nav-item">
                         #{if session.get("userId") != null}
-                        <a href="@{Uploads.index()}">我要求助</a>
+                            <a href="@{Uploads.index()}">我要求助</a>
                         #{/if}
                         #{else}
-                        <a href="@{Admin.index()}">我要求助</a>
-                        #{/else}
+                            <a href="@{Admin.index()}">我要求助</a>
+                        #{/else}  
                     </li>
-                    <li>
-                        <a href="@{Reports.showAllReports()}">后续报道</a>
-                    </li>
-                    <li>
-                        <a href="@{Application.about()}">关于我们</a>
-                    </li>
+                    <li class="laternews nav-item"><a href="@{Reports.showAllReports()}">后续报道</a></li>
+                    <li class="aboutus nav-item"><a href="@{Application.about()}">关于我们</a></li>
                     #{secure.check 'admin'}
-                    <li>
-                        <a href="@{Admin.index()}">后台主页</a>
-                    </li>
+                    <li class="secure"><a href="@{Admin.index()}">后台主页</a></li>
                     #{/secure.check}
                     #{if authority == false}
-                    <li>
-                        #{if session.get("userId") != null}
+                    <li class="myUpload">
+                    #{if session.get("userId") != null}
                         <a href="@{Uploads.myUploads()}">个人上传信息</a>
-                        #{/if}
+                    #{/if}
                     #{else}
                         <a href="@{Admin.index()}">个人上传信息</a>
-                        #{/else}
+                    #{/else}
                     </li>
                     #{/if}
                 </ul>
-            </div>
-            <!--menu结束-->
+            </div><!--menu结束-->
             <div class="undermenu">
+            <!--<img src="../img/undermenu.png" alt="" />-->
                 <img src="/public/images/scau/4.jpg" />
                 <img src="/public/images/scau/6.jpg" />
                 <img src="/public/images/scau/7.jpg" />
                 <img src="/public/images/scau/8.jpg" />
                 <img src="/public/images/scau/9.jpg" />
             </div>
-        </div>
-        <!--header结束-->
+        </div><!--header结束-->
+
         <!--new-box开始-->
         <div class="new-box">
-            <h1 class="com-title">
-                求助信息
-                <span class="directions">&nbsp</span>
+            <h1 class="com-title">求助信息<span class="directions"></span><!-- span class="new-more"><img src="../img/more.gif"></span> -->
             </h1>
-            <ul class="new-info">
-                #{if latestNews.size() >= 1}
+            <div class="new-info">
+                <ul>
+                    #{if latestNews.size() >= 1}
                     #{list items:latestNews , as:'latestNews'}
-                <li>
-                    <span class="new-item new-time">时间</span>
-                    <span class="new">${latestNews.time}</span>
-                </li>
-                <li>
-                    <span class="new-item new-address">地点</span>
-                    <span class="new">${latestNews.address}</span>
-                </li>
-                <li>
-                    <span class="new-item new-content">内容</span>
-                    <span class="new">${latestNews.content}</span>
-                </li>
+                    <li><span class="new-item new-time">时间</span><span class="new">${latestNews.time}</span></li>
+                    <li><span class="new-item new-address">地点</span><span class="new">${latestNews.address}</span></li>
+                    <li><span class="new-item new-content">内容</span><span class="new">${latestNews.content}</span></li>    
+                </ul>
+                <ul>
+                    <li>
+                        <!--<span class="new-item new-img"><img src="/public/images/${latestNews.fileUrl}" /></span>-->
+                    </li>
+                </ul>
                 #{/list}
                 #{/if}
-            </ul>
-        </div>
-        <!--new-box结束-->
+            </div>
+        </div><!--new-box结束-->
 
         <!--body开始-->
         <div class="box">
-            <div class="body_left">
-                <!--body_left(求助信息)开始-->
-                <h1 class="com-title">
-                    更多求助信息
-                    <span class="directions">
-                        <a href="@{Uploads.showAllUploads()}">他们需要你的援手</a>
-                    </span>
-                </h1>
+            <div class="body_left"><!--body_left(求助信息)开始-->
+                <h1 class="com-title">更多求助信息<span class="directions"><a href="@{Uploads.showAllUploads()}">他们需要你的援手</a></span></h1>
                 <div class="body_left2">
                     #{if olderUploads.size() >= 1}
                     #{list items:olderUploads, as:'oldUploads'}
-                    <div class="body_left2_child">
-                        <a class="body_left1_img" href="@{Uploads.showUpload(oldUploads.id)}">
-                            <img id="img" src="/public/images/${oldUploads.photoUrl}" alt="childrplen" />
-                        </a>
-                        <div class="body_left2_main">
-                            <h4 class="body_left2_title">
-                                <a href="@{Uploads.showOneUpload(oldUploads.id)}">${oldUploads.title}</a>
-                            </h4>
-                            <p class="body_left2_content">${oldUploads.content}</p>
-                        </div>
+                    <div class="body_left1_img">
+                        <a class="imgcommon" href="@{Uploads.showUpload(oldUploads.id)}"><img id="img" src="/public/images/${oldUploads.photoUrl}" alt="childrplen" /></a>
+                    </div>
+                    <div class="body_left2_main">
+                        <h3 class="body_left2_title"><a href="@{Uploads.showOneUpload(oldUploads.id)}">${oldUploads.title}</a></h3>
+                        <p class="body_left2_content">&{oldUploads.content}</a>
+                        </p>
                     </div>
                     #{/list}
                     #{/if}
                     #{else}
-                    <div>There is currently nothing to read here.</div>
+                        <div class="empty">
+                            There is currently nothing to read here.
+                        </div>
                     #{/else}
-                </div>
-            </div>
-            <!--body_left(求助信息)结束-->
+                </div><!--body_left2结束-->
+            </div><!--body_left(求助信息)结束-->
+    
             <!--body_left4_laternews(后续报道)开始-->
             <div class="body_left4_laternews">
-                <h1 class="com-title later-title">
-                    后续报道
-                    <span class="directions">
-                        <a href="@{Reports.showAllReports()}">因为你，他们多了一份希望</a>
-                    </span>
-                </h1>
+                <h1 class="com-title later-title">后续报道<span class="directions">因为你，他们多了一份希望</span></h1>
                 <div class="body_left4_content">
                     <p class="body_left4_content1">
-                        <a href="@{Reports.showAllReports()}">${report.content}</a>
-                    </p>
+                    <a href="@{Reports.showAllReports()}">${report.content}</p>
                 </div>
-                <div class="body_left4_img">
-                    <img id="img" src="/public/images/${report.photoUrl}" alt="children" />
-                </div>
-                <div class="more">
-                    <a href="@{Reports.showAllReports()}">+更多</a>
+                    <div class="body_left4_img"><img id="img" src="/public/images/${report.photoUrl}" alt="children" /></div>
+                <div class="detail">
+                 <span class="more"><a href="@{Reports.showAllReports()}">+更多</a></span>
                 </div>
             </div>
-            <!--body_left4_laternews(后续报道)结束-->
-            <!--upload(用户上传消息)开始-->
+            <!--body_left4_laternews(后续报道)结束--> 
+            
+            <!--upload(用户上传消息)开始--> 
             <div class="upload">
-                <h1 class="com-title">
-                    求助上传
-                    <span class="directions">
-                        #{if session.get("userId") != null}
-                        <a href="@{Uploads.index()}">让爱陪伴你左右</a>
-                        #{/if}
-                        #{else}
-                        <a href="@{Admin.index()}">让爱陪伴你左右</a>
-                        #{/else}
-                    </span>
-                </h1>
-                <div class="upload_img">
-                    <img src="/public/images/scau/help.jpg" />
-                </div>
-                <div class="upload_desc">
-                    <p>
-                        #{if session.get("userId") != null}
+                <h1 class="com-title">求助上传<span class="directions">让爱陪伴你左右</span></h1>
+                <div class="upload_img"><img src="/public/images/scau/help.jpg" /></div>
+                <div class="upload_desc"><p>
+                    #{if session.get("userId") != null}
                         <a href="@{Uploads.index()}">您或您身边的人有遇到什么困难吗？没关系，点击此处上传你的问题，让更多的人了解，让更多的人帮助你。</a>
-                        #{/if}
+                    #{/if}
                     #{else}
-                        <a href="@{Admin.index()}">您或您身边的人有遇到什么困难吗？没关系，点击此处上传你的问题，让更多的人了解，让更多的人帮助你。</p>
-                    </a>
+                        <a href="@{Admin.index()}">您或您身边的人有遇到什么困难吗？没关系，点击此处上传你的问题，让更多的人了解，让更多的人帮助你。</p></a>
                     #{/else}
-                </div>
-            </div>
-            <!--upload(用户上传消息)结束--> </div>
-        <!--body结束-->
+                </div>        
+            </div><!--upload(用户上传消息)结束-->
+        </div><!--body结束-->
+
         <!--footer开始-->
         <div class="footer">
-            <span>Copyright © 2013 All Rights Reserved</span>
-        </div>
+            <p>Copyright © 2013 All Rights Reserved</p>
+        </div> 
     </div>
-</body>
+    </body>
 </html>
+    
