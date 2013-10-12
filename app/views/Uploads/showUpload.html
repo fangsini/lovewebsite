@@ -1,0 +1,92 @@
+<html>
+<head>
+  <title>后台主页</title>
+  <link rel="stylesheet" type="text/css" href="/public/stylesheets/upload.css" />
+</head>
+<body>
+  <div class="page">
+        <p class="logo"><img src="/public/images/home.png" alt="首页"/ id="logo1"><strong>管理员</strong></p>
+        <p class="txt_right"><strong>华南农业大学管理员</strong>  <span class="v_line"> | </span> <a href="@{Secure.logout()}">退出</a></p>
+     <div class="menu1">
+        <a href="@{Application.index()}">前台主页</a>
+        <a href="@{Uploads.allUploads()}">所有上传信息</a>
+        <a href="@{Verifies.index()}">审核信息</a>
+        <a href="@{Emails.index()}">发送邮件</a>
+        <a href="@{MNews.index()}">发布信息</a>
+        <a href="@{Reports.index()}">后续报道</a>
+        <span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>
+    </div>
+    <div class="content">
+      <div class="intro">
+        <p><img src="/public/images/upload3.png" alt="用户上传信息"/>&nbsp;</p>
+      </div>
+      <div class="line">
+      </div>
+        <div class="uploadinfo">
+          <table>
+            <tr>
+              <td>
+                <span class="desc">上传者:</span><font face="楷体">${upload.author}</font>
+              </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="title">标题:</span><font face="楷体">${upload.title}</font>
+                </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="photo"><img src="/public/images/${upload.photoUrl}" width="200" height="200" align="center"/></span>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="desc">内容:</span><font face="楷体">${upload.content.nl2br()}</font></td>
+            </tr>
+            <tr>
+              <td><span class="date">
+              发布时间 : </span><font face="楷体">${upload.postedAt.format('dd MMM yy')}</font>
+              </td>
+            </tr>
+            <tr>
+                #{secure.check 'admin'}
+                <td>
+                    <a href="@{Uploads.deleteUpload(upload.id)}">删除</a>
+                    <a href="@{Uploads.editPage(upload.id)}">编辑</a>
+                </td>
+                #{/secure.check}
+            </tr>
+                #{if comments.size() >= 1}
+                <tr> 
+                    <td>${comments.size()} comments: </td>
+                    #{list items:comments, as:'comments'}
+                    <span class="comment-author">评论者:</span>${comments.author}
+                    <span class="comment-date">
+                        Comment at:</span>${comments.postedAt.format('dd MMM yy')}
+                    <span class="comment-content">
+                        Content:${comments.content.nl2br()}
+                    </span>
+                    #{/list}
+                </tr>
+                #{/if}
+                #{else}
+                    <tr>
+                        <td>
+                            暂时还没有评论...
+                        </td>
+                    </tr>
+                #{/else} 
+                <tr>
+                    <td>
+                        <div class="line">
+                        </div>
+                    </td>
+                </tr>
+        </table>
+    </div>
+</div>
+    <div class="footer">
+        <p>Copyright ? 2013 All Rights Reserved</p>
+    </div>
+</div>
+</body>
+</html>

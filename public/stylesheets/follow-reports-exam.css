@@ -1,0 +1,128 @@
+*{padding: 0;margin: 0;}
+body,div,span,td,th{
+	padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: arial,helvetica,sans-serif;
+    word-break: break-all;
+    font-size: 12px;
+    
+}
+body{
+	background: url(img/body_bg.jpg);
+}
+
+a{color:black;text-decoration: none;}
+a:hover{color:#DC0000;}
+a:link{text-decoration: none;}
+a:active{text-decoration: none;}
+ul,li{
+	list-style: none;
+}
+h1{
+	font-size: 23px;
+}
+h2{color: #DC0000;font-size: 20px;padding-bottom: 10px;}
+
+.location {
+	padding: 30px 0 35px 30px;
+	font-size: 16px;
+   font-weight: normal;
+   color: #999999;
+}
+#img{
+	width: 180px;
+	height: 135px;
+}
+
+.imgcommon{
+	display: block;
+	padding: 4px;
+	border: 1px solid #DDD;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .055);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .055);
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+
+#header{
+	top: 0px;
+	height: 60px;
+	width: 100%;
+    background-color: black;
+    -moz-box-shadow:0 10px 8px #cacacc;
+	-webkit-box-shadow:0 10px 8px #cacacc;
+	box-shadow:0 10px 8px #cacacc;
+}
+.nav-item{
+	float: left;
+	font-size: 16px;
+	font-family: "Microsoft Yahei";
+	line-height: 30px;
+	margin: 15px 10px 0 30px;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	padding: 2px 9px;
+}
+
+.home{
+	line-height: 40px;
+	margin-left: 200px;
+	margin-right: 60px;
+	font-size: 20px;
+	border-radius: 9px;
+	-webkit-border-radius: 9px;
+	padding: 2px 9px;
+	background-color: #74b157;
+	margin-top: 8px;
+}
+#header a{
+	color: white;
+}
+.nav-item:hover{
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	padding: 2px 9px;
+	background-color: #74b157;
+}
+#header ul li:first-child:hover{
+	background-color: #5c9b3d;
+}
+
+
+
+.loverpeople{
+	height: 500px;
+	width: 980px;
+	margin: 20px auto 20px auto;
+}
+.loverpeople_main{
+	padding: 30px;
+	height: 350px;
+	background-color: whiteSmoke;
+	border: 1px solid #DDD;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .055);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .055);
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	line-height: 20px;
+}
+.loverpeople_img{
+	width:180px;
+}
+.loverpeople_img img{
+	float: left;
+	/*margin: 0 30px 30px 30px;*/
+}
+
+.loverpeople_content{
+	line-height: 24px;
+	width: 700px; 
+	margin-left: 220px;
+}
+

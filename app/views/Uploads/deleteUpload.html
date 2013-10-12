@@ -1,0 +1,15 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+删除成功!
+#{if existComments.size() >= 1}
+    	<h3>${existComments.size()} existComments: </h3>
+        #{list items:existComments, as:'existComments'}
+        by ${existComments.author}, <br>
+        Comment at : ${existComments.postedAt.format('dd MMM yy')}<br>
+       	${existComments.content.nl2br()}
+        #{/list}
+#{/if}
+#{else}
+        There is currently no comment here.
+#{/else}

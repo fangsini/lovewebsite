@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>求助资讯</title>
+	<link rel="stylesheet" href="/public/stylesheets/help-news.css" type="text/css" />
+	<script type="text/javascript" src="/public/javascripts/jquery-1.7.min.js"></script>
+	<script1 type="text/javascript" src="/public/javascripts/follow-reports.js"></script>
+	
+</head>
+<body>
+	 <!--header begin-->
+	<div id="header">
+		<ul>
+		    <li class="home nav-item"><a href="@{Application.index()}" class="home_icon">首页</a></li>
+            <li class="helpnews nav-item"><a href="@{Uploads.showAllUploads()}">求助资讯</a></li>
+            <li class="helpme nav-item">
+                #{if session.get("userId") != null}
+                    <a href="@{Uploads.index()}">我要求助</a>
+                #{/if} 
+                #{else}
+                    <a href="@{Admin.index()}">我要求助</a>
+                #{/else}  
+            </li>
+            <li class="laternews nav-item"><a href="@{Reports.showAllReports()}">后续报道</a></li>
+            <li class="aboutus nav-item"><a href="@{Application.about()}">关于我们</a></li>
+            #{if session.get("userId") == null}
+                <li class="login nav-item"><a href="@{Admin.index()}">登录</a></li>
+                <li class="register nav-item"><a href="@{Register.index()}">注册</a></li>
+            #{/if}
+            #{else}
+                <li class="logout nav-item"><a href="@{Secure.logout()}">注销</a>
+            #{/else}
+		</ul>
+	</div>
+	<!--header end-->
+	<!--laternews开始-->
+	<div id="help-news-box">
+		<h1 class="location">你现在的位置：首页>求助资讯</h1>
+	    #{if allUploads.size() >= 1}
+        #{list items:allUploads, as:'allUploads'}
+        <div class="row">
+	    	<div class="span1">
+                <a class="thumbnail imgcommon" href="#"><img src="/public/images/${allUploads.photoUrl}" alt="childrplen" width="180" height="150" />
+                </a>
+            </div>
+            <div class="span2">
+                <a href="@{Uploads.showOneUpload(allUploads.id)}"><h2 class="body_left2_title">&{allUploads.title}</h2></a>
+                &{allUploads.content}
+            </div>
+        </div>
+            #{/list}
+            #{/if}
+            <div class="page-box">
+            <button class="next-page-btn"><a class="next-page-btn-a" href="@{Uploads.previousPage(startPosition)}">上一页</a></button>
+            <div class="page-box-row">
+                <a href="" class="current-page-a">第 1 页</a>
+                <span class="triangle"></span>
+                <ul class="page-ul">
+                    %{
+                        for(int i=0;i<=(totalUpload/5 + 0.4);i++){
+                    }%
+                        <li class="page-item current-page-li"><a href="@{Uploads.showAllUploads(i)}">第 ${i+1} 页</a></li>
+                    %{
+                        }
+                    }%
+                </ul>
+            </div>
+            <button class="next-page-btn" jref="ds.html"><a class="next-page-btn-a" href="@{Uploads.nextPage(startPosition)}">下一页</a></button>
+        </div>
+        <div class="footer">
+            <p>Copyright ? 2013 All Rights Reserved</p>
+        </div>
+	</div>
+</body>	
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title></title>
+	<link rel="stylesheet" href="/public/stylesheets/follow-reports-exam.css" type="text/css"/>
+</head>
+<body>
+	
+    <!--header begin-->
+	<div id="header">
+		<ul>
+		    <li class="home nav-item"><a href="@{Application.index()}" class="home_icon">首页</a></li>
+            <li class="helpnews nav-item"><a href="#">求助资讯</a></li>
+            <li class="helpme nav-item">
+                #{if session.get("user") != null}
+                <a href="@{Uploads.index()}">我要求助</a>
+                #{/if}
+                #{else}
+                    <a href="@{Admin.index()}">我要求助</a>
+                #{/else}  
+                </li>
+            <li class="laternews nav-item"><a href="@{Reports.showAllReports()}">后续报道</a></li>
+            <li class="aboutus nav-item"><a href="@{Application.about()}">关于我们</a></li>
+            #{if session.get("user") == null}
+                <li class="login nav-item"><a href="@{Admin.index()}">登录</a></li>
+                <li class="register nav-item"><a href="@{Register.index()}">注册</a></li>
+            #{/if}
+            #{else}
+                <li class="logout nav-item"><a href="@{Secure.logout()}">注销</a>
+            #{/else}
+		</ul>
+	</div>
+	<!--header end-->
+
+	<div class="loverpeople">
+		<h1 class="location">你现在的位置：首页>后续报道></h1>
+		<div class="loverpeople_main ">
+			<div class="loverpeople_img ">
+				<img class="imgcommon" src="/public/images/${oneReport.photoUrl}" alt="loverpeople" width=180 height=135/>
+			</div>
+			<div class="loverpeople_content">
+				<h2>${oneReport.title}</h2>
+				<p>
+					${oneReport.content}
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
