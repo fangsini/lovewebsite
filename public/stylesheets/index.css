@@ -214,6 +214,8 @@ img {
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .055);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, .055);
 	margin-bottom: 10px;
+	width: 180px;
+	height: 125px;
 }
 #img{
 	width: 180px;
@@ -229,7 +231,7 @@ img {
     text-align: left;
     font-size: 16px;
 }
-.body_left2_content{
+.body_left2_main p{
 	line-height: 24px;
 	height: 100px;
 	overflow: hidden;
