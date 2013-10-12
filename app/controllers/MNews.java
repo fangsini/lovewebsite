@@ -8,14 +8,24 @@ import play.libs.Files;
 
 public class MNews extends Controller {
     public static void index() {
-    	render();
+        if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+    	   render();
+        }
+        else {
+
+        }
     }
     
     public static void releaseNews(File photo, String content, String address, String time) {
-        String fileUrl = photo.getName();
-        Files.copy(photo, Play.getFile("public/images/"+fileUrl));
-        News latestNews = new News(fileUrl, content, address, time);
-        latestNews.save();
-        index();
+        if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+            String fileUrl = photo.getName();
+            Files.copy(photo, Play.getFile("public/images/"+fileUrl));
+            News latestNews = new News(fileUrl, content, address, time);
+            latestNews.save();
+            index();
+        }
+        else {
+            
+        }
     }
 }

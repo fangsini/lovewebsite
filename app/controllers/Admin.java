@@ -16,6 +16,11 @@ public class Admin extends Controller{
 	}
 	
 	public static void index() {
-		render();
+		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+			render();
+		}
+		else {
+			
+		}
 	}
 }

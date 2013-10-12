@@ -2,7 +2,8 @@ package controllers;
 
 import java.security.MessageDigest;
 import models.User;
-
+import play.mvc.With;
+@With(Secure.class)
 public class Security extends Secure.Security{
 	private final static String[] hexDigits = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
 	static boolean authenticate(String username, String password) {
@@ -14,6 +15,7 @@ public class Security extends Secure.Security{
 			User tempUser = User.find("byEmail",username).first();
 			String userId = tempUser.userid;
 			session.put("userId",userId);
+			
 			if(User.connect(username, password) != null) {
 				return true;
 			}
@@ -39,7 +41,13 @@ public class Security extends Secure.Security{
 	
 	static boolean check(String profile) {
 		if("admin".equals(profile)) {
-			return User.find("byEmail", connected()).<User>first().authority;
+			if(User.find("byEmail", connected()).<User>first().authority == 1) {
+				System.out.println(User.find("byEmail", connected()).<User>first().authority);
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 		return false;
 	}//检查是否管理员身份

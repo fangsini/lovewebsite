@@ -22,10 +22,15 @@ public class Uploads extends Controller{
     }
 
     public static void showUpload(Long id) {
-    	Upload upload = Upload.findById(id);
-    	List <Comment> comments = Comment.find("byUpload_id", id).from(0).fetch(10);
-    	String randomID = Codec.UUID();
-    	render(upload,comments,randomID);
+        if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+        	Upload upload = Upload.findById(id);
+        	List <Comment> comments = Comment.find("byUpload_id", id).from(0).fetch(10);
+        	String randomID = Codec.UUID();
+        	render(upload,comments,randomID);
+        }
+        else {
+
+        }
     }
     
     public static void uploadHelp(File photo, 
@@ -43,7 +48,7 @@ public class Uploads extends Controller{
     	        Verify verify = new Verify(author,title,content,name);
                 Files.copy(photo, Play.getFile("public/images/"+name));
                 verify.save();
-                index();
+                Uploads.showAllUploads(0);
             }
             else {
                 index();
@@ -83,14 +88,10 @@ public class Uploads extends Controller{
         String userId = session.get("userId");
         User user = User.find("byUserid",userId).first();
         List<Upload> alluploads = Upload.findAll();
-        boolean authority = user.authority;
-        System.out.println("size"+alluploads.size());
-        if(authority) {
+        if(User.find("byUserid", userId).<User>first().authority == 1) {
             render(alluploads);
-        } 
+        }
         else {
-            String message = "There has not any uploads here...";
-            render(message);
         }
     }
 
@@ -130,24 +131,39 @@ public class Uploads extends Controller{
     }
 
     public static void deleteUpload(Long id) {
-        Upload existUpload = Upload.find("byId",id).first();
-        List<Comment> existComments = Comment.find("byUpload_id",existUpload.id).fetch();
-        existUpload.delete();
-        existComments.clear();
-        allUploads();
+        if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+            Upload existUpload = Upload.find("byId",id).first();
+            List<Comment> existComments = Comment.find("byUpload_id",existUpload.id).fetch();
+            existUpload.delete();
+            existComments.clear();
+            allUploads();
+        }
+        else {
+
+        }
     }
 
     public static void editPage(Long id) {
-        Upload existUpload = Upload.find("byId",id).first();
-        render(existUpload);
+        if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+            Upload existUpload = Upload.find("byId",id).first();
+            render(existUpload);
+        }
+        else {
+
+        }
     }
 
     public static void editUpload(Long id, String title, String content) {
-        Upload existUpload = Upload.find("byId",id).first();
-        existUpload.title = title;
-        existUpload.content = content;
-        existUpload.save();
-        index();
+        if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+            Upload existUpload = Upload.find("byId",id).first();
+            existUpload.title = title;
+            existUpload.content = content;
+            existUpload.save();
+            index();
+        }
+        else {
+            
+        }
     }
 
     public static void myNext(int startPosition) {

@@ -59,11 +59,11 @@
                 <tr> 
                     <td>${comments.size()} comments: </td>
                     #{list items:comments, as:'comments'}
-                    <span class="comment-author">评论者:</span>${comments.author}
+                    <span class="comment-author">评论者:</span>${comments.author}<br>
                     <span class="comment-date">
                         Comment at:</span>${comments.postedAt.format('dd MMM yy')}
                     <span class="comment-content">
-                        Content:${comments.content.nl2br()}
+                        Content:${comments.content}<br>
                     </span>
                     #{/list}
                 </tr>

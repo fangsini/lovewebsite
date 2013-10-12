@@ -9,16 +9,25 @@ import play.libs.Files;
 import java.util.List;
 public class Reports extends Controller {
 	public static void index() {
-		render();
+		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+			render();
+		}
+		else {
+
+		}
 	}
 
 	public static void postReport(File photo, String title, String content) {
-		System.out.println(title+content);
-		String fileUrl = photo.getName();
-        Files.copy(photo, Play.getFile("public/images/"+fileUrl));
-        Report report = new Report(title, content, fileUrl);
-        report.save();
-        render(content);
+		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+			String fileUrl = photo.getName();
+	        Files.copy(photo, Play.getFile("public/images/"+fileUrl));
+	        Report report = new Report(title, content, fileUrl);
+	        report.save();
+	        render(content);
+    	}
+    	else {
+    		
+    	}
 	}
 
 	public static void showAllReports(int startPosition) {

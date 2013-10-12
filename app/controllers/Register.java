@@ -41,7 +41,7 @@ public class Register extends Controller {
 		//sendMail(email,userid);
 		if(password.equals(pass)) {
 			password = encodeByMD5(password);
-			User user = new User(userid, name, password, email, sex, false, college, phone).save();
+			User user = new User(userid, name, password, email, sex, 0, college, phone).save();
 			Application.index();
 		}
 		else {

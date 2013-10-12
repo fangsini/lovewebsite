@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 12, 2013 at 10:25 AM
+-- Generation Time: Oct 12, 2013 at 01:06 PM
 -- Server version: 5.5.32-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
@@ -191,7 +191,7 @@ INSERT INTO `Upload` (`id`, `author`, `content`, `photoUrl`, `postedAt`, `title`
 
 CREATE TABLE IF NOT EXISTS `User` (
   `userid` varchar(255) NOT NULL,
-  `authority` bit(1) DEFAULT NULL,
+  `authority` int(1) DEFAULT NULL,
   `college` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -206,9 +206,9 @@ CREATE TABLE IF NOT EXISTS `User` (
 --
 
 INSERT INTO `User` (`userid`, `authority`, `college`, `email`, `name`, `password`, `sex`, `phone`) VALUES
-('201130720100', b'0', '信息学院', 'woai914099943@163.com', 'HHQ', 'C33367701511B4F6020EC61DED352059', '男', '1234567890'),
-('201130720104', b'1', '信息学院', 'woai12346@qq.com', '胡华泉', 'E10ADC3949BA59ABBE56E057F20F883E', '男', '1234567890'),
-('201130720199', b'0', '信息学院', 'woai12346@163.com', 'huhuaquan', 'FCEA920F7412B5DA7BE0CF42B8C93759', '男', '1234567890');
+('201130720100', 0, '信息学院', 'woai914099943@163.com', 'HHQ', 'C33367701511B4F6020EC61DED352059', '男', '1234567890'),
+('201130720104', 1, '信息学院', 'woai12346@qq.com', '胡华泉', 'E10ADC3949BA59ABBE56E057F20F883E', '男', '1234567890'),
+('201130720199', 0, '信息学院', 'woai12346@163.com', 'huhuaquan', 'FCEA920F7412B5DA7BE0CF42B8C93759', '男', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `Verify` (
   `postedAt` datetime DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `Verify`
@@ -235,7 +235,9 @@ INSERT INTO `Verify` (`id`, `author`, `content`, `photoUrl`, `postedAt`, `title`
 (6, 'huhuaquan', '请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！', '444.jpg', '2013-10-11 18:48:05', 'fsdfdsfs'),
 (7, 'huhuaquan', '<p style="text-indent: 2em;">fdsfsfsafsdfsdfdsfsdfasfadsfs<br/></p>', '444.jpg', '2013-10-11 18:48:39', 'asfdf'),
 (8, 'huhuaquan', 'gdfagfdsg', '111.jpg', '2013-10-11 18:56:45', 'gsdgdsg'),
-(10, '胡华泉', '请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！', '444.jpg', '2013-10-11 19:05:46', 'hsfhfdhd');
+(10, '胡华泉', '请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！', '444.jpg', '2013-10-11 19:05:46', 'hsfhfdhd'),
+(11, 'HHQ', '<span style="font-size:18px;background-color:#E53333;">sdgdgdsg</span>', 'banner3.jpg', '2013-10-12 10:47:48', 'fsdfdsfdgfdsg'),
+(12, 'HHQ', '请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！', 'banner1.jpg', '2013-10-12 10:48:42', 'fsdfdgdgdsg');
 
 --
 -- Constraints for dumped tables

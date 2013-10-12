@@ -22,12 +22,12 @@ public class User extends GenericModel {
 	@Required
 	public String email;
 	public String sex;
-	public Boolean authority;
+	public int authority;
 	public String college;
 	public String phone;
 	
 	public User(String userid,String name, String password,String email,
-		String sex,Boolean authority,String college, String phone) {
+		String sex,int authority,String college, String phone) {
 		this.userid = userid;
 		this.name = name;
 		this.password = password;
