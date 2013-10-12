@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2013 at 07:10 PM
+-- Generation Time: Oct 12, 2013 at 10:25 AM
 -- Server version: 5.5.32-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
@@ -197,6 +197,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   `name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `sex` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -204,10 +205,10 @@ CREATE TABLE IF NOT EXISTS `User` (
 -- Dumping data for table `User`
 --
 
-INSERT INTO `User` (`userid`, `authority`, `college`, `email`, `name`, `password`, `sex`) VALUES
-('201130720100', b'0', '信息学院', 'woai914099943@163.com', 'HHQ', 'C33367701511B4F6020EC61DED352059', '男'),
-('201130720104', b'1', '信息学院', 'woai12346@qq.com', '胡华泉', 'E10ADC3949BA59ABBE56E057F20F883E', '男'),
-('201130720199', b'0', '信息学院', 'woai12346@163.com', 'huhuaquan', 'FCEA920F7412B5DA7BE0CF42B8C93759', '男');
+INSERT INTO `User` (`userid`, `authority`, `college`, `email`, `name`, `password`, `sex`, `phone`) VALUES
+('201130720100', b'0', '信息学院', 'woai914099943@163.com', 'HHQ', 'C33367701511B4F6020EC61DED352059', '男', '1234567890'),
+('201130720104', b'1', '信息学院', 'woai12346@qq.com', '胡华泉', 'E10ADC3949BA59ABBE56E057F20F883E', '男', '1234567890'),
+('201130720199', b'0', '信息学院', 'woai12346@163.com', 'huhuaquan', 'FCEA920F7412B5DA7BE0CF42B8C93759', '男', '1234567890');
 
 -- --------------------------------------------------------
 
@@ -223,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `Verify` (
   `postedAt` datetime DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `Verify`
