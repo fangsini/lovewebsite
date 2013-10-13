@@ -11,8 +11,8 @@ public class EditPassword extends Controller {
 		render();
 	}
 
-	public static void editPassword(String username, String previous, String newpass, String newpass2) {
-		User existUser = User.find("byName",username).first();
+	public static void editPassword(String userId, String previous, String newpass, String newpass2) {
+		User existUser = User.find("byUserid",userId).first();
 		previous = encodeByMD5(previous);
 		newpass = encodeByMD5(newpass);
 		newpass2 = encodeByMD5(newpass2);
@@ -22,7 +22,8 @@ public class EditPassword extends Controller {
 				existUser.save();
 				String message = "edit sucess";
 				//Secure.logout();
-				render(message);
+				session.clear();
+				Application.index();
 			}
 			else {
 				String error = "ERROR";

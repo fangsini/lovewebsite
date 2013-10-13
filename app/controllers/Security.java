@@ -12,11 +12,10 @@ public class Security extends Secure.Security{
 			return false;
 		}
 		else {
-			User tempUser = User.find("byEmail",username).first();
-			String userId = tempUser.userid;
-			session.put("userId",userId);
-			
 			if(User.connect(username, password) != null) {
+				User tempUser = User.find("byEmail",username).first();
+				String userId = tempUser.userid;
+				session.put("userId",userId);
 				return true;
 			}
 			else {
