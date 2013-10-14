@@ -73,7 +73,7 @@
                         <a href="@{Admin.index()}">后台主页</a>
                     </li>
                     #{/secure.check}
-                    #{if authority == false}
+                    #{if authority == 0}
                     <li>
                         #{if session.get("userId") != null}
                         <a href="@{Uploads.myUploads()}">个人上传信息</a>
