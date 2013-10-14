@@ -54,10 +54,8 @@
 	    #{/list}
 	    #{/if}
         <div class="page-box">
-        	<button class="next-page-btn"><a class="next-page-btn-a" href="@{Reports.showPreviousReport(startPosition)}">上一页</a></button>
+        	<a class="next-page-btn-a" href="@{Reports.showPreviousReport(startPosition)}"><button class="next-page-btn">上一页</button></a>
             <div class="page-box-row">
-                <a href="" class="current-page-a">第 1 页</a>
-                <span class="triangle"></span>
                 <ul class="page-ul">
                     %{
 						for(int i=0;i<totalReport/5;i++){
@@ -68,7 +66,7 @@
                 	}%
                 </ul>
             </div>
-            <button class="next-page-btn"><a class="next-page-btn-a" href="@{Reports.showNextReport(startPosition)}">下一页</a></button>
+            <a class="next-page-btn-a" href="@{Reports.showNextReport(startPosition)}"><button class="next-page-btn">下一页</button></a>
         </div>
         <div class="footer">
             <p>Copyright ? 2013 All Rights Reserved</p>
