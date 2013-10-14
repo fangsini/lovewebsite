@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<link rel="stylesheet" href="/public/stylesheets/menu.css" type="text/css" />
+    <link rel="stylesheet" href="/public/stylesheets/help-news.css" type="text/css" />
+</head>
+<body>
+	<div class="header">
+		<ul class="menu">
+		    <li class="home nav-item"><a href="@{Application.index()}" class="home_icon">首页</a></li>
+            <li class="nav-item"><a href="@{Uploads.showAllUploads()}">求助资讯</a></li>
+            <li class="nav-item">
+                #{if session.get("userId") != null}
+                    <a href="@{Uploads.index()}">我要求助</a>
+                #{/if} 
+                #{else}
+                    <a href="@{Admin.index()}">我要求助</a>
+                #{/else} 
+            </li>
+            <li class="nav-item"><a href="@{Reports.showAllReports()}">后续报道</a></li>
+            <li class="nav-item"><a href="@{Application.about()}">关于我们</a></li>
+            <li class="nav-item">
+                #{if session.get("userId") != null}
+                <a href="@{Uploads.myUploads()}">个人上传信息</a>
+                #{/if}
+                #{else}
+                <a href="@{Admin.index()}">个人上传信息</a>
+                #{/else}
+            </li>
+            #{if session.get("userId") == null}
+                <li class="login nav-item"><a href="@{Admin.index()}">登录</a></li>
+                <li class="register nav-item"><a href="@{Register.index()}">注册</a></li>
+            #{/if}
+            #{else}
+                <li class="loginOut nav-item"><a href="@{Secure.logout()}">注销登录</a>
+            #{/else}
+		</ul>
+	</div>
+    #{doLayout /}
