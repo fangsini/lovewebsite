@@ -1,9 +1,6 @@
 *{
 	padding: 0;
 	margin: 0;
-	text-decoration: none;
-	list-style: none;
-	font-family: "Microsoft Yahei";
 }
 .header{
 	position: relative;
@@ -14,11 +11,13 @@
     -moz-box-shadow:0 10px 8px #cacacc;
 	-webkit-box-shadow:0 10px 8px #cacacc;
 	box-shadow:0 10px 8px #cacacc;
+	font-family: "Microsoft Yahei";
 }
 .menu{
 	width: 1000px;
 	height: 60px;
 	margin: auto;
+	list-style: none;
 }
 .nav-item{
 	float: left;
@@ -35,6 +34,7 @@
 }
 .nav-item a{
 	color: white;
+	text-decoration: none;
 }
 .home{
 	font-size: 22px;
