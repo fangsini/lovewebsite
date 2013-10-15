@@ -3,12 +3,14 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<title>重设密码</title>
+	<link rel="stylesheet" href="/public/stylesheets/menu.css" type="text/css" />
 	<link rel="stylesheet" href="/public/stylesheets/editpassword.css" />
 </head>
 <body>
+	 #{extends 'menu.html' /}
 	<div class="main">
-		<form action="/EditPassword/editPassword" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-
+		<form action="/EditPassword/editPassword" onsubmit="return check_form(this)" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+			<p class="from-head">修改密码</p>
 			<p>
 				<label for="previous">原始密码:</label>
 				<input type="password" name="previous" id="previous" class="input-pwd"/>
@@ -30,5 +32,6 @@
 			</p>
 		</form>
 	</div>
+	<script type="text/javascript" src="/public/javascripts/editpassword.js"></script>
 </body>
 </html>
