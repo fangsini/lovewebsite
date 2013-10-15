@@ -1,3 +1,8 @@
+body,div,h1,p,ul,li,span{
+	padding: 0;
+	margin: 0;
+	list-style-type:none;
+}
 /*............................... Ò³Ãæ±³¾°...............................*/
 body 
 {
@@ -28,7 +33,7 @@ body
 { 
 	font-size:14px;
 	float:right;
-	
+	margin-top: 50px;
 }
 
 .txt_right a:visited,.txt_right a:link
@@ -96,6 +101,11 @@ body
 	color:#FFFFFF;							
 }
 /*...............................²Ëµ¥À¸ËÑË÷¿ò...............................*/
+
+#searchspan
+{
+	float:right;
+}
 #search
 {
 	height:28px;
@@ -115,11 +125,6 @@ body
 	margin-right:10px;
 	cursor:pointer;
 }
-
-#searchspan
-{
-	float:right;
-}
 /*...............................ÍøÒ³Ö÷Ä£¿é....................................*/
 .main
 {
@@ -135,18 +140,14 @@ body
 {
 	text-align:left;
 	font-size:28px;
-	margin-left:40px;
-	margin-right:40px;
-	margin-bottom:0px;
+	margin: 10px 40px 20px 40px;
 }
 
 .main p
 {
 	text-align:left;
 	font-size:15px;
-	margin-top:5px;
-	margin-left:40px;
-	margin-right:40px;
+	margin: 5px 40px;
 }
 
 /*..............................2¡¢·Ö¸îÏß²¿·Ö....................................*/
@@ -159,15 +160,14 @@ body
 .nav
 {	 width:800px;
 	 height:110px; 
+	 padding-bottom: 10px;
 } 
 
 .nav ul li
 { 
-	list-style-type:none;
 	float:left;
 	width:100px;
-	padding-left:12px;
-	padding-right:12px;
+	padding: 0 13px;
 }
 
 
@@ -285,18 +285,16 @@ body
 .description
 {	 width:800px;
 	 height:50px; 
-	 font-family:"Arial","Tahoma","Î¢ÈíÑÅºÚ","ÑÅºÚ";
 	 font-weight:bold;
 } 
 
 .description ul li
 { 
-	list-style-type:none;
 	float:left;
 	width:100px;
-	padding-left:13px;
-	padding-right:12px;
-	
+	padding: 0 13px;
+	text-align: center;
+	*width: 134px;          /*Õë¶Ôie6,ie7*/
 }
 
 /*...............................ÍøÒ³µ×²¿....................................*/
