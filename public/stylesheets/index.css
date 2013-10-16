@@ -2,21 +2,16 @@
 	padding: 0;
 	margin: 0;
 }
-body,div{
-    border: 0;
+body{
     font-family: "Microsoft YaHei",arial,helvetica,sans-serif;
     word-break: break-all;
     font-size: 12px;
-}
-body{
 	background-color:#F0F0F0;
+	color: rgb(50, 50, 50);
 }
 a{
 	color:black;
 	text-decoration: none;
-}
-a:hover{
-	color:#DC0000;
 }
 ul,li{
 	list-style: none;
@@ -36,8 +31,8 @@ img {
     -webkit-box-shadow: 8px 8px 7px #888;
 	box-shadow: 8px 8px 7px #888;
 	background-color:#FCFCFC;
-	width:1120px;
-	height:1700px;
+	width:1100px;
+	height:1630px;
 	margin:30px auto;
 }
 #header1{
@@ -50,59 +45,6 @@ img {
 	width:400px;
 	height:135px;
 	margin:60px 0 0 15px;
-}
-.login{
-	width: 230px;
-	margin:20px 0 0 150px;
-}
-.logindesc{
-	margin:0;
-	font-size:15px;
-	border:1px solid #DDD;
-	border-radius: 5px;
-    -webkit-border-radius: 5px;
-    box-shadow: 0 1px 0 #DADDDE;  
-    -webkit-box-shadow: 3px 3px 3px #888;
-	box-shadow: 3px 3px 3px #888;
-	background-color:#FCFCFC;
-}
-.logindesc span{
-	font-size:15px;
-}
-#desc2 a{
-	color:#007F53;
-	font-size:17px;
-}
-#desc2 a:hover{
-	color:#DC0000;
-}
-.header{
-	height: 200px;
-	width: 990px;
-	margin: 30px auto 0px auto;
-}
-.menu{
-	height: 40px;
-    margin: 0 auto;
-	border: 1px solid #DDD;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	line-height: 1.5;
-}
-.menu a{
-	color:#007D52;
-	text-decoration: none;
-}
-.menu a:hover{
-	color:#DC0000;
-}
-.menu li{
-	list-style: none;
-	float: left;
-	font-family:arial,helvetica,sans-serif;
-	font-weight: bold;
-	font-size: 22px;
-    padding: 7px 0 0 50px;
 }
 .undermenu{
 	border:1px solid #ddd;
@@ -121,7 +63,7 @@ img {
 	height: 270px;
 	border: 2px solid #ddd;
 	margin: 0 auto;
-	margin-top:60px;
+	margin-top:40px;
 	border-radius: 10px;
 	-webkit-border-radius:10px;
 	background:#FFF no-repeat 20px 20px;
@@ -139,9 +81,6 @@ img {
 }
 .directions a{
 	color: #007D52;
-}
-.directions a:hover{
-	color:#DC0000;
 }
 .new-info{
     padding-left: 20px;
@@ -300,4 +239,7 @@ img {
 	width:1120px;
 	bottom: 20px;
 	text-align: center;
+}
+.body_left4_content1 a:hover,.body_left2_title a:hover,.directions a:hover,.more a:hover{
+	color:rgb(255, 0, 0);
 }

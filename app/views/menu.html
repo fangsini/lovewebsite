@@ -47,8 +47,22 @@
         #{/if}
         #{else}
         <li class="loginOut nav-item">
-            <a href="@{Users.logout()}">注销登录</a>
+                欢迎,
+                <span id="desc2">
+                    <a href="@{Users.userMessage()}">${userName}</a>
+                </span>
+                同学&nbsp;&nbsp;
+                <span id="login_out">
+                    <a href="@{Users.logout()}">注销&nbsp;</a>
+                    <span id="edit_pass">
+                        <a href="@{Users.editPasswordIndex()}">修改密码</a>
+                    </span>
+                </span>
+        </li>
         #{/else}
         </ul>
     </div>
+
+
+
     #{doLayout /}

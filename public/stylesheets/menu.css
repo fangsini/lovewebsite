@@ -16,7 +16,7 @@
 	clear: both;
 }
 .menu{
-	width: 1000px;
+	width: 1080px;
 	height: 60px;
 	text-align: center;
 	margin:0 auto;
@@ -59,6 +59,17 @@
 	margin: 15px 0px 10px 20px;
 }
 .loginOut{
+	color: rgb(80, 80, 80);
 	font-size:  14px;
 	margin: 15px 0px 10px 40px;
+}
+#desc2 a{
+	color:#007F53;
+	font-size:17px;
+}
+#desc2 a:hover{
+	color:#DC0000;
+}
+.loginOut a:hover{
+	color:#DC0000;
 }

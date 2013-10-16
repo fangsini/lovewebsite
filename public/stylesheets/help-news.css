@@ -1,15 +1,14 @@
-*{padding: 0;margin: 0;}
-body,div,span,td,th{
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
 	padding: 0;
     margin: 0;
     border: 0;
     font-family: arial,helvetica,sans-serif;
     word-break: break-all;
     font-size: 12px;
-    
-}
-body{
-	background: url(img/body_bg.jpg);
 	background-color: #f0f0f0;
 }
 ul,li{
@@ -18,8 +17,15 @@ ul,li{
 h1{
 	font-size: 23px;
 }
-h2{color: #74b157;font-size: 20px;padding-bottom: 10px;}
-em{color: #74b157;font-weight: bolder;}
+h2{
+	color: #74b157;
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+em{
+	color: #74b157;
+	font-weight: bolder;
+}
 #img{
 	width: 180px;
 	height: 135px;
@@ -192,8 +198,6 @@ a{text-decoration: none;}
 	border-style: solid;
 	border-color: #9A9A9A transparent transparent transparent;
 }
-
-
 .footer{
 	height: 50px;
 	width: 980px;
