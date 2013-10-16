@@ -9,9 +9,7 @@ body{
 	color: rgb(50,50,50);
 }
 .location,#help_content{
-	position: relative;
-	left: 50%;
-	margin-left: -490px;
+	margin: auto;
 }
 .location{
 	width:980px;

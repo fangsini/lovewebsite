@@ -1,124 +1,116 @@
-html{									/*设置页面*/
-	background-color:#5B5B5B;
+body{							
+	background-color:#f0f0f0;
+	font-family:"Arial Narrow",HELVETICA;
+	color: rgb(50,50,50);
 }
-
-.content{								/*设置内容区*/
+caption{								
+	font-size:20px;
+	font-weight:bold;
+	font-family:"Arial Narrow";
+	color:#5B5B5B;
+	text-align:left;
+}
+table{
+	width: 100%;
+}
+.content{							
 	width:800px;
-	height:700px;						/*圆角*/
+	height:520px;					
 	border-radius: 5px;
 	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	position:absolute;					/*内容块居中*/
-	left:50%;
-	top:50%;
-	margin:-200px 0 -400px -450px;
-	padding:50px 50px 50px 50px;
-	
+	-webkit-border-radius: 5px;	
+	margin:60px auto;
+	padding:50px;
 	background-color:#FFFFFF;
 }
-
-a:link,a:visited
-{
-	display:block;
-	width:100px;
-	height:90px;
-	background:url(../images/home.png);
-	background-size:80px 80px;
-	background-repeat:no-repeat;
-	background-position:center;
-	margin-bottom:0px;
+#title{	
+	font-size:33px;
+	color:#5B5B5B;
+	text-align:bottom;
 }
-
-.content a:hover,.content a:active
-{
-	display:block;
-	width:100px;
-	height:90px;
-	background:url(../images/home1.png);
-	background-size:80px 80px;
-	background-repeat:no-repeat;
-	background-position:center;
-}
-
-.protocol{								/*设置协议块*/
-	padding:10px 5px 5px 5px;
-	margin:30px 0px 0px 0px;
-	width:300px;
-	height:250px;
+.protocol{						
+	padding:25px ;
+	margin-top:30px;
+	width:290px;
+	height:350px;
 	font-size:13px;
-	font-family:"Arial Narrow",HELVETICA;
-	color:#5B5B5B;						/*添加阴影*/
-	filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=6);
+	color:#5B5B5B;			
     -moz-box-shadow: 4px 4px 15px #909090;
     -webkit-box-shadow: 4px 4px 15px #909090;
     box-shadow:4px 4px 15px #909090;
 	float: right;
+	border: 1px solid rgb(225, 225, 225);
 }
-
 .protocolTitle{
 	font-size:20px;
 	font-weight:bold;
-	font-family:"Arial Narrow",HELVETICA;
-	color:#5B5B5B;
 	text-align:center;
 }
-
-#title{										/*标题居中*/
-	font-size:33px;
-	font-family:"Arial Narrow",HELVETICA;
-	color:#5B5B5B;
-	text-align:bottom;
+.protocol li{
+	margin: 5px 5px 5px 15px;
 }
-
-.table{									/*设置表单区域*/
-	padding:20px;
+.table{									
+	padding:25px;
 	width:380px;
 	height:400px;
 	margin:30px 0px 0px 0px;
+	border: 1px solid rgb(218, 218, 218);
 	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	background-color:#F6F6F6
+	-wiki-border-radius: 5px;
+	background: rgb(235, 244, 251);
 }
-
-.table td{								/*表格中单元格*/
-	font-size:13px;
+.table td{								
+	font-size:14px;
 	font-weight:bold;
 	font-family:"Arial Narrow";
-	color:#5B5B5B;
+	color:#778899;
 	padding:5px;
 	text-align:left;
 }
-
-caption{								/*设置表格标题*/
-	font-size:22px;
-	font-weight:bold;
-	font-family:"Arial Narrow";
-	color:#5B5B5B;
-	text-align:left;
-}
-
 .inputText{
-	width:240px;
-	height:23px;
 	border:1px outset #BEBEBE;
+	float:left;
+    font-size:12px;
+    padding:4px 2px;
+    border:solid 1px #aacfe4;
+    width:200px;
+	height:20px;
+    margin:2px 0 2px 0px;
 }
-
 .inputPass{
-	width:240px;
-	height:23px;
 	border:1px outset #BEBEBE;
+	float:left;
+    font-size:12px;
+    padding:4px 2px;
+    border:solid 1px #aacfe4;
+    width:200px;
+	height:20px;
+    margin:2px 0 2px 0px;
 }
-
 .button{
-	width:100px;
-	height:25px;
+	width: 100px;
+	height: 40px;
+	color: rgb(255,255,255);
+	font-size: 18px;
+	border-radius: 4px;
+	-wiki-border-radius: 4px;
+	box-shadow: 1px 2px 5px rgb(0,0,0);
+	-wiki-box-shadow:1px 2px 5px rgb(0,0,0);
+	background: rgb(27, 201, 110);
+	cursor: pointer;
+	border: none;
+	margin: 10px 25px;
 }
-
-img{
-	text-align:center;
-	margin:0px 0px 0px 0px;
-	padding:0px 0px 0px 0px;
-	width:80px;  
-	height:80px;
+.button:active{
+	box-shadow: 0 0 2px rgb(0,0,0);
+	-wiki-box-shadow: 0 0 2px rgb(0,0,0);
+}
+.footer{
+	height: 50px;
+	width: 980px;
+	border-top: 1px solid #808080;
+	margin: 20px auto 0 auto;
+	text-align: center;
+	padding-top: 10px;
+	font-size: 14px;
 }
