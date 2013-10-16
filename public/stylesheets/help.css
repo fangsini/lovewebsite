@@ -99,3 +99,10 @@ body{
 	text-indent: 0.75cm;
 	line-height: 24px;
 }
+.footer{
+	height: 50px;
+	width: 980px;
+	margin: 20px auto 0 auto;
+	text-align: center;
+	padding-top: 10px;
+}
