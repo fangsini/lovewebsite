@@ -1,58 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-    <title>我要求助</title>
-    <link rel="stylesheet" href="/public/stylesheets/menu.css" type="text/css" />
-	<link rel="stylesheet" href="/public/stylesheets/help.css" type="text/css" />
-</head>
-<body>
-    <script type="text/javascript" charset="utf-8" src="/public/kindeditor/kindeditor.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/public/kindeditor/lang/zh_CN.js"></script>
-    <script>
-        KindEditor.options.filterMode = false;
-        KindEditor.ready(function(K) {
-            K.editor = K.create('#content');
-        });
-    </script>
-	<script type="text/javascript">
-      //我要求助
-     var M001 = "例如：2011级";
-     var M002 = "请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！";
-     var M003 = '年级不能为空';
-     var M004 = '标题不能为空';
-     var M005 = '简介不能为空';
-     function delContent(value, id) {
-         var value = document.getElementById(id).value;
-         if (value == M001 || value == M002) {
-             document.getElementById(id).value = "";
-         }
-     }
-     function checkValue(obj) {
-         var id = obj.id;
-         var value = obj.value.replace(/^\s+/, '').replace(/\s+$/, '');
-         if (id == "help_title") {
-             if (value == "") {
-                 document.getElementById("help_titleError").innerHTML = "<span class='error'>" + M004 + "</span>";
-             } else {
-                 document.getElementById("help_titleError").innerHTML = "<span class='success'>" & nbsp;
-                 "</span>";
-             }
-         }
-         //检查资料
-         if (id == "information") {
-             if (value == "") {
-                 document.getElementById("informationError").innerHTML = "<span class='error'>" + M005 + "</span>";
-             } else {
-                 document.getElementById("informationError").innerHTML = "<span class='success'>" & nbsp;
-                 "</span>";
-             }
-         }
-     }
-      //我要求助结束
-	</script>
-	<!--help_content begin-->
-     #{extends 'menu.html' /}
+#{extends 'menu.html' /}
+#{set cssName:'help' /}
     <h1 class="location">你现在的位置：首页><em>我要求助</em></h1>
     <div id="help_content">
         <div class="helpinfomation">
@@ -84,6 +31,46 @@
             <p>3.本网站旨在提供一个平台给需要帮助的校内学生。</p>
         </div>
     </div>
-	<!--help_content end-->
+        <script type="text/javascript" charset="utf-8" src="/public/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/public/kindeditor/lang/zh_CN.js"></script>
+    <script>
+        KindEditor.options.filterMode = false;
+        KindEditor.ready(function(K) {
+            K.editor = K.create('#content');
+        });
+    </script>
+    <script type="text/javascript">
+     var M001 = "例如：2011级";
+     var M002 = "请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！";
+     var M003 = '年级不能为空';
+     var M004 = '标题不能为空';
+     var M005 = '简介不能为空';
+     function delContent(value, id) {
+         var value = document.getElementById(id).value;
+         if (value == M001 || value == M002) {
+             document.getElementById(id).value = "";
+         }
+     }
+     function checkValue(obj) {
+         var id = obj.id;
+         var value = obj.value.replace(/^\s+/, '').replace(/\s+$/, '');
+         if (id == "help_title") {
+             if (value == "") {
+                 document.getElementById("help_titleError").innerHTML = "<span class='error'>" + M004 + "</span>";
+             } else {
+                 document.getElementById("help_titleError").innerHTML = "<span class='success'>" & nbsp;
+                 "</span>";
+             }
+         }
+         if (id == "information") {
+             if (value == "") {
+                 document.getElementById("informationError").innerHTML = "<span class='error'>" + M005 + "</span>";
+             } else {
+                 document.getElementById("informationError").innerHTML = "<span class='success'>" & nbsp;
+                 "</span>";
+             }
+         }
+     }
+    </script>
 </body>
 </html>

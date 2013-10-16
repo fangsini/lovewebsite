@@ -34,10 +34,10 @@ body{
 	font-weight: bold;
 }
 .input-name{
-	background: url(public/images/userLogin.png) 3px 5px no-repeat;
+	background: url(../images/userLogin.png) 3px 5px no-repeat;
 }
 .input-password{
-	background: url(public/images/password.png) 3px 5px no-repeat;
+	background: url(../images/password.png) 3px 5px no-repeat;
 }
 .text-bg{
 	height: 40px;

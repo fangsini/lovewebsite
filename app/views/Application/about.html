@@ -1,59 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-	<title>关于我们</title>
-	<link rel="stylesheet" href="/public/stylesheets/about.css" />
-</head>
-<body>
-	<script type="text/javascript" src="/public/javascripts/my.js"></script>
-	<!--header begin-->
-	<div id="header">
-		<ul>
-            <li class="home nav-item"><a href="@{Application.index()}" class="home_icon">首页</a></li>
-            <li class="helpnews nav-item"><a href="@{Uploads.showAllUploads()}">求助资讯</a></li>
-            <li class="helpme nav-item">
-                #{if session.get("userId") != null}
-                    <a href="@{Uploads.index()}">我要求助</a>
-                #{/if}
-                #{else}
-                    <a href="@{Admin.index()}">我要求助</a>
-                #{/else}  
-            </li>
-            <li class="laternews nav-item"><a href="@{Reports.showAllReports()}">后续报道</a></li>
-            <li class="aboutus nav-item"><a href="@{Application.about()}">关于我们</a></li>
-            #{if session.get("userId") == null}
-                <li class="login nav-item"><a href="@{Admin.index()}">登录</a></li>
-                <li class="register nav-item"><a href="@{Register.index()}">注册</a></li>
-            #{/if}
-            #{else}
-                <li class="logout nav-item"><a href="@{Secure.logout()}">注销</a>
-            #{/else}
-		</ul>
-	</div>
-	<!--header end-->
-    <h1 class="location">你现在的位置：首页>关于我们</h1>
+#{extends 'menu.html' /}
+#{set cssName:'about' /}
+    <h1 class="location">
+        你现在的位置：首页> <em>关于我们</em>
+    </h1>
     <div class="about-us">
-    	<h2>关于我们</h2>
-    	<div class="about-us_left">
-    		<img src="/public/images/aboutus.gif">
-    	</div>
-    	<div class="about-us_right">
-    	    <h3>&#10029;网站创建参与者:</h3>
-    	    <p>曾柏羲、钟伟钊、方思霓、严思雯</p>
-    	    <h3>&#10029;爱心扶贫网站宗旨</h3>
-    	    <p>用真诚帮助需要帮助的华农人，网站只提供一个平台让更多消息能够迅速传遍华农，从而让需要帮助的华农人及时得到帮助！</p>
-    	    <h3>&#10029;所属组织</h3>
-    	    <p>广东省广州市华南农业大学</p>
-    	    <h3>&#10029;联系我们</h3>
-    	    <p>HCI人机交互中心实验室</p>
-            <h3><a href="@{FeedBacks.index()}">&#10029;用户反馈信息</a></h3>
+        <h2>关于我们</h2>
+        <div class="about-us_left">
+            <img src="/public/images/aboutus.gif"></div>
+        <div class="about-us_right">
+            <h3>&#10029;爱心扶贫网站宗旨</h3>
+            <p>用真诚帮助需要帮助的华农人，网站只提供一个平台让更多消息能够迅速传遍华农，从而让需要帮助的华农人及时得到帮助！</p>
+            <h3>&#10029;所属组织</h3>
+            <p>广东省广州市华南农业大学</p>
+            <h3>&#10029;联系我们</h3>
+            <p>HCI人机交互中心实验室</p>
+            <h3>
+                <a href="@{FeedBacks.index()}">&#10029;用户反馈信息</a>
+            </h3>
         </div>
     </div>
     <!--footer begin-->
-	<div class="footer">
-		<p>Copyright © 2013 All Rights Reserved</p>
-	</div>
-	<!--footer end-->
+    <div class="footer">
+        <p>Copyright © 2013 All Rights Reserved</p>
+    </div>
+    <!--footer end-->
+    <script type="text/javascript" src="/public/javascripts/my.js"></script>
 </body>
 </html>
