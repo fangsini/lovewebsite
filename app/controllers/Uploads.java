@@ -43,7 +43,6 @@ public class Uploads extends Controller{
                 String userId = session.get("userId");
                 User tempUser = User.find("byUserid", userId).first();
                 String author = tempUser.name;
-                System.out.println(author);
                 String name = photo.getName();
     	        Verify verify = new Verify(author,title,content,name);
                 Files.copy(photo, Play.getFile("public/images/"+name));
@@ -126,7 +125,6 @@ public class Uploads extends Controller{
     public static void showOneUpload(Long id) {
         Upload oneUpload = Upload.find("byId",id).first();
         List<Comment> existComments = Comment.find("byUpload_id",id).fetch();
-        System.out.println(oneUpload.content);
         render(oneUpload,existComments);
     }
 

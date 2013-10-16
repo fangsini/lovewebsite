@@ -11,6 +11,6 @@ public class FeedBacks extends Controller {
 	public static void sendFeedBack(String name, String content, String contact) {
 		FeedBack feedback = new FeedBack(name, content, contact);
 		feedback.save();
-		index();
+		Application.about();
 	}
 }
