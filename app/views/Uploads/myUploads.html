@@ -34,7 +34,7 @@
     <!--header end-->
     <!--laternews开始-->
     <div id="help-news-box">
-        <h1 class="location">你现在的位置：首页>个人上传信息</h1>
+        <h1 class="location">你现在的位置：首页><em>个人上传信息</em></h1>
         #{if myuploads.size() >= 1}
         #{list items:myuploads, as:'myuploads'}
         <div class="row">
@@ -50,7 +50,7 @@
             #{/list}
             #{/if}
         <div class="page-box">
-            <a class="next-page-btn-a" href="@{Uploads.myPrevious(startPosition)}"><button class="next-page-btn">上一页</button></a>
+            <a class="next-page-btn-a" href="@{Uploads.myPrevious(startPosition)}">上一页</a>
             <div class="page-box-row">
                 <ul class="page-ul">
                     %{
@@ -62,7 +62,7 @@
                     }%
                 </ul>
             </div>
-            <a class="next-page-btn-a" href="@{Uploads.myNext(startPosition)}"><button class="next-page-btn" jref="ds.html">下一页</button></a>
+            <a class="next-page-btn-a" href="@{Uploads.myNext(startPosition)}">下一页</a>
         </div>
         <div class="footer">
             <p>Copyright ? 2013 All Rights Reserved</p>
