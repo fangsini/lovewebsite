@@ -1,11 +1,22 @@
-#{extends 'menu.html' /}
-#{set cssName:'follow-reports' /}
-	<!--header end-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>后续报道</title>
+	<link rel="stylesheet" href="/public/stylesheets/menu.css" type="text/css" />
+	<link rel="stylesheet" href="/public/stylesheets/help-news.css" type="text/css" />
 	<script type="text/javascript" src="/public/javascripts/jquery-1.7.min.js"></script>
 	<script type="text/javascript" src="/public/javascripts/follow-reports.js"></script>
+	
+</head>
+<body>
+#{extends 'menu.html' /}
+	 <!--header begin-->
+	
+	<!--header end-->
 	<!--laternews开始-->
 	<div id="lovers_body">
-		<h1 class="location">你现在的位置：首页>后续报道</h1>
+		<h1 class="location">你现在的位置：首页><em>后续报道</em></h1>
 		<!--1-->
 		#{if allReports.size() >= 1}
 		#{list items: allReports , as: 'allReport'}
@@ -16,14 +27,14 @@
 	    			</a>
 	    		</div>
 	    		<div class="span2">
-	    			<a href="@{Reports.showOneReport(allReport.id)}"><p><h2>${allReport.title}</h2></a>
-	    			${allReport.content}</p> 
+	    			<h2><a href="@{Reports.showOneReport(allReport.id)}">${allReport.title}</h2></a>
+	    			${allReport.content}
 	    		</div>
 	    	</div>
 	    #{/list}
 	    #{/if}
         <div class="page-box">
-        	<a class="next-page-btn-a" href="@{Reports.showPreviousReport(startPosition)}"><button class="next-page-btn">上一页</button></a>
+        	<a class="next-page-btn-a" href="@{Reports.showPreviousReport(startPosition)}">上一页</a>
             <div class="page-box-row">
                 <ul class="page-ul">
                     %{
@@ -35,7 +46,7 @@
                 	}%
                 </ul>
             </div>
-            <a class="next-page-btn-a" href="@{Reports.showNextReport(startPosition)}"><button class="next-page-btn">下一页</button></a>
+            <a class="next-page-btn-a" href="@{Reports.showNextReport(startPosition)}">下一页</a>
         </div>
         <div class="footer">
             <p>Copyright ? 2013 All Rights Reserved</p>

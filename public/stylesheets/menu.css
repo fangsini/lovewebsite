@@ -18,7 +18,8 @@
 .menu{
 	width: 1000px;
 	height: 60px;
-	margin: auto;
+	text-align: center;
+	margin:0 auto;
 	list-style: none;
 }
 .nav-item{
@@ -33,6 +34,8 @@
 	background-color: #74b157;
 	border-radius: 6px;
 	-webkit-border-radius: 6px;
+	-moz-border-radius:6px;
+	*padding: 6px 8px;
 }
 .nav-item a{
 	color: white;
