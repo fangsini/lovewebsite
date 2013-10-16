@@ -12,12 +12,15 @@ import models.*;
 import java.util.*;
 
 public class Uploads extends Controller{
-	public static void index() {
+	public static void index(String message) {
     	if(session.get("userId") != null) {
-    	   render();
+            if(message == null) {
+                message = "";
+            }
+    	   render(message);
         }
         else {
-            index();
+            
         }
     }
 
@@ -33,12 +36,12 @@ public class Uploads extends Controller{
         }
     }
     
-    public static void uploadHelp(File photo, 
-    		@Required(message="Title is required") String title,
-    		@Required(message="Content is required") String content) {
+    public static void uploadHelp(File photo, String title, String content) {
     	    if(session.get("userId") != null) {
-                if(validation.hasErrors()) {
-    		      index();
+                if(photo == null || title == null
+                    || content == null) {
+                  String message = "请把信息填写完整";
+    		      index(message);
     	        }
                 String userId = session.get("userId");
                 User tempUser = User.find("byUserid", userId).first();
@@ -50,7 +53,6 @@ public class Uploads extends Controller{
                 Uploads.showAllUploads(0);
             }
             else {
-                index();
             }
     }
     
@@ -153,11 +155,12 @@ public class Uploads extends Controller{
 
     public static void editUpload(Long id, String title, String content) {
         if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+            String message = "";
             Upload existUpload = Upload.find("byId",id).first();
             existUpload.title = title;
             existUpload.content = content;
             existUpload.save();
-            index();
+            index(message);
         }
         else {
             
