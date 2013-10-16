@@ -12,6 +12,7 @@ import play.mvc.Controller;
 import play.libs.Images;
 import play.cache.Cache;
 import java.util.Random;
+
 public class Register extends Controller {
 	private final static String[] hexDigits = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
 	

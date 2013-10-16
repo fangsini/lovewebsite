@@ -17,7 +17,7 @@
             <span class="login">
                 #{if session.get("userId") == null}
                 <span>
-                    <a href="@{Admin.index()}">
+                    <a href="@{Users.login()}">
                         <img src="/public/images/loading.gif"></a>
                 </span>
                 <span>
@@ -34,9 +34,9 @@
                     </span>
                     同学&nbsp;&nbsp;
                     <span id="login_out">
-                        <a href="@{Secure.logout()}">注销&nbsp;</a>
+                        <a href="@{Users.logout()}">注销&nbsp;</a>
                         <span id="edit_pass">
-                            <a href="@{EditPassword.index()}">修改密码</a>
+                            <a href="@{Users.editPasswordIndex()}">修改密码</a>
                         </span>
                     </span>
                 </span>
@@ -59,7 +59,7 @@
                         <a href="@{Uploads.index()}">我要求助</a>
                         #{/if}
                         #{else}
-                        <a href="@{Admin.index()}">我要求助</a>
+                        <a href="@{Users.login()}">我要求助</a>
                         #{/else}
                     </li>
                     <li>
@@ -68,18 +68,18 @@
                     <li>
                         <a href="@{Application.about()}">关于我们</a>
                     </li>
-                    #{secure.check 'admin'}
+                    #{if authority == 1}
                     <li>
                         <a href="@{Admin.index()}">后台主页</a>
                     </li>
-                    #{/secure.check}
+                    #{/if}
                     #{if authority == 0}
                     <li>
                         #{if session.get("userId") != null}
                         <a href="@{Uploads.myUploads()}">个人上传信息</a>
                         #{/if}
                     #{else}
-                        <a href="@{Admin.index()}">个人上传信息</a>
+                        <a href="@{Users.login()}">个人上传信息</a>
                         #{/else}
                     </li>
                     #{/if}
@@ -184,7 +184,7 @@
                         <a href="@{Uploads.index()}">让爱陪伴你左右</a>
                         #{/if}
                         #{else}
-                        <a href="@{Admin.index()}">让爱陪伴你左右</a>
+                        <a href="@{Users.login()}">让爱陪伴你左右</a>
                         #{/else}
                     </span>
                 </h1>
@@ -197,7 +197,7 @@
                         <a href="@{Uploads.index()}">您或您身边的人有遇到什么困难吗？没关系，点击此处上传你的问题，让更多的人了解，让更多的人帮助你。</a>
                         #{/if}
                     #{else}
-                        <a href="@{Admin.index()}">您或您身边的人有遇到什么困难吗？没关系，点击此处上传你的问题，让更多的人了解，让更多的人帮助你。</p>
+                        <a href="@{Users.login()}">您或您身边的人有遇到什么困难吗？没关系，点击此处上传你的问题，让更多的人了解，让更多的人帮助你。</p>
                     </a>
                     #{/else}
                 </div>

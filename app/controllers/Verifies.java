@@ -4,7 +4,7 @@ import play.mvc.Controller;
 import java.util.*;
 import models.*;
 import play.mvc.With;
-@With(Secure.class)
+
 public class Verifies extends Controller {
 	public static void index() {
 		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {

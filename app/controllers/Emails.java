@@ -38,7 +38,7 @@ public class Emails extends Controller {
 
     public static void sendPersonalEmail(String recipients,String subject, String content) {
     	if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
-            User user = User.find("byEmail", Security.connected()).first();
+            User user = User.find("byUserid", session.get("userId")).first();
             Email latestMail = new Email(recipients, subject, content);
             SimpleEmail email = new SimpleEmail();
         	try {
@@ -60,7 +60,7 @@ public class Emails extends Controller {
 
     public static void sendAllEmails(String subject, String photoUrl, String content) {
         if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
-            User user = User.find("byEmail", Security.connected()).first();
+            User user = User.find("byUserid", session.get("userId")).first();
             List<User> users = User.findAll();
             for(int i=0;i<users.size();i++){
                 String recipient = users.get(i).email;

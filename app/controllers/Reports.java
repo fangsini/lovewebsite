@@ -7,6 +7,7 @@ import play.mvc.*;
 import java.io.File;
 import play.libs.Files;
 import java.util.List;
+
 public class Reports extends Controller {
 	public static void index() {
 		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
