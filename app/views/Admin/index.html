@@ -5,8 +5,13 @@
 </head>
 <body>
  <div class="page">
-        <p class="logo"><img src="/public/images/home.png" alt="首页"/ id="logo1"><strong>管理员</strong></p>
-        <p class="txt_right"><strong>华南农业大学管理员</strong>  <span class="v_line"> | </span> <a href="@{Users.logout()}">退出</a></p>
+        <p class="logo">
+            <img src="/public/images/home.png" alt="首页"/ id="logo1"> <strong>管理员</strong>
+        </p>
+        <p class="txt_right"> <strong>华南农业大学管理员</strong>
+            <span class="v_line">|</span>
+            <a href="@{Secure.logout()}">退出</a>
+        </p>
      <div class="menu1">
         <a href="@{Application.index()}">前台主页</a>
         <a href="@{Uploads.allUploads()}">所有上传信息</a>

@@ -1,58 +1,65 @@
 <html>
 <head>
- <title>后台主页</title>
- <link rel="stylesheet" type="text/css" href="/public/stylesheets/upload.css" />
+	<title>后台主页</title>
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/upload.css" />
 </head>
 <body>
- <div class="page">
-        <p class="logo"><img src="/public/images/home.png" alt="首页"/ id="logo1"><strong>管理员</strong></p>
-        <p class="txt_right"><strong>华南农业大学管理员</strong>  <span class="v_line"> | </span> <a href="@{Secure.logout()}">退出</a></p>
-     <div class="menu1">
-        <a href="@{Application.index()}">前台主页</a>
-        <a href="@{Uploads.allUploads()}">所有上传信息</a>
-        <a href="@{Verifies.index()}">审核信息</a>
-        <a href="@{Emails.index()}">发送邮件</a>
-        <a href="@{MNews.index()}">发布信息</a>
-        <a href="@{Reports.index()}">后续报道</a>
-        <span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>
-    </div>
-	
-	
-	<div class="content">
-		<div class="intro">
-			<p><img src="/public/images/upload3.png" alt="用户上传信息"/>&nbsp;&nbsp;&nbsp;未经审核的信息</p>
+	<div class="page">
+		<p class="logo">
+			<img src="/public/images/home.png" alt="首页"/ id="logo1"> <strong>管理员</strong>
+		</p>
+		<p class="txt_right"> <strong>华南农业大学管理员</strong>
+			<span class="v_line">|</span>
+			<a href="@{Secure.logout()}">退出</a>
+		</p>
+		<div class="menu1">
+			<a href="@{Application.index()}">前台主页</a>
+			<a href="@{Uploads.allUploads()}">所有上传信息</a>
+			<a href="@{Verifies.index()}">审核信息</a>
+			<a href="@{Emails.index()}">发送邮件</a>
+			<a href="@{MNews.index()}">发布信息</a>
+			<a href="@{Reports.index()}">后续报道</a>
+			<div id="searchspan">
+				<input type="text" name="search" id="search"/>
+				<input type="submit" name="submit" value="搜索" id="button"/>
+			</div>
 		</div>
-		<div class="line">
-		</div>
-		<div class="upMsg">
-			<table>
-			#{if verifies.size() >= 1}
+
+		<div class="content">
+
+			<div class="intro">
+				<img class="img1" src="/public/images/upload3.png" alt="未经审核的信息"/>
+				<img  class="img2" src="/public/images/intro1.png" alt="未经审核的信息"/>
+			</div>
+
+			<div class="line"></div>
+
+			<div class="upMsg">
+				<ul class="news">
+					#{if verifies.size() >= 1}
 			#{list items:verifies, as:'verifies'}
-			<tr>
-				<td><span id="title">标&nbsp;&nbsp;&nbsp;题:</span><span id="titleInfo">${verifies.title}</span></td>
-			</tr>
-			<tr>
-				<td><span class="more"><a href="@{Verifies.show(verifies.id)}">详情</a></span></td>
-			</tr>
-			<tr>
-				<td>
-					<div class="line">
-					</div>
-				</td>
-			</tr>
-			#{/list}
+					<div class="new">
+					<div class="new-verifies">
+
+						<li class="titleInfo">标&nbsp;&nbsp;&nbsp;题:${verifies.title}</li>
+						<li class="more">
+							<a href="@{Verifies.show(verifies.id)}">详情</a>
+						</li>
+						<li class="line2"></li>
+					</div> </div>
+					#{/list}
 			#{/if}
 			#{else}
     			现在没有信息需要审核
 			#{/else}
-			</table>
+				</ul>
+
+			</div>
 
 		</div>
-		
+		<div class="footer">
+			<p>Copyright ? 2013 All Rights Reserved</p>
+		</div>
 	</div>
-	<div class="footer">
-		<p>Copyright ? 2013 All Rights Reserved</p>
-	</div>
- </div>
 </body>
 </html>

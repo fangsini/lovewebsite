@@ -1,28 +1,41 @@
-body {
+
+body,div,h1,h2,input,p,ul,li{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+/*............................... 页面背景...............................*/
+body 
+{
 	background-color:#EBEBEB;
 	font-size:17px;
-	font-family:"Arial","Tahoma";
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
 	padding:0px;
 	margin:0px;
 	text-align:center;
 }
 
-.logo{
+/*............................... 网页Logo...............................*/
+.logo
+{
 	font-size:30px;
 	color:#464646;
 	float:left; 
 	margin:15px 0px 30px 0px;
 }
-#logo1{
+#logo1
+{
 	width:50px;
 	height:50px;
 }
-
+/*............................... 登录信息...............................*/
 
 .txt_right
 { 
 	font-size:14px;
 	float:right;
+	margin-top: 50px;	
 	
 }
 
@@ -49,11 +62,19 @@ body {
 	padding:0 10px; 
 	color:#999999;
 }
+
+/*................................页面主体内容...............................*/
 .page
 {
 	width:925px;
 	margin:0 auto;
+	position: absolute;
+	top: 0;
+	left: 200px;
 }
+
+
+/*............................... 菜单栏...............................*/
 
 .menu1
 {
@@ -62,10 +83,12 @@ body {
 	text-align:center;
 	width:925px;
 	height:60px;
-	margin:0px 0px 20px 0px;
+	margin:0px 0px 15px 0px;
 	background-color:#464646;
 	clear:left;
 }
+
+/*...............................菜单栏点击效果...............................*/
 .menu1 a
 {
 	display:block;
@@ -75,10 +98,10 @@ body {
 
 .menu1 a:link,.menu1 a:visited
 {
-	color:#FFFFFF;							
-	background-color:#464646;			
-	text-decoration:none;			
-	padding:10px 16px 10px 16px;	
+	color:#FFFFFF;						/*链接文字的颜色*/			
+	background-color:#464646;			/*设置链接块的颜色*/
+	text-decoration:none;				/*链接文字去掉下划线*/
+	padding:10px 16px 10px 16px;		/*添加补白*/
 }
 
 .menu1 a:hover,.menu1 a:active
@@ -86,27 +109,37 @@ body {
 	background-color:#30A4B1;
 	color:#FFFFFF;							
 }
+/*...............................菜单栏搜索框...............................*/
 #search
 {
 	height:28px;
 	margin-top:15px;
 	font-size:18px;
+	width: 180px;
+	border:none;
 }
+
 #button
 {
 	color:#FFFFFF;
 	background-color:#F7941D;
-	height:30px;
+	height:28px;
+	padding:0 2px;
 	border:none;
 	font-size:17px;
-	font-family:"Arial","Tahoma","΢���ź�","�ź�";
-	margin-left:7px;
-	margin-right:10px;
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
+	margin: 0 10px 0 7px;
+	cursor: pointer;
 }
+
+
 #searchspan
 {
 	float:right;
 }
+
+
+/*...............................网页内容区部分..................................*/
 .content
 {
 	border:1px solid #bab9b9;
@@ -117,6 +150,7 @@ body {
 	margin-bottom:15px;
 	float:left;
 }
+/*...................................欢迎标题...................................*/
 .welcome
 {
 	width:
@@ -127,9 +161,11 @@ body {
 .welcome p
 {
 	font-size:25px;
-	font-family:"Arial","Tahoma","΢���ź�","�ź�";
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
 
 }
+/*..............................1、内容区intro部分...............................*/
+.intro
 {
 	line-height:60px;
 	text-align:left;
@@ -145,12 +181,15 @@ body {
 	width:60px;
 	height:60px;
 }
+
+/*..............................2、分割线部分....................................*/
 .line
 {
 	border-top:1px solid #bab9b9; 
 	margin-top:10px;
 	height:1px; 
 }
+/*..............................3、表单部分.....................................*/
 form
 {
 	
@@ -175,7 +214,7 @@ form
 	height:30px;
 	border:1px solid #bab9b9;
 	font-size:17px;
-	font-family:"Arial","Tahoma","΢���ź�","�ź�";
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
 }
 
 #button2
@@ -185,7 +224,7 @@ form
 	height:30px;
 	border:none;
 	font-size:17px;
-	font-family:"Arial","Tahoma","΢���ź�","�ź�";
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
 	margin-left:7px;
 	margin-right:10px;
 }
@@ -198,10 +237,13 @@ form
 	height:30px;
 	border:none;
 	font-size:17px;
-	font-family:"Arial","Tahoma","΢���ź�","�ź�";
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
 	margin-left:7px;
 	margin-right:10px;
 }
+
+
+/*...............................网页侧边部分...............................*/
 .right
 {
 	
@@ -213,7 +255,7 @@ form
 
 #time{
 	font-size:12px;
-	font-family:"Arial","Tahoma","΢���ź�","�ź�";
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
 }
 
 .calen{
@@ -231,7 +273,7 @@ form
 
 #time{
 	font-size:12px;
-	font-family:"Arial","Tahoma","΢���ź�","�ź�";
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
 }
 
 .calen img
@@ -262,7 +304,7 @@ form
 {
 	text-align:center;
 	font-size:10px;
-	font-family:"Arial","Tahoma","΢���ź�","�ź�";
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
 }
 .server
 {
@@ -298,6 +340,8 @@ form
 {
 	color:#30A4B1;
 }
+
+/*...............................网页底部....................................*/
 .footer
 {
 	font-size:17px;	

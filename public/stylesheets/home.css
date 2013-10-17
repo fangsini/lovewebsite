@@ -7,7 +7,7 @@ body
 {
 	background-color:#EBEBEB;
 	font-size:17px;
-	font-family:"Arial","Tahoma","Î¢ÈíÑÅºÚ","ÑÅºÚ";
+	font-family:"Arial","Tahoma","å¾®è½¯é›…é»‘","é›…é»‘";
 	text-align:center;
 }
 .logo
@@ -50,6 +50,9 @@ body
 {
 	width:925px;
 	margin:0 auto;
+	position: absolute;
+	top:0;
+	left: 200px;
 }
 .menu1
 {
@@ -69,10 +72,10 @@ body
 }
 .menu1 a:link,.menu1 a:visited
 {
-	color:#FFFFFF;						/*Á´½ÓÎÄ×ÖµÄÑÕÉ«*/			
-	background-color:#464646;			/*ÉèÖÃÁ´½Ó¿éµÄÑÕÉ«*/
-	text-decoration:none;				/*Á´½ÓÎÄ×ÖÈ¥µôÏÂ»®Ïß*/
-	padding:10px 16px 10px 16px;		/*Ìí¼Ó²¹°×*/
+	color:#FFFFFF;						/*é“¾æ¥æ–‡å­—çš„é¢œè‰²*/			
+	background-color:#464646;			/*è®¾ç½®é“¾æ¥å—çš„é¢œè‰²*/
+	text-decoration:none;				/*é“¾æ¥æ–‡å­—å»æ‰ä¸‹åˆ’çº¿*/
+	padding:10px 16px 10px 16px;		/*æ·»åŠ è¡¥ç™½*/
 }
 .menu1 a:hover,.menu1 a:active
 {
@@ -96,7 +99,7 @@ body
 	height:30px;
 	border:none;
 	font-size:17px;
-	font-family:"Arial","Tahoma","Î¢ÈíÑÅºÚ","ÑÅºÚ";
+	font-family:"Arial","Tahoma","å¾®è½¯é›…é»‘","é›…é»‘";
 	margin: 0 10px 0 7px;
 	cursor:pointer;
 }
@@ -202,7 +205,7 @@ body
 	width:100px;
 	padding: 0 13px;
 	text-align: center;
-	*width: 134px;          /*Õë¶Ôie6,ie7*/
+	*width: 134px;          /*é’ˆå¯¹ie6,ie7*/
 }
 .footer
 {
