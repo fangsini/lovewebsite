@@ -1,5 +1,5 @@
 #{extends 'menu.html' /}
-#{set cssName:'myUploads' /}
+#{set cssName:'help-news' /}
     <!--header end-->
     <!--laternews开始-->
     <div id="help-news-box">
@@ -12,7 +12,7 @@
                 </a>
             </div>
             <div class="span2">
-                <a href="@{Uploads.showOneUpload(myuploads.id)}"><h2 class="body_left2_title">${myuploads.title}</h2></a>
+                <h2 class="body_left2_title"><a href="@{Uploads.showOneUpload(myuploads.id)}">${myuploads.title}</a></h2>
                 <p>${myuploads.content}</p>
             </div>
         </div>

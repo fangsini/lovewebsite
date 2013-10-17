@@ -1,5 +1,6 @@
 #{extends 'menu.html' /}
-#{set cssName:'help-news-exam' /}
+#{set cssName:'Comments' /}
+
 	<script type="text/javascript" charset="utf-8" src="/public/kindeditor/kindeditor.js"></script>
     <script type="text/javascript" charset="utf-8" src="/public/kindeditor/lang/zh_CN.js"></script>
     <script type="text/javascript" scr="/public/javascripts/upload.js"></script>
@@ -30,17 +31,25 @@
         document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
         </script>
         <!-- Baidu Button END -->
-		<br>${existComments.size()}Comments:
+        <div class="postcomment">
+			<form action="@{Uploads.postComment(oneUpload.id)}" method="post" >
+			<h4>发表你的评论</h4>
+			<textarea name="content"></textarea>
+			<input type="submit" value="提交" name="sub" />
+			</form>
+		</div>
+		${existComments.size()}Comments:
 
 		#{if existComments.size() >= 1}
         #{list items:existComments, as:'existComments'}
+
         <div class="row">
 	    	<div class="comments">
 				<div class="author">
-					by:<h2>${existComments.author}</h2>
+					<span>by</span>:${existComments.author}
 				</div>
 				<div class="content">
-					content:<p>${existComments.content}</p>
+					<p>${existComments.content}</p>
 				</div>
 			</div>
         </div>
@@ -49,13 +58,5 @@
 		#{else}
 			暂时没有评论...
 		#{/else}
-		
-		<div class="postcomment">
-			<form action="@{Uploads.postComment(oneUpload.id)}" method="post" >
-			<textarea name="content" row="30" column="20"></textarea>
-			<input type="submit" value="评论" name="sub" />
-			</form>
-		</div>
-	</div>
 </body>
 </html>
