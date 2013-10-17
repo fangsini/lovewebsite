@@ -18,18 +18,6 @@
             #{/if}
             <div class="page-box">
             <a class="next-page-btn-a" href="@{Uploads.previousPage(startPosition)}">上一页</a>
-
-            <div class="page-box-row">
-                <ul class="page-ul">
-                    %{
-                        for(int i=0;i<=(totalUpload/5 + 0.4);i++){
-                    }%
-                        <li class="page-item current-page-li"><a href="@{Uploads.showAllUploads(i)}">第 ${i+1} 页</a></li>
-                    %{
-                        }
-                    }%
-                </ul>
-            </div>
             <a class="next-page-btn-a" href="@{Uploads.nextPage(startPosition)}">下一页</a>
         </div>
         <div class="footer">

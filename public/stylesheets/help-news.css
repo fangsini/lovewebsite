@@ -8,7 +8,7 @@ body{
     border: 0;
     font-family: arial,helvetica,sans-serif;
     word-break: break-all;
-    font-size: 12px;
+    font-size: 13px;
 	background-color: #f0f0f0;
 }
 ul,li{
@@ -91,6 +91,7 @@ a{text-decoration: none;}
 	float: right;
 	padding: 20px; 
 	width: 720px;
+	color:rgb(50,50,50);
 }
 .span2 a{
 	text-decoration: none;
@@ -122,11 +123,8 @@ a{text-decoration: none;}
 	cursor: pointer;
 }
 
-/*next page*/
 .page-box{
 	clear: both;
-	*position: relative;/*处理ie*/
-	*left:820px;
 	margin: 20px 25px;
 	margin-bottom: 0px;
 
@@ -135,14 +133,12 @@ a{text-decoration: none;}
 	padding: 10px;
 	-wekit-border:6px;
 	-moz-border；6px;
-	margin-left: 5px;
 	border-radius: 8px 0px;
 	background-color: rgba(0,0,0,0.01);
 	*background-color:#ededed;
 	color: rgba(0,0,0,0.8);
 	*color: black;
 	border:1px outset white;
-
 }
 .page-box a:hover{
 	background-color: #74b157;
@@ -150,31 +146,6 @@ a{text-decoration: none;}
     border-radius: 6px;
     border:1px solid white;
     box-shadow: 3px 3px 4px #DCDCDC;
-}
-.page-box-row{
-	float: left;
-	margin-left: 700px;
-	width: 100px;
-	height: 25px;
-	position: relative;
-	border-radius:6px;
-	cursor: pointer;
-}
-.page-ul{
-	display: none;
-	position: absolute;
-	width: 100px;
-	padding: 2px 0;
-	right:22px;
-	bottom: 22px;
-	background: #fff;
-	border: 1px solid #cfcfcf;
-}
-.page-item{
-	line-height: 25px;
-	height: 25px;
-	text-align: center;
-	cursor: pointer;
 }
 .current-page-li{
 	background: #cfcfcf;
@@ -203,7 +174,6 @@ a{text-decoration: none;}
 	width: 980px;
 	border-top: 1px solid #808080;
 	margin: 20px auto 0 auto;
-	*margin-top: 10px;
 	text-align: center;
 	padding-top: 10px;
 }

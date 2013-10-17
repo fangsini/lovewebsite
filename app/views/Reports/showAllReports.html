@@ -1,14 +1,7 @@
 #{extends 'menu.html' /}
 #{set cssName:'help-news' /}
-	 <!--header begin-->
-	
-	<!--header end-->
-	<!--laternews开始-->
-	<script type="text/javascript" src="/public/javascripts/jquery-1.7.min.js"></script>
-	<script type="text/javascript" src="/public/javascripts/follow-reports.js"></script>
 	<div id="lovers_body">
 		<h1 class="location">你现在的位置：首页><em>后续报道</em></h1>
-		<!--1-->
 		#{if allReports.size() >= 1}
 		#{list items: allReports , as: 'allReport'}
 	    	<div class="row">
@@ -26,22 +19,12 @@
 	    #{/if}
         <div class="page-box">
         	<a class="next-page-btn-a" href="@{Reports.showPreviousReport(startPosition)}">上一页</a>
-            <div class="page-box-row">
-                <ul class="page-ul">
-                    %{
-						for(int i=0;i<totalReport/5;i++){
-                	}%
-                		<li class="page-item current-page-li"><a href="@{Reports.showAllReports(i)}">第 ${i+1} 页</a></li>
-                	%{
-						}
-                	}%
-                </ul>
-            </div>
             <a class="next-page-btn-a" href="@{Reports.showNextReport(startPosition)}">下一页</a>
         </div>
         <div class="footer">
             <p>Copyright ? 2013 All Rights Reserved</p>
         </div>
 	</div>
+	<script type="text/javascript" src="/public/javascripts/follow-reports.js"></script>
 </body>	
 </html>

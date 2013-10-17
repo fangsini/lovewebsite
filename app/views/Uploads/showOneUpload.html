@@ -1,11 +1,7 @@
 #{extends 'menu.html' /}
 #{set cssName:'Comments' /}
-
-	<script type="text/javascript" charset="utf-8" src="/public/kindeditor/kindeditor.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/public/kindeditor/lang/zh_CN.js"></script>
-    <script type="text/javascript" scr="/public/javascripts/upload.js"></script>
 	<div class="upload-box">
-		<h1 class="location">你现在的位置：首页><em>求助资讯></em>
+		<h1 class="location">你现在的位置：首页><em>求助资讯</em></h1>
 		<div class="upload_main">
 			<div class="upload_img">
 				<img class="imgcommon" src="/public/images/${oneUpload.photoUrl}" alt="lovers" width="180" height="135" >
@@ -15,7 +11,6 @@
 				&{oneUpload.content}
 			</div>
 		</div>
-		<!-- Baidu Button BEGIN -->
         <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
         <span class="bds_more">分享到：</span>
         <a class="bds_qzone"></a>
@@ -25,12 +20,6 @@
         <a class="bds_t163"></a>
         <a class="shareCount"></a>
         </div>
-        <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0" ></script>
-        <script type="text/javascript" id="bdshell_js"></script>
-        <script type="text/javascript">
-        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
-        </script>
-        <!-- Baidu Button END -->
         <div class="postcomment">
 			<form action="@{Uploads.postComment(oneUpload.id)}" method="post" >
 			<h4>发表你的评论</h4>
@@ -39,10 +28,8 @@
 			</form>
 		</div>
 		${existComments.size()}Comments:
-
 		#{if existComments.size() >= 1}
         #{list items:existComments, as:'existComments'}
-
         <div class="row">
 	    	<div class="comments">
 				<div class="author">
@@ -58,5 +45,14 @@
 		#{else}
 			暂时没有评论...
 		#{/else}
+	</div>
+	<script type="text/javascript" charset="utf-8" src="/public/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/public/kindeditor/lang/zh_CN.js"></script>
+    <script type="text/javascript" scr="/public/javascripts/upload.js"></script>
+    <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0" ></script>
+        <script type="text/javascript" id="bdshell_js"></script>
+        <script type="text/javascript">
+        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+    </script>
 </body>
 </html>

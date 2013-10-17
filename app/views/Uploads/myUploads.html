@@ -1,7 +1,5 @@
 #{extends 'menu.html' /}
 #{set cssName:'help-news' /}
-    <!--header end-->
-    <!--laternews开始-->
     <div id="help-news-box">
         <h1 class="location">你现在的位置：首页><em>个人上传信息</em></h1>
         #{if myuploads.size() >= 1}
@@ -20,17 +18,6 @@
             #{/if}
         <div class="page-box">
             <a class="next-page-btn-a" href="@{Uploads.myPrevious(startPosition)}">上一页</a>
-            <div class="page-box-row">
-                <ul class="page-ul">
-                    %{
-                        for(int i=0;i<totalUpload/5;i++){
-                    }%
-                        <li class="page-item current-page-li"><a href="@{Uploads.myUploads(i)}">第 ${i+1} 页</a></li>
-                    %{
-                        }
-                    }%
-                </ul>
-            </div>
             <a class="next-page-btn-a" href="@{Uploads.myNext(startPosition)}">下一页</a>
         </div>
         <div class="footer">

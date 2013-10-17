@@ -29,6 +29,12 @@
         <li class="nav-item">
             <a href="@{Application.about()}">关于我们</a>
         </li>
+        #{if authority == 1}
+        <li class="nav-item">
+            <a href="@{Admin.index()}">后台主页</a>
+        </li>
+        #{/if}
+        #{else}
         <li class="nav-item">
             #{if session.get("userId") != null}
             <a href="@{Uploads.myUploads()}">个人上传信息</a>
@@ -37,6 +43,7 @@
             <a href="@{Users.login()}">个人上传信息</a>
             #{/else}
         </li>
+        #{/else}
         #{if session.get("userId") == null}
         <li class="login nav-item">
             <a href="@{Users.login()}">登录</a>
@@ -62,7 +69,4 @@
         #{/else}
         </ul>
     </div>
-
-
-
     #{doLayout /}

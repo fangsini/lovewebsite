@@ -5,7 +5,7 @@
 body{
 	background-color: #f0f0f0;
 	font-family: arial,helvetica,sans-serif;
-	 font-size: 12px;
+	font-size: 13px;
 }
 a{
 	text-decoration: none;
@@ -21,7 +21,6 @@ h2{
 	font-size: 20px;
 	padding-bottom: 10px;
 }
-em{color: #74b157;}
 .location {
 	padding: 30px 0 15px 20px;
     font-size: 16px;
@@ -29,12 +28,13 @@ em{color: #74b157;}
    color: rgba(0,0,0,0.4);
    *color: gray;
 }
-.location em{color: #74b157;}
+.location em{
+	color: #74b157;
+}
 #img{
 	width: 180px;
 	height: 135px;
 }
-
 .imgcommon{
 	display: block;
 	padding: 4px;
@@ -46,7 +46,6 @@ em{color: #74b157;}
 	-webkit-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 }
-
 .upload-box,.loverpeople{
 	height: 500px;
 	width: 980px;
@@ -73,16 +72,14 @@ em{color: #74b157;}
 	margin-top: 30px;
 
 }
-
 .upload_content,.loverpeople_content{
 	position: absolute;
 	left: 260px;
 	top: 115px;
 	width: 680px; 
 	padding-left:20px;
-	
+	color: rgb(60,60,60);
 }
-
 .footer{
 	height: 50px;
 	width: 980px;
@@ -127,16 +124,19 @@ input:hover{
 	background: #B38E69;
 	border: 2px solid white;
 }
+.comments{
+	font-size: 14px;
+}
 .row{
 	width: 920px;
-	height:100%;
-	*height: 100px;
 	overflow: auto;
 	margin:20px 15px;
 	padding-bottom: 20px;
 	border-bottom: 2px dotted #DCDCDC; 
 }
 .row p{
+	margin-top: 10px;
+	color: rgb(50,50,50);
 	text-indent: 0.6cm;	
 }
 .author span{
