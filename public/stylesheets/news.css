@@ -1,4 +1,4 @@
-
+﻿
 body,div,h1,h2,input,p,ul,li{
 	padding: 0;
 	margin: 0;
@@ -190,7 +190,7 @@ body
 	height:1px; 
 }
 /*..............................3、表单部分.....................................*/
-form
+.form
 {
 	
 	padding:15px;

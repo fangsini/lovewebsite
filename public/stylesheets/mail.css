@@ -82,7 +82,7 @@ body
 	text-align:center;
 	width:925px;
 	height:60px;
-	margin:0px 0px 20px 0px;
+	margin:0px 0px 15px 0px;
 	background-color:#464646;
 	clear:left;
 }
@@ -138,11 +138,10 @@ body
 {
 	border:1px solid #bab9b9;
 	border-top:8px solid #464646;
-	border-bottom:6px solid #464646;
 	width:700px;
-	height:430px;
+	height:470px;
 	background-color:#FFFFFF;
-	margin-bottom:25px;
+	margin-bottom:15px;
 	float:left;
 }
 /*...................................欢迎标题...................................*/
@@ -164,7 +163,7 @@ body
 {
 	line-height:60px;
 	text-align:left;
-	text-decoration:none;
+	text-decoration:underline;
 	font-family:Georgia; 
 	font-size:24px; 
 	font-style:italic;
@@ -173,8 +172,8 @@ body
 }
 .intro img
 {
-	width:70px;
-	height:70px;
+	width:60px;
+	height:60px;
 }
 
 /*..............................2、分割线部分....................................*/
