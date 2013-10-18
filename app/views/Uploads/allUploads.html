@@ -29,7 +29,7 @@
 
             <div class="intro">
                 <img  class="img1" src="/public/images/upload3.png" alt="用户上传信息"/>
-                <img  class="img2" src="/public/images/intro4.png" alt="用户上传信息"/>
+                <img  class="img2" src="/public/images/allupload.png" alt="用户上传信息"/>
             </div>
 
             <div class="line"></div>
@@ -40,14 +40,14 @@
                     #{if alluploads.size() >= 1}
             #{list items:alluploads, as:'alluploads'}
                     <div class="new">
-                        <div class="new-allUploads">
+                       
                         <li class="titleInfo">${alluploads.title}</li>
 
                         <li class="more">
                             <a href="@{Uploads.showUpload(alluploads.id)}">详情</a>
                         </li>
                         <li class="line2"></li>
-                    </div></div>
+                    </div>
                     #{/list}
             #{/if}
             #{else}

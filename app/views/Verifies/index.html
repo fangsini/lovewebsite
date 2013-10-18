@@ -29,7 +29,7 @@
 
 			<div class="intro">
 				<img class="img1" src="/public/images/upload3.png" alt="未经审核的信息"/>
-				<img  class="img2" src="/public/images/intro1.png" alt="未经审核的信息"/>
+				<img  class="img2" src="/public/images/verifies.png" alt="未经审核的信息"/>
 			</div>
 
 			<div class="line"></div>
@@ -39,14 +39,14 @@
 					#{if verifies.size() >= 1}
 			#{list items:verifies, as:'verifies'}
 					<div class="new">
-					<div class="new-verifies">
+					
 
 						<li class="titleInfo">标&nbsp;&nbsp;&nbsp;题:${verifies.title}</li>
 						<li class="more">
 							<a href="@{Verifies.show(verifies.id)}">详情</a>
 						</li>
 						<li class="line2"></li>
-					</div> </div>
+					</div> 
 					#{/list}
 			#{/if}
 			#{else}
