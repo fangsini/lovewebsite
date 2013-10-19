@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>后台主页</title>
-  <link rel="stylesheet" type="text/css" href="/public/stylesheets/upload.css" />
+  <link rel="stylesheet" type="text/css" href="/public/stylesheets/showUpload.css" />
 </head>
 <body>
   <div class="page">
@@ -22,21 +22,18 @@
         <span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>
     </div>
     <div class="content">
-      <div class="intro">
-        <p><img class="img1" src="/public/images/upload3.png" alt="用户上传信息"/>&nbsp;</p>
-      </div>
       <div class="line">
       </div>
         <div class="uploadinfo">
           <table>
             <tr>
               <td>
-                <span class="desc">上传者:</span><font face="楷体">${upload.author}</font>
+                <span class="desc">上传者:&nbsp;</span><font face="楷体">${upload.author}</font>
               </td>
             </tr>
             <tr>
                 <td>
-                    <span class="title">标题:</span><font face="楷体">${upload.title}</font>
+                    <span class="title">标题:&nbsp;</span><font face="楷体">${upload.title}</font>
                 </td>
             </tr>
             <tr>
@@ -45,7 +42,7 @@
               </td>
             </tr>
             <tr>
-              <td><span class="desc">内容:</span><font face="楷体">${upload.content.nl2br()}</font></td>
+              <td><span class="desc">内容:&nbsp;</span><font face="楷体">${upload.content.nl2br()}</font></td>
             </tr>
             <tr>
               <td><span class="date">
