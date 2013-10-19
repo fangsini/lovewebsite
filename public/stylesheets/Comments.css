@@ -6,6 +6,7 @@ body{
 	background-color: #f0f0f0;
 	font-family: arial,helvetica,sans-serif;
 	font-size: 13px;
+	color: rgb(50,50,50);
 }
 a{
 	text-decoration: none;
@@ -47,11 +48,9 @@ h2{
 	transition: all .2s ease-in-out;
 }
 .upload-box,.loverpeople{
-	height: 500px;
 	width: 980px;
-	position: absolute;
-	left: 50%;
-	margin-left: -485px;
+	position: relative;
+	margin: auto;
 }
 .upload_main,.loverpeople_main{
 	height: 340px;
@@ -80,14 +79,6 @@ h2{
 	padding-left:20px;
 	color: rgb(60,60,60);
 }
-.footer{
-	height: 50px;
-	width: 980px;
-	border-top: 1px solid #808080;
-	margin: 20px auto 0 auto;
-	text-align: center;
-	padding-top: 10px;
-}
 .postcomment{
 	width: 958px;
 	margin: 50px 2px 25px 2px;
@@ -104,6 +95,10 @@ h2{
 	box-shadow:0px 5px 3px gray;
 	border-bottom: 2px solid #DCDCDC;
 }
+.bd-position{
+	position: relative;
+	left: 730px;
+}
 textarea{
 	width: 958px;
 	height: 150px;
@@ -111,21 +106,40 @@ textarea{
 	border:2px solid #DCDCDC;
 	margin-bottom: 10px;
 }
-input{
-	height: 30px;
-	width: 60px;
-	background: #C8996B;
+.sub-button{
+	position: relative;
+	left: 850px;
+	width: 80px;
+	height: 35px;
+	color: rgb(255,255,255);
+	font-size: 18px;
+	border-radius: 4px;
+	-wiki-border-radius: 4px;
+	box-shadow: 1px 2px 5px rgb(0,0,0);
+	-wiki-box-shadow:1px 2px 5px rgb(0,0,0);
+	background: rgb(105, 182, 0);
 	cursor: pointer;
-	font-size: 16px;
-	color: #fff;
-    letter-spacing: 0.2em;
+	border: none;
 }
-input:hover{
-	background: #B38E69;
-	border: 2px solid white;
+.sub-button:active{
+	box-shadow: 0 0 2px rgb(0,0,0);
+	-wiki-box-shadow: 0 0 2px rgb(0,0,0);
+}
+.comment-title{
+	font-size: 20px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid rgb(100,100,100);
 }
 .comments{
 	font-size: 14px;
+	font-weight: bold;
+}
+.content{
+	min-height: 50px;
+	padding: 20px;
+	font-family: "Microsoft YaHei";
+	font-size: 13px;
+	font-weight: normal;
 }
 .row{
 	width: 920px;
@@ -141,4 +155,12 @@ input:hover{
 }
 .author span{
 	color: rgb(0, 125, 82);
+}
+.footer{
+	height: 50px;
+	width: 980px;
+	border-top: 1px solid #808080;
+	margin: 20px auto 0 auto;
+	text-align: center;
+	padding-top: 10px;
 }

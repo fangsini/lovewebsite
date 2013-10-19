@@ -11,7 +11,7 @@
 				&{oneUpload.content}
 			</div>
 		</div>
-        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare bd-position">
         <span class="bds_more">分享到：</span>
         <a class="bds_qzone"></a>
         <a class="bds_tsina"></a>
@@ -24,16 +24,18 @@
 			<form action="@{Uploads.postComment(oneUpload.id)}" method="post" >
 			<h4>发表你的评论</h4>
 			<textarea name="content"></textarea>
-			<input type="submit" value="提交" name="sub" />
+			<input type="submit" value="提交" name="sub" class="sub-button" />
 			</form>
 		</div>
-		${existComments.size()}Comments:
+		<div class="comment-title">评论(&nbsp;
+			${existComments.size()}
+			&nbsp;)</div>
 		#{if existComments.size() >= 1}
         #{list items:existComments, as:'existComments'}
         <div class="row">
 	    	<div class="comments">
 				<div class="author">
-					<span>by</span>:${existComments.author}
+					<span>用户</span>:&nbsp;${existComments.author} 
 				</div>
 				<div class="content">
 					<p>${existComments.content}</p>
@@ -46,6 +48,9 @@
 			暂时没有评论...
 		#{/else}
 	</div>
+	<div class="footer">
+            <p>Copyright ? 2013 All Rights Reserved</p>
+        </div>
 	<script type="text/javascript" charset="utf-8" src="/public/kindeditor/kindeditor.js"></script>
     <script type="text/javascript" charset="utf-8" src="/public/kindeditor/lang/zh_CN.js"></script>
     <script type="text/javascript" scr="/public/javascripts/upload.js"></script>

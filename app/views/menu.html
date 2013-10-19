@@ -16,18 +16,15 @@
             <a href="@{Uploads.showAllUploads()}">求助资讯</a>
         </li>
         <li class="nav-item">
+            <a href="@{Reports.showAllReports()}">后续报道</a>
+        </li>
+        <li class="nav-item">
             #{if session.get("userId") != null}
             <a href="@{Uploads.index()}">我要求助</a>
             #{/if} 
             #{else}
             <a href="@{Users.login()}">我要求助</a>
             #{/else}
-        </li>
-        <li class="nav-item">
-            <a href="@{Reports.showAllReports()}">后续报道</a>
-        </li>
-        <li class="nav-item">
-            <a href="@{Application.about()}">关于我们</a>
         </li>
         #{if authority == 1}
         <li class="nav-item">
@@ -37,13 +34,16 @@
         #{else}
         <li class="nav-item">
             #{if session.get("userId") != null}
-            <a href="@{Uploads.myUploads()}">个人上传信息</a>
+            <a href="@{Uploads.myUploads()}">我的求助</a>
             #{/if}
             #{else}
-            <a href="@{Users.login()}">个人上传信息</a>
+            <a href="@{Users.login()}">我的求助</a>
             #{/else}
         </li>
         #{/else}
+        <li class="nav-item">
+            <a href="@{Application.about()}">关于我们</a>
+        </li>
         #{if session.get("userId") == null}
         <li class="login nav-item">
             <a href="@{Users.login()}">登录</a>

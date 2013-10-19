@@ -4,6 +4,7 @@
 }
 body{
 	background: #f0f0f0;
+	font-family: "Microsoft YaHei",arial,helvetica,sans-serif;
 }
 .userMessage{
 	position: relative;

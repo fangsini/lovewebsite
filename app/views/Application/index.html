@@ -5,6 +5,12 @@
         <span class="logo">
             <img src="/public/images/logo5.png" alt="logo2" />
         </span>
+         #{if session.get("userId") != null}
+            <a href="@{Uploads.index()}" class="needing-help">我要求助</a>
+            #{/if} 
+            #{else}
+            <a href="@{Users.login()}" class="needing-help">我要求助</a>
+            #{/else}
     </div>
     <div class="undermenu">
         <img src="/public/images/scau/4.jpg" />

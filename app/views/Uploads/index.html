@@ -1,15 +1,7 @@
 #{extends 'menu.html' /}
 #{set cssName:'help' /}
-    <script type="text/javascript" charset="utf-8" src="/public/kindeditor/kindeditor.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/public/kindeditor/lang/zh_CN.js"></script>
-    <script>
-        KindEditor.options.filterMode = false;
-        KindEditor.ready(function(K) {
-            K.editor = K.create('#content');
-        });
-    </script>
-    <h1 class="location">你现在的位置：首页><em>我要求助</em></h1>
     <div id="help_content">
+        <h1 class="location">你现在的位置：首页><em>我要求助</em></h1>
         <div class="helpinfomation">
             <form action="/uploads/uploadhelp" method="post" accept-charset="utf-8" enctype="multipart/form-data" >
                 <p>${message}</p>
@@ -33,15 +25,17 @@
                 </ul>
             </form>
         </div>
-        <div class="helpwarning">
-            <h2>求助须知</h2>
-            <p>1.求助信息的审核，需要用户注册成为我们网站的用户。</p>
-            <p>2.为确保您的信息审核通过，请如实填写左侧表单。</p>
-            <p>3.本网站旨在提供一个平台给需要帮助的校内学生。</p>
-        </div>
     </div>
 	<div class="footer">
             <p>Copyright ? 2013 All Rights Reserved</p>
     </div>
+    <script type="text/javascript" charset="utf-8" src="/public/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/public/kindeditor/lang/zh_CN.js"></script>
+    <script>
+        KindEditor.options.filterMode = false;
+        KindEditor.ready(function(K) {
+            K.editor = K.create('#content');
+        });
+    </script>
 </body>
 </html>

@@ -46,6 +46,27 @@ img {
 	height:135px;
 	margin:60px 0 0 15px;
 }
+.needing-help{
+	position: relative;
+	left: 700px;
+	top: -50px;
+	display: block;
+	width: 130px;
+	height: 40px;
+	text-align: center;
+	color: rgb(245,245,245);
+	font-size: 20px;
+	line-height: 2.0;
+	border-radius: 5px;
+	-wiki-border-radius: 5px;
+	box-shadow: 1px 2px 5px rgb(0,0,0);
+	-wiki-box-shadow:1px 2px 5px rgb(0,0,0);
+	background: rgb(71, 179, 0);
+}
+.needing-help:active{
+	box-shadow: 0 0 2px rgb(0,0,0);
+	-wiki-box-shadow: 0 0 2px rgb(0,0,0);
+}
 .undermenu{
 	border:1px solid #ddd;
 	width:988px;
