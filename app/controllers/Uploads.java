@@ -98,7 +98,8 @@ public class Uploads extends Controller{
 
     public static void showAllUploads(int startPosition) {
         int totalUpload=Upload.findAll().size();
-        List<Upload> allUploads = Upload.all().from(startPosition*5).fetch(5);
+        String hql = "select u from Upload u order by u.postedAt desc";
+        List<Upload> allUploads = Upload.find(hql).fetch(startPosition * 5, 5);
         render(allUploads,startPosition,totalUpload);
     }
 

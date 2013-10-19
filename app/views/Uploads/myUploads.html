@@ -11,7 +11,7 @@
             </div>
             <div class="span2">
                 <h2 class="body_left2_title"><a href="@{Uploads.showOneUpload(myuploads.id)}">${myuploads.title}</a></h2>
-                <p>${myuploads.content}</p>
+                <p>${myuploads.content.raw()}</p>
             </div>
         </div>
             #{/list}

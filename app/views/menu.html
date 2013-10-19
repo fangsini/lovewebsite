@@ -55,12 +55,12 @@
         #{else}
         <li class="loginOut nav-item">
                 欢迎,
-                <span id="desc2">
+                <em id="desc2">
                     <a href="@{Users.userMessage()}">${userName}</a>
-                </span>
-                同学&nbsp;&nbsp;
+                </em>
+                同学
                 <span id="login_out">
-                    <a href="@{Users.logout()}">注销&nbsp;</a>
+                    <a href="@{Users.logout()}">&nbsp;注销&nbsp;</a>
                     <span id="edit_pass">
                         <a href="@{Users.editPasswordIndex()}">修改密码</a>
                     </span>
