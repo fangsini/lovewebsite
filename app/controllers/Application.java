@@ -16,7 +16,7 @@ public class Application extends Controller {
             authority = user.authority;
         }
     	List<Upload> olderUploads = Upload.find("order by postedAt desc").from(0).fetch(3);
-    	List<News> latestNews = News.findAll();
+    	News latestNews = News.find("order by id desc").first();
     	Report report = Report.find("order by id desc").first();
     	render(olderUploads,latestNews,report,userName, authority);
     }

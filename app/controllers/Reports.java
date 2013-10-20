@@ -33,7 +33,7 @@ public class Reports extends Controller {
 
 	public static void showAllReports(int startPosition) {
 		int totalReport=Report.findAll().size();
-		List<Report> allReports = Report.all().from(startPosition*5).fetch(5);
+		List<Report> allReports = Report.find("order by id desc").from(startPosition*5).fetch(5);
 		render(allReports,startPosition,totalReport);
 	}
 

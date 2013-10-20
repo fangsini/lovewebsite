@@ -42,7 +42,7 @@ public class Emails extends Controller {
         if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
             User user = User.find("byUserid", session.get("userId")).first();
             Email latestMail = new Email(recipients, subject, content);
-            Mails.verifyResult(recipients, subject, content);
+            Mails.sendOut(recipients, subject, content);
             latestMail.save();
             index();
         }
@@ -58,7 +58,7 @@ public class Emails extends Controller {
             for(int i=0;i<users.size();i++){
                 String recipient = users.get(i).email;
                 Email oneMail = new Email(recipient, subject, content);
-                Mails.verifyResult(recipient, subject, content);
+                Mails.sendOut(recipient, subject, content);
                 oneMail.save();
             }
             index();

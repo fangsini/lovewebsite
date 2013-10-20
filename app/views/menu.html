@@ -56,7 +56,7 @@
         <li class="loginOut nav-item">
                 欢迎,
                 <em id="desc2">
-                    <a href="@{Users.userMessage()}">${userName}</a>
+                    <a href="@{Users.userMessage()}">${session.get("userName")}</a>
                 </em>
                 同学
                 <span id="login_out">

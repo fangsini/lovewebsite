@@ -25,8 +25,6 @@
             <span class="directions">&nbsp</span>
         </h1>
         <ul class="new-info">
-            #{if latestNews.size() >= 1}
-                    #{list items:latestNews , as:'latestNews'}
             <li>
                 <span class="new-item new-time">时间</span>
                 <span class="new">${latestNews.time}</span>
@@ -39,8 +37,6 @@
                 <span class="new-item new-content">内容</span>
                 <span class="new">${latestNews.content}</span>
             </li>
-            #{/list}
-                #{/if}
         </ul>
     </div>
     <div class="box">

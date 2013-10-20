@@ -13,9 +13,12 @@
                 <h2 class="body_left2_title"><a href="@{Uploads.showOneUpload(myuploads.id)}">${myuploads.title}</a></h2>
                 <p>${myuploads.content.raw()}</p>
             </div>
+            <div class="span3">
+                <a href="@{Uploads.deleteMyUpload(myuploads.id)}">删除</a>
+            </div>
         </div>
-            #{/list}
-            #{/if}
+        #{/list}
+        #{/if}
         <div class="page-box">
             <a class="next-page-btn-a" href="@{Uploads.myPrevious(startPosition)}">上一页</a>
             <a class="next-page-btn-a" href="@{Uploads.myNext(startPosition)}">下一页</a>

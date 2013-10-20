@@ -144,6 +144,19 @@ public class Uploads extends Controller{
         }
     }
 
+    public static void deleteMyUpload(Long id) {
+        if(session.get("userId") != null) {
+            Upload existUpload = Upload.find("byId",id).first();
+            List<Comment> existComments = Comment.find("byUpload_id",existUpload.id).fetch();
+            existUpload.delete();
+            existComments.clear();
+            myUploads(1);
+        }
+        else {
+
+        }
+    }
+
     public static void editPage(Long id) {
         if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
             Upload existUpload = Upload.find("byId",id).first();

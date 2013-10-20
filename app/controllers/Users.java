@@ -4,10 +4,16 @@ import models.*;
 import play.mvc.Controller;
 import java.security.MessageDigest;
 import play.data.validation.Required;
+import play.cache.Cache;
+import play.libs.Codec;
+import play.libs.Images;
+import notifiers.*;
+import play.libs.Mail;
 
 public class Users extends Controller {
 	private final static String[] hexDigits = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
-	
+	private final static char[] passTable = {'0', '1','2','3','4','5','6','7','8','9'};
+
 	public static void userMessage() {
 		String userId = session.get("userId");
 		User existUser = User.find("byUserid",userId).first();
@@ -66,6 +72,7 @@ public class Users extends Controller {
 				User tempUser = User.find("byEmail",email).first();
 				String userId = tempUser.userid;
 				session.put("userId",userId);
+				session.put("userName", tempUser.name);
 				if(tempUser.authority == 1) {
 					Admin.index();
 				}else {
@@ -76,6 +83,55 @@ public class Users extends Controller {
 				login("帐号或密码错误");
 			}
 		}
+	}
+
+	public static void captcha(String id) {
+	    Images.Captcha captcha = Images.captcha();
+	    String code = captcha.getText("#E4EAFD");
+	    Cache.set(id, code, "10mn");
+	    renderBinary(captcha);
+	}
+
+	public static void getPassword(String result) {
+		if(result == null) {
+			result = "";
+	    }
+	    String randomID = Codec.UUID();
+	    render(randomID, result);
+	}
+
+	public static void findPassword(String email, String code, String randomID) {
+		validation.equals(
+	        code, Cache.get(randomID)
+	    ).message("Invalid code. Please type it again");
+	    if(validation.hasErrors()) {
+	    	String result = "failed";
+	    	System.out.println("hhq");
+	        Users.getPassword(result);
+	    }
+	    char[] newPass = new char[6];
+	    for(int i = 0; i < 6; i++) {
+	    	newPass[i] = passTable[(int)(Math.random()*10)];
+	    }
+	    
+	    Cache.delete(randomID);
+		String newPassStr = new String(newPass);
+		String oldPassStr = newPassStr;
+	    newPassStr = encodeByMD5(newPassStr);
+	    updatePassword(email, newPassStr, oldPassStr);
+	}
+
+	public static void updatePassword(String email, String newPass, String oldPassStr) {
+		User requestUser = User.find("byEmail", email).first();
+		requestUser.password = newPass;
+		requestUser.save();
+		String subject = "";
+		Email latestMail = new Email(email, subject, newPass);
+		String mailContent = oldPassStr;
+        Mails.sendOut(email, "new password", oldPassStr);
+        latestMail.save();
+
+		Application.index();
 	}
 
 	public static void logout() {
