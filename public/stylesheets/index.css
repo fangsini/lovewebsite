@@ -112,7 +112,6 @@ img {
 	clear: both;
 }
 .new-item{
-	display: block;
 	float: left;
 	width: 60px;
 	height: 30px;
@@ -132,14 +131,13 @@ img {
     background-color: #3A87AD;
 }
 .new{
-	display: block;
 	float: left;
 	width: 800px;
 	margin-left: 50px;
 	color: rgb(50, 50, 50);
 }
 .box{
-	height: 750px;
+	/*height: 750px;*/
 	width: 970px;
 	margin: auto;
 	padding-top: 20px;
