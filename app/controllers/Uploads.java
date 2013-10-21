@@ -77,12 +77,11 @@ public class Uploads extends Controller{
     }
     
     public static void myUploads(int startPosition) {
-        String userId = session.get("userId");
-        User tempUser = User.find("byUserid", userId).first();
-        String author = tempUser.name;
-        List<Upload> myuploads = Upload.find("byAuthor",author).from(0).fetch(10);
+        String userName = session.get("userName");
+        String hql = "select u from Upload u where u.author=? order by u.postedAt desc";
+        List<Upload> myuploads = Upload.find(hql, userName).from(startPosition*5).fetch(5);
         int totalUpload = myuploads.size();
-        render(myuploads, totalUpload);
+        render(myuploads, startPosition, totalUpload);
     }
 
     public static void allUploads() {
@@ -99,7 +98,7 @@ public class Uploads extends Controller{
     public static void showAllUploads(int startPosition) {
         int totalUpload=Upload.findAll().size();
         String hql = "select u from Upload u order by u.postedAt desc";
-        List<Upload> allUploads = Upload.find(hql).fetch(startPosition * 5, 5);
+        List<Upload> allUploads = Upload.find(hql).from(startPosition * 5).fetch(5);
         render(allUploads,startPosition,totalUpload);
     }
 
@@ -182,11 +181,8 @@ public class Uploads extends Controller{
     }
 
     public static void myNext(int startPosition) {
-        String userId = session.get("userId");
-        User tempUser = User.find("byUserid", userId).first();
-        String author = tempUser.name;
-        List<Upload> myuploads = Upload.find("byAuthor",author).fetch();
-        int totalUpload = myuploads.size();
+        String userName = session.get("userName");
+        int totalUpload = Upload.find("byAuthor", userName).fetch().size();
         if(startPosition >= (totalUpload/5 + 0.4)-1) {
             startPosition = startPosition;
         }
@@ -197,12 +193,8 @@ public class Uploads extends Controller{
     }
 
     public static void myPrevious(int startPosition) {
-        String userId = session.get("userId");
-        User tempUser = User.find("byUserid", userId).first();
-        String author = tempUser.name;
-
-        List<Upload> myuploads = Upload.find("byAuthor", author).fetch();
-        int totalUpload = myuploads.size();
+        String userName = session.get("userName");
+        int totalUpload = Upload.find("byAuthor", userName).fetch().size();
         if(startPosition == 0) {
             startPosition = startPosition;
         }

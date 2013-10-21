@@ -1,5 +1,6 @@
 #{extends 'menu.html' /}
 #{set cssName:'register' /}
+
 <div class="content">
 	<span id="title">SIGNUP</span>	
 	<hr/>
@@ -33,6 +34,9 @@
 		</ul>
 	</div>
 	#{form @Register.register() , enctype:'multipart/form-data'}
+	#{ifErrors}
+	   <h1>Oops…</h1>
+	#{/ifErrors}
 	<div class="table">
 		<table>
 			<caption>用户信息</caption>
