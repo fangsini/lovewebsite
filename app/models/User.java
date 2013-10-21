@@ -25,9 +25,11 @@ public class User extends GenericModel {
 	public int authority;
 	public String college;
 	public String phone;
+	public int validated;
+	public String validatedCode;
 	
 	public User(String userid,String name, String password,String email,
-		String sex,int authority,String college, String phone) {
+		String sex,int authority,String college, String phone, int validated, String validatedCode) {
 		this.userid = userid;
 		this.name = name;
 		this.password = password;
@@ -36,6 +38,8 @@ public class User extends GenericModel {
 		this.authority = authority;
 		this.college = college;
 		this.phone = phone;
+		this.validated = validated;
+		this.validatedCode = validatedCode;
 	}
 	
 	public static User connect(String email,String password) {

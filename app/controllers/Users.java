@@ -9,6 +9,9 @@ import play.libs.Codec;
 import play.libs.Images;
 import notifiers.*;
 import play.libs.Mail;
+import play.data.validation.MinSize;
+import play.data.validation.Required;
+import java.util.List;
 
 public class Users extends Controller {
 	private final static String[] hexDigits = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
@@ -25,10 +28,6 @@ public class Users extends Controller {
 			message = "";
 		}
 		render(message);
-	}
-
-	public static void register() {
-
 	}
 
 	public static void editPasswordIndex() {
@@ -70,9 +69,13 @@ public class Users extends Controller {
 		else {
 			if(User.connect(email, password) != null) {
 				User tempUser = User.find("byEmail",email).first();
+				if(tempUser.validated == 0) {
+					Application.index();
+				}
 				String userId = tempUser.userid;
 				session.put("userId",userId);
 				session.put("userName", tempUser.name);
+				session.put("authority", tempUser.authority);
 				if(tempUser.authority == 1) {
 					Admin.index();
 				}else {
@@ -134,6 +137,58 @@ public class Users extends Controller {
 		Application.index();
 	}
 
+	public static void registerPage(String message) {
+		render(message);
+	}
+
+	public static void register(@Required(message="Userid'length must more than 12") @MinSize(value=12,message="Userid'length must more than 12") String userid,
+			@Required(message="Name is required") String name,
+			@Required(message="The length of the password must more than 6") @MinSize(value=6, message="The length of the password must more than 6")String password,
+			@Required String pass,
+			@Required(message="Email is required") String email,@Required String sex,
+			@Required String college, @Required String phone) {
+		System.out.println("ss");
+		
+		List<User> uid = User.find("order by userid desc").from(0).fetch();
+		for(int i = 0;i<uid.size();i++) {
+			String a = uid.get(i).userid;
+			if(a.equals(userid)) {
+				registerPage("This number has been registered.");
+			}
+		}
+		
+		if (!checkEmail(email)) {
+			registerPage("Email format error.");
+		}
+		
+		if(password.equals(pass)) {
+			password = encodeByMD5(password);
+			User user = new User(userid, name, password, email, sex, 0, college, phone, 0, encodeByMD5(email)).save();
+			String mailContent = "请点击以下链接进行验证" + " http://localhost:9000/users/validated?email=" + encodeByMD5(email);			
+			Email latestMail = new Email(email, "用户验证", mailContent);
+	        Mails.sendOut(email, "用户验证", mailContent);
+			latestMail.save();
+			Application.index();
+		}
+		else {
+			String message = "your password is wrong...please register again...";
+			registerPage(message);
+		}
+	}
+
+	public static void validated(String email) {
+		List<User> users = User.findAll();
+		for(int i = 0; i < users.size(); i++) {
+			if(users.get(i).validatedCode.equals(email)) {
+				User tempUser = User.find("byUserid", users.get(i).userid).first();
+				tempUser.validated = 1;
+				tempUser.save();
+				render();
+				break;
+			}
+		}
+	}
+
 	public static void logout() {
 		session.clear();
 		Application.index();
@@ -172,5 +227,12 @@ public class Users extends Controller {
         int d2 = n%16; 
         return hexDigits[d1] + hexDigits[d2]; 
     }//加密
+
+    public static boolean checkEmail (String email) {
+		if (!email.matches("[\\w\\.\\-]+@([\\w\\-]+\\.)+[\\w\\-]+")) {
+			return false;
+		}
+		return true;
+	}
 
 }
