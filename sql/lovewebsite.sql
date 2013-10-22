@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 12, 2013 at 01:06 PM
+-- Generation Time: Oct 22, 2013 at 12:42 PM
 -- Server version: 5.5.32-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `Comment` (
   `upload_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK9BDE863F7C8A23E` (`upload_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `Comment`
@@ -43,7 +43,10 @@ CREATE TABLE IF NOT EXISTS `Comment` (
 INSERT INTO `Comment` (`id`, `author`, `content`, `postedAt`, `upload_id`) VALUES
 (1, '匿名', '干豆腐个打算', '2013-10-11 18:26:47', 4),
 (2, '匿名', '广东发给算法个', '2013-10-11 18:26:55', 4),
-(3, '匿名', '合法化发', '2013-10-11 18:26:58', 4);
+(3, '匿名', '合法化发', '2013-10-11 18:26:58', 4),
+(4, '匿名', 'njn', '2013-10-15 21:16:34', 5),
+(5, '胡华泉', '客户机', '2013-10-16 15:22:49', 4),
+(6, '匿名', 'dasda', '2013-10-22 09:00:10', 22);
 
 -- --------------------------------------------------------
 
@@ -57,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `Email` (
   `recipient` varchar(255) DEFAULT NULL,
   `subject` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `Email`
@@ -66,7 +69,54 @@ CREATE TABLE IF NOT EXISTS `Email` (
 INSERT INTO `Email` (`id`, `content`, `recipient`, `subject`) VALUES
 (1, '哈哈', 'woai12346@qq.com', '小测试'),
 (2, '哈哈', 'woai914099943@163.com', '哈哈'),
-(3, '哈哈', 'woai12346@qq.com', '哈哈');
+(3, '哈哈', 'woai12346@qq.com', '哈哈'),
+(4, 'hehe', 'woai12346@qq.com', '测试'),
+(5, 'lskfjdsklfj', 'hhqcontinue@gmail.com', '回复多少分的'),
+(6, 'gffdsffdgdfg', 'woai914099943@163.com', 'dgfdgsd\r\n'),
+(7, 'gffdsffdgdfg', 'woai12346@qq.com', 'dgfdgsd\r\n'),
+(8, 'gffdsffdgdfg', 'woai12346@163.com', 'dgfdgsd\r\n'),
+(9, 'fjkdhfksadhfs', 'woai12346@qq.com', '福克斯打开发撒谎大家看'),
+(10, 'gdgfds', 'woai12346@qq.com', '反馈倒计时反馈打算'),
+(11, 'gfgfds', 'woai12346@qq.com', '反馈多少分打算'),
+(12, 'KFDSHFHS', 'woai12346@qq.com', '反馈的撒发快速地方看到算'),
+(13, 'flsdfsd', 'woai12346@qq.com', '浪费看到四级理发店算'),
+(14, 'fkjdshk', 'woai12346@qq.com', '打算框架分会看到四级'),
+(15, 'fksahfjk', 'woai12346@qq.com', '立刻算法卡洛斯减法'),
+(16, 'kfkdsjhfs', 'woai12346@qq.com', '立刻的撒发来的看风景第三轮'),
+(17, 'hfghgf', 'woai12346@qq.com', 'odsfds撒'),
+(18, 'fdf', 'woai12346@qq.com', '开发还大算'),
+(19, 'fklsdfds', 'woai12346@qq.com', '李开复等级范德萨'),
+(20, '浪费肯德基反馈打算', 'woai12346@qq.com', '李开复觉得算看了分阶段算了分阶段sklfjldsk'),
+(21, '李开复觉得算看了范德萨', 'hhqcontinue@gmail.com', '浪费快速等级\r\n'),
+(22, '范德萨家乐福', 'woai12346@qq.com', '刻录机反馈来的算法'),
+(23, '犹太人犹太人', 'woai914099943@163.com', '个人讨厌好热讨厌'),
+(24, '犹太人犹太人', 'woai12346@qq.com', '个人讨厌好热讨厌'),
+(25, '犹太人犹太人', 'woai12346@163.com', '个人讨厌好热讨厌'),
+(26, '反馈第三届发', 'woai914099943@163.com', '浪费快速等级浪费速度'),
+(27, '反馈第三届发', 'woai12346@qq.com', '浪费快速等级浪费速度'),
+(28, '反馈第三届发', 'woai12346@163.com', '浪费快速等级浪费速度'),
+(29, '反对反对反对反对速', 'woai914099943@163.com', '方法斯蒂芬打算范德萨发'),
+(30, '反对反对反对反对速', 'woai12346@qq.com', '方法斯蒂芬打算范德萨发'),
+(31, '反对反对反对反对速', 'woai12346@163.com', '方法斯蒂芬打算范德萨发'),
+(32, 'lfjdsf', 'woai12346@qq.com', '弗兰克第三届发送'),
+(33, 'gklg', 'woai914099943@163.com', '了解到了看风景斯大林放假斯蒂芬就lkdfjldkjglkjglkfdjglsdg'),
+(34, 'gklg', 'woai12346@qq.com', '了解到了看风景斯大林放假斯蒂芬就lkdfjldkjglkjglkfdjglsdg'),
+(35, 'gklg', 'woai12346@163.com', '了解到了看风景斯大林放假斯蒂芬就lkdfjldkjglkjglkfdjglsdg'),
+(36, '', 'woai12346@qq.com', 'F5842B8FAC115CB8CD395F851310B51F'),
+(37, '', 'woai12346@qq.com', '7A011CC6FC47D5B35C46D41C034A219A'),
+(38, '', 'woai12346@qq.com', 'BBAD938B61D0AB80BD1449A7B831E4E0'),
+(39, '', 'woai12346@qq.com', 'EC0B376F0B4FBAD9FDA9E38A9DA9252F'),
+(40, '', 'woai12346@qq.com', '7C1D3050EF01F9D155D093E18A3CF324'),
+(41, '', 'woai12346@qq.com', '74F79779E9DB351B1C0AA57070D4AC4A'),
+(42, '', 'woai12346@qq.com', 'B13C6804028666D8E3F0427D8646EEB0'),
+(43, '', 'woai12346@qq.com', 'CC24B5D73B63BD2F29EAC97B75011B61'),
+(44, '用户验证', 'woai12346@qq.com', '请点击以下链接进行验证localhost:9000/users/validated?09FC1D8C7E512B5BDAB9C2A7357EA7D5'),
+(45, '用户验证', 'woai12346@qq.com', '请点击以下链接进行验证http://localhost:9000/users/validated?09FC1D8C7E512B5BDAB9C2A7357EA7D5'),
+(46, '用户验证', 'woai12346@qq.com', '请点击以下链接进行验证http://localhost:9000/users/validated?email=09FC1D8C7E512B5BDAB9C2A7357EA7D5'),
+(47, '用户验证', 'woai914099943@163.com', '请点击以下链接进行验证http://localhost:9000/users/validated?email=B3DB950C13B04FCA4B18C0999DB7C7C0'),
+(48, '用户验证', 'woai914099943@163.com', '请点击以下链接进行验证http://localhost:9000/users/validated?email=B3DB950C13B04FCA4B18C0999DB7C7C0'),
+(49, '用户验证', 'woai914099943@163.com', '请点击以下链接进行验证 http://localhost:9000/users/validated?email=B3DB950C13B04FCA4B18C0999DB7C7C0'),
+(50, '用户验证', 'woai914099943@163.com', '请点击以下链接进行验证 http://localhost:9000/users/validated?email=B3DB950C13B04FCA4B18C0999DB7C7C0');
 
 -- --------------------------------------------------------
 
@@ -80,14 +130,16 @@ CREATE TABLE IF NOT EXISTS `FeedBack` (
   `content` longtext,
   `name` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `FeedBack`
 --
 
 INSERT INTO `FeedBack` (`id`, `contact`, `content`, `name`) VALUES
-(1, '914099943', '一般', '胡华泉');
+(1, '914099943', '一般', '胡华泉'),
+(2, 'llfjsdlfkjdslkfds', 'lfljdslfkjdsklfj', 'huhfdsfslk'),
+(3, '11111111111', '福克斯积分', '胡华泉');
 
 -- --------------------------------------------------------
 
@@ -102,14 +154,14 @@ CREATE TABLE IF NOT EXISTS `News` (
   `fileUrl` varchar(255) DEFAULT NULL,
   `time` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `News`
 --
 
 INSERT INTO `News` (`id`, `address`, `content`, `fileUrl`, `time`) VALUES
-(1, '西园二楼门口', '为三级咖啡角色募捐', '444.jpg', '__募捐');
+(2, '华山西园', 'gfdgfdgdfg', 'banner1.jpg', '2013-10-16');
 
 -- --------------------------------------------------------
 
@@ -157,31 +209,31 @@ CREATE TABLE IF NOT EXISTS `Upload` (
   `photoUrl` varchar(255) DEFAULT NULL,
   `postedAt` datetime DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
+  `hits` int(11) NOT NULL,
+  `upNum` int(11) NOT NULL,
+  `upUserId` longtext,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Dumping data for table `Upload`
 --
 
-INSERT INTO `Upload` (`id`, `author`, `content`, `photoUrl`, `postedAt`, `title`) VALUES
-(4, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(5, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(6, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(7, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(8, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(9, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(10, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(11, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(12, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(13, 'HHQ', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗', '1.jpg', '2013-07-12 18:04:57', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(14, 'HHQ', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-07-12 18:05:00', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助'),
-(15, 'HHQ', '<pre class="brush:java;toolbar:false">class\nSystem.out.println();</pre><p><br/></p>', '1.jpg', '2013-10-11 18:04:26', 'fdsf '),
-(16, '胡华泉', '<p>drgdsfgdsgsvd</p>', '444.jpg', '2013-10-11 18:12:55', 'ggrgdfgdsfg'),
-(17, '胡华泉', '<p>dgfdgfdgd</p>', '444.jpg', '2013-10-11 18:17:35', 'fdfsgdfgdfg'),
-(18, '胡华泉', '<p>dhfgsd</p>', '444.jpg', '2013-10-11 18:17:56', 'dfdshsfh'),
-(19, 'huhuaquan', '<span style="color:#E53333;">请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！</span>', '444.jpg', '2013-10-11 19:00:56', 'fsdfdsf'),
-(20, '胡华泉', 'hshgfh', '444.jpg', '2013-10-11 19:06:34', 'hgfhfdh');
+INSERT INTO `Upload` (`id`, `author`, `content`, `photoUrl`, `postedAt`, `title`, `hits`, `upNum`, `upUserId`) VALUES
+(4, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 2, 1, 'null,201130720104'),
+(5, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 0, 0, NULL),
+(6, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 0, 0, NULL),
+(7, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 0, 0, NULL),
+(8, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 0, 0, NULL),
+(9, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 0, 0, NULL),
+(10, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 0, 0, NULL),
+(11, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 0, 0, NULL),
+(12, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', '2013-06-29 21:52:46', '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 0, 0, NULL),
+(15, 'HHQ', '<pre class="brush:java;toolbar:false">class\nSystem.out.println();</pre><p><br/></p>', '1.jpg', '2013-10-11 18:04:26', 'fdsf ', 5, 2, 'null,201130720104,201130720100'),
+(16, '胡华泉', '<p>drgdsfgdsgsvd</p>', '444.jpg', '2013-10-11 18:12:55', 'ggrgdfgdsfg', 3, 1, 'null,201130720104'),
+(20, '胡华泉', 'hshgfh', '444.jpg', '2013-10-11 19:06:34', 'hgfhfdh', 1, 0, NULL),
+(21, '胡华泉', 'ksdhf请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！', 'board_logo.gif', '2013-10-15 21:22:04', 'dsjkfhdsahfk', 16, 2, 'null,201130720104,201130720100'),
+(22, 'HHQ', '<span style="color:#006600;">请尽量书写清楚求规范大股东发送给发送给助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！</span>', 'banner9.jpg', '2013-10-16 16:03:17', '郭德纲反对三个范德萨', 40, 1, '201130720104');
 
 -- --------------------------------------------------------
 
@@ -198,6 +250,8 @@ CREATE TABLE IF NOT EXISTS `User` (
   `password` varchar(255) DEFAULT NULL,
   `sex` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
+  `validated` int(11) NOT NULL,
+  `validatedCode` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -205,10 +259,9 @@ CREATE TABLE IF NOT EXISTS `User` (
 -- Dumping data for table `User`
 --
 
-INSERT INTO `User` (`userid`, `authority`, `college`, `email`, `name`, `password`, `sex`, `phone`) VALUES
-('201130720100', 0, '信息学院', 'woai914099943@163.com', 'HHQ', 'C33367701511B4F6020EC61DED352059', '男', '1234567890'),
-('201130720104', 1, '信息学院', 'woai12346@qq.com', '胡华泉', 'E10ADC3949BA59ABBE56E057F20F883E', '男', '1234567890'),
-('201130720199', 0, '信息学院', 'woai12346@163.com', 'huhuaquan', 'FCEA920F7412B5DA7BE0CF42B8C93759', '男', '1234567890');
+INSERT INTO `User` (`userid`, `authority`, `college`, `email`, `name`, `password`, `sex`, `phone`, `validated`, `validatedCode`) VALUES
+('201130720100', 0, '信息学院', 'woai914099943@163.com', 'HHQ', 'C33367701511B4F6020EC61DED352059', '男', NULL, 1, 'B3DB950C13B04FCA4B18C0999DB7C7C0'),
+('201130720104', 1, '信息学院', 'woai12346@qq.com', '胡华泉', 'E10ADC3949BA59ABBE56E057F20F883E', '男', '1234567890', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -231,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `Verify` (
 --
 
 INSERT INTO `Verify` (`id`, `author`, `content`, `photoUrl`, `postedAt`, `title`) VALUES
-(5, 'huhuaquan', '<p>dgdsfsg</p>', '444.jpg', '2013-10-11 18:46:49', 'gsfsfsf'),
+(5, 'huhuaquan', '<p>\r\n	哈哈哈哈哈哈哈哈好\r\n</p>', '444.jpg', '2013-10-11 18:46:49', 'gsfsfsf'),
 (6, 'huhuaquan', '请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！', '444.jpg', '2013-10-11 18:48:05', 'fsdfdsfs'),
 (7, 'huhuaquan', '<p style="text-indent: 2em;">fdsfsfsafsdfsdfdsfsdfasfadsfs<br/></p>', '444.jpg', '2013-10-11 18:48:39', 'asfdf'),
 (8, 'huhuaquan', 'gdfagfdsg', '111.jpg', '2013-10-11 18:56:45', 'gsdgdsg'),
