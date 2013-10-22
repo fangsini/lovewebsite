@@ -34,9 +34,6 @@
 		</ul>
 	</div>
 	#{form @Users.register() , enctype:'multipart/form-data'}
-	#{ifErrors}
-	   <h1>Oops…</h1>
-	#{/ifErrors}
 	<div class="table">
 		<table>
 			<caption>用户信息</caption>
@@ -76,6 +73,12 @@
 				<td>电子邮箱:</td>
 				<td>
 					<input type="text" class="inputText" name="email" id="email"/>	
+				</td>
+			</tr>
+			<tr>
+				<td>手机号码:</td>
+				<td>
+					<input type="text" class="inputText" name="phone" id="phone">
 				</td>
 			</tr>
 			<tr>

@@ -129,8 +129,18 @@ public class Uploads extends Controller{
         upload.hits = upload.hits + 1;
         upload.save();
         Upload oneUpload = Upload.find("byId",id).first();
+        int flag = 0;
+        if(oneUpload.upUserId != null) {
+            String upUserId[] = oneUpload.upUserId.split(",");
+            for(int i = 0; i < upUserId.length; i++) {
+                if(upUserId[i].equals(session.get("userId"))) {
+                    flag = 1;
+                    break;
+                }
+            }
+        }
         List<Comment> existComments = Comment.find("byUpload_id",id).fetch();
-        render(oneUpload,existComments);
+        render(oneUpload,existComments, flag);
     }
 
     public static void deleteUpload(Long id) {
@@ -139,23 +149,9 @@ public class Uploads extends Controller{
             List<Comment> existComments = Comment.find("byUpload_id",existUpload.id).fetch();
             existUpload.delete();
             existComments.clear();
-            allUploads();
+            showAllUploads(0);
         }
         else {
-
-        }
-    }
-
-    public static void deleteMyUpload(Long id) {
-        if(session.get("userId") != null) {
-            Upload existUpload = Upload.find("byId",id).first();
-            List<Comment> existComments = Comment.find("byUpload_id",existUpload.id).fetch();
-            existUpload.delete();
-            existComments.clear();
-            myUploads(1);
-        }
-        else {
-
         }
     }
 
@@ -205,5 +201,13 @@ public class Uploads extends Controller{
             startPosition = startPosition - 1;
         }
         myUploads(startPosition);
+    }
+
+    public static void up(Long userId, Long uploadId) {
+        Upload upload = Upload.findById(uploadId);
+        upload.upNum = upload.upNum + 1;
+        upload.upUserId = upload.upUserId + "," + userId;
+        upload.save();
+        showOneUpload(uploadId);
     }
 }

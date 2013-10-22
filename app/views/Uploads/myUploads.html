@@ -13,11 +13,6 @@
                 <h2 class="body_left2_title"><a href="@{Uploads.showOneUpload(myuploads.id)}">${myuploads.title}</a></h2>
                 <p>${myuploads.content.raw()}</p>
             </div>
-            #{if myuploads.author == session.get("userName")}
-            <div class="span3">
-                <a href="@{Uploads.deleteMyUpload(myuploads.id)}">删除</a>
-            </div>
-            #{/if}
         </div>
         #{/list}
         #{/if}

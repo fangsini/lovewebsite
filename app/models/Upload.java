@@ -28,16 +28,22 @@ public class Upload extends Model {
 	public String author;
 
 	public int hits;
+
+	public int upNum;
+
+	public String upUserId;
 	
 	@OneToMany(mappedBy="upload", cascade=CascadeType.ALL)
 	public List<Comment> comments;
 	
-	public Upload(String author,String title,String content,String photoUrl, int hits) {
+	public Upload(String author,String title,String content,String photoUrl, int hits, int upNum, String upUserId) {
 		this.author = author;
 		this.title = title;
 		this.content = content;
 		this.photoUrl = photoUrl;
 		this.hits = hits;
+		this.upNum = upNum;
+		this.upUserId = upUserId;
 		this.postedAt = new Date();
 	}
 	

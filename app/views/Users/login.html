@@ -1,8 +1,8 @@
 #{extends 'menu.html' /}
 #{set cssName:'login' /}
 	 <div class="form-body">
-        #{form @Users.checkLogin(), enctype:'multipart/form-data'}
-                ${message}
+        <form action="/Users/checkLogin" enctype="multipart/form-data" method="post" accept-charset="utf-8" onsubmit="return loginCheck(this)">
+                <span id="errorMessage"></span>
                 <ul class="from-list">
                     <li class="from-head">Sign In</li>
                     <li>
@@ -22,10 +22,11 @@
                         <input type="submit" value="登录" class="input-submit"/>
                     </li>
                 </ul>
-        #{/form}
+        </form>
       </div>
-      <div class="footer">
+    <div class="footer">
             <p>Copyright ? 2013 All Rights Reserved</p>
-        </div>
+    </div>
+    <script type="text/javascript" src="/public/javascripts/login.js"></script>
 </body>
 </html>

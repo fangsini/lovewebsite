@@ -11,4 +11,15 @@
 		<input type="hidden" id="id" name="id" value="${verify.id}">
 		<input type="submit" name="editSub" value="提 交">
 	</form>
+	<div class="footer">
+            <p>Copyright ? 2013 All Rights Reserved</p>
+    </div>
+	<script type="text/javascript" charset="utf-8" src="/public/kindeditor/kindeditor.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/public/kindeditor/lang/zh_CN.js"></script>
+    <script>
+        KindEditor.options.filterMode = false;
+        KindEditor.ready(function(K) {
+            K.editor = K.create('#content');
+        });
+    </script>
 </html>

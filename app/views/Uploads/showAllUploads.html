@@ -13,6 +13,11 @@
                 <h2 class="body_left2_title"><a href="@{Uploads.showOneUpload(allUploads.id)}">&{allUploads.title}</a></h2>
                 &{allUploads.content}
             </div>
+            #{if session.get("authority") == "1"}
+            <div class="span3">
+                <a href="@{Uploads.deleteUpload(allUploads.id)}">删除</a>
+            </div>
+            #{/if}
         </div>
             #{/list}
             #{/if}

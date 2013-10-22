@@ -7,11 +7,27 @@
 				<img class="imgcommon" src="/public/images/${oneUpload.photoUrl}" alt="lovers" width="180" height="135" >
 			</div>
 			<div class="upload_content">
-				<h2>&{oneUpload.title}&nbsp;围观数:${oneUpload.hits}</h2>
+				<h2>&{oneUpload.title}</h2>
 
 				&{oneUpload.content}
 			</div>
 		</div>
+		<div class="up-hits">
+			围观数:${oneUpload.hits}
+			#{if session.get("userId") != null}
+				#{if flag != 1}
+				<a href="@{Uploads.up(session.get('userId'), oneUpload.id)}">顶</a>
+				#{/if}
+				#{else}
+				你已顶过
+				#{/else}
+			#{/if}
+			#{else}
+			<a href="@{Users.login()}">登录</a>
+			#{/else}
+			(${oneUpload.upNum})
+		</div>
+
         <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare bd-position">
         <span class="bds_more">分享到：</span>
         <a class="bds_qzone"></a>
