@@ -125,6 +125,9 @@ public class Uploads extends Controller{
     }
 
     public static void showOneUpload(Long id) {
+        Upload upload = Upload.find("byId",id).first();
+        upload.hits = upload.hits + 1;
+        upload.save();
         Upload oneUpload = Upload.find("byId",id).first();
         List<Comment> existComments = Comment.find("byUpload_id",id).fetch();
         render(oneUpload,existComments);

@@ -1,26 +1,5 @@
-<html>
-<head>
- <title>后台主页</title>
- <link rel="stylesheet" type="text/css" href="/public/stylesheets/upload.css" />
-</head>
-<body>
- <div class="page">
-        <p class="logo">
-            <img src="/public/images/home.png" alt="首页"/ id="logo1"> <strong>管理员</strong>
-        </p>
-        <p class="txt_right"> <strong>华南农业大学管理员</strong>
-            <span class="v_line">|</span>
-            <a href="@{Secure.logout()}">退出</a>
-        </p>
-     <div class="menu1">
-        <a href="@{Application.index()}">前台主页</a>
-        <a href="@{Uploads.allUploads()}">所有上传信息</a>
-        <a href="@{Verifies.index()}">审核信息</a>
-        <a href="@{Emails.index()}">发送邮件</a>
-        <a href="@{MNews.index()}">发布信息</a>
-        <a href="@{Reports.index()}">后续报道</a>
-        <span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>
-    </div>
+#{extends 'adminMenu.html' /}
+#{set cssName:'upload' /}
     
     
     <div class="content">
@@ -34,6 +13,7 @@
             <span class="title1">内容:<br></span>
             &{verify.content}<br>
             <span class="uploadTime">上传时间:</span>${verify.postedAt.format('dd MMM yy')}<br>
+            <a href="@{Verifies.editPage(verify.id)}">编辑</a>
             <div class="line">
             </div>
             #{form @Verifies.check(result,verify.id), enctype:'multipart/form-data'}   

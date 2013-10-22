@@ -1,0 +1,32 @@
+#{extends 'adminMenu.html' /}
+#{set cssName:'news' /}
+	
+	<div class="right">
+		<div class="calen">
+			<img src="/public/images/cal3.png" alt="日历"/>
+			<div id="time">加载中</div>
+					<script >
+						setInterval("time.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+					</script>
+		</div>
+		<div class="decoration">
+			<img  src="/public/images/latestnews.png">
+			
+		</div>
+		<div class="server">	
+			<img src="/public/images/server2.png" alt="服务器"/>
+			<strong><p>S<span id="gray">C</span><span id="orange">A</span><span id="blue">U</span> <span id="gray">L</span><span id="orange">O</span><span id="blue">V</span>E <span id="orange">T</span><span id="gray">E</span><span id="blue">A</span>M</p></strong>
+		</div>
+	</div>
+
+	#{if newsList.size() >= 1}
+    #{list items:newsList, as:'newsList'}
+    <div class="row">
+    	${newsList.address}
+    	${newsList.content}
+    	${newsList.time}
+    	<img src="/public/images/${newsList.fileUrl}" width="180" height="150">
+    	<a href="@{MNews.delNews(newsList.id)}">删除</a>
+    </div>
+    #{/list}
+    #{/if}

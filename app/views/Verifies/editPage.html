@@ -1,0 +1,14 @@
+#{extends 'adminMenu.html' /}
+#{set cssName:'upload' /}
+
+	<form action="/Verifies/editVerify" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+		<label for="title">标题</label>
+		<input id="title" name="title" value="${verify.title}">
+		<br>
+		<label for="content">内容</label>
+		<textarea id="content" name="content">${verify.content}</textarea>
+		<br>
+		<input type="hidden" id="id" name="id" value="${verify.id}">
+		<input type="submit" name="editSub" value="提 交">
+	</form>
+</html>

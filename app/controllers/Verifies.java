@@ -36,7 +36,7 @@ public class Verifies extends Controller {
 		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
 			Verify verify = Verify.find("byId",id).first();
 			if(result.equals("admit")) {
-				Upload upload = new Upload(verify.author, verify.title, verify.content, verify.photoUrl);
+				Upload upload = new Upload(verify.author, verify.title, verify.content, verify.photoUrl, 0);
 				upload.save();
 				verify.delete();
 			}
@@ -44,6 +44,29 @@ public class Verifies extends Controller {
 				verify.delete();
 			}
 			index();
+		}
+		else {
+			
+		}
+	}
+
+	public static void editPage(Long id) {
+		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+			Verify verify = Verify.find("byId", id).first();
+			render(verify);
+		}
+		else {
+			
+		}
+	}
+
+	public static void editVerify(Long id, String title, String content) {
+		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
+			Verify existVerify = Verify.find("byId", id).first();
+			existVerify.title = title;
+			existVerify.content = content;
+			existVerify.save();
+			show(id);
 		}
 		else {
 			
