@@ -59,32 +59,24 @@ public class Users extends Controller {
 	}
 
 	public static void checkLogin(String email, String password) {
-		if(email.length() == 0 || password.length() ==0) {
-			login("帐号或密码不能为空");
-		}
 		password = encodeByMD5(password);
-		if(!email.matches("[\\w\\.\\-]+@([\\w\\-]+\\.)+[\\w\\-]+")) {
-			login("帐号格式错误，请输入正确的邮件格式");
+		if(User.connect(email, password) != null) {
+			User tempUser = User.find("byEmail",email).first();
+			if(tempUser.validated == 0) {
+				Application.index();
+			}
+			String userId = tempUser.userid;
+			session.put("userId",userId);
+			session.put("userName", tempUser.name);
+			session.put("authority", tempUser.authority);
+			if(tempUser.authority == 1) {
+				Admin.index();
+			}else {
+				Application.index();
+			}
 		}
 		else {
-			if(User.connect(email, password) != null) {
-				User tempUser = User.find("byEmail",email).first();
-				if(tempUser.validated == 0) {
-					Application.index();
-				}
-				String userId = tempUser.userid;
-				session.put("userId",userId);
-				session.put("userName", tempUser.name);
-				session.put("authority", tempUser.authority);
-				if(tempUser.authority == 1) {
-					Admin.index();
-				}else {
-					Application.index();
-				}
-			}
-			else {
-				login("帐号或密码错误");
-			}
+			login("帐号或密码错误");
 		}
 	}
 
@@ -141,24 +133,14 @@ public class Users extends Controller {
 		render(message);
 	}
 
-	public static void register(@Required(message="Userid'length must more than 12") @MinSize(value=12,message="Userid'length must more than 12") String userid,
-			@Required(message="Name is required") String name,
-			@Required(message="The length of the password must more than 6") @MinSize(value=6, message="The length of the password must more than 6")String password,
-			@Required String pass,
-			@Required(message="Email is required") String email,@Required String sex,
-			@Required String college, @Required String phone) {
-		System.out.println("ss");
-		
+	public static void register(String userid, String name, String password, String pass,
+			String email, String sex, String college, String phone) {
 		List<User> uid = User.find("order by userid desc").from(0).fetch();
 		for(int i = 0;i<uid.size();i++) {
 			String a = uid.get(i).userid;
 			if(a.equals(userid)) {
-				registerPage("This number has been registered.");
+				registerPage("此学号已注册");
 			}
-		}
-		
-		if (!checkEmail(email)) {
-			registerPage("Email format error.");
 		}
 		
 		if(password.equals(pass)) {

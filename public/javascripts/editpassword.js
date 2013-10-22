@@ -1,7 +1,6 @@
-function validate_required(field, alerttxt) {
+function validate_required(field) {
 	with(field) {
 		if (value == null || value == "") {
-			alert(alerttxt);
 			return false;
 		} else {
 			return true;
@@ -10,22 +9,25 @@ function validate_required(field, alerttxt) {
 }
 function check_form(thisform) {
 	with(thisform) {
-		if (validate_required(previous, "密码不能为空！") == false) {
+		if (validate_required(previous) == false) {
 			previous.focus();
+			document.getElementById('errorMessage').innerHTML = "密码不能为空！";
 			return false;
 		}
-		if (validate_required(newpass, "密码不能为空！") == false) {
+		if (validate_required(newpass) == false) {
 			newpass.focus();
+			document.getElementById('errorMessage').innerHTML = "新密码不能为空！";
 			return false;
 		}
-		if (validate_required(newpass2, "密码不能为空！") == false) {
+		if (validate_required(newpass2) == false) {
 			newpass2.focus();
+			document.getElementById('errorMessage').innerHTML = "确认密码不能为空！";
 			return false;
 		}
 		if(newpass.value.trim()!=newpass2.value.trim()){
 			newpass.value="";
 			newpass2.value="";
-			alert("输入的两次密码不一致！")
+			document.getElementById('errorMessage').innerHTML = "输入的两次密码不一致！";
 			return false;
 		}
 	}

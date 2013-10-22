@@ -1,22 +1,173 @@
-function checkNonEmpty(inputField, helpText) {
+function checkNonEmpty(inputField) {
     if(inputField.value.length == 0) {
-        if(helpText != null)
-            helpText.innerHTML = "不能修改为空值";
         return false;
     }
     else {
-        if(helpText != null) {
-            helpText.innerHTML = "";
-        }
         return true;
     }
 }
 
+function validateLength(inputField) {
+    if(inputField.value.length < 12) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+function validateRegEx(regex, inputStr) {
+    if(!regex.test(inputStr)) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+function validateUserId(inputField) {
+    return validateRegEx(/^\d{12}$/,inputField.value);
+}
+
+function validateEmail(inputField) {
+    return validateRegEx(/^[\w\.-_\+]+@[\w-]+(\.\w{2,4})+$/,inputField.value);
+}
+
+function validatePhone(inputField) {
+    return validateRegEx(/^\d{11}$/,inputField.value);
+}
+
+function validatePassword(inputField) {
+    if(inputField.value.length < 6) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+function validatePass(inputField) {
+    if(inputField.value == document.getElementById('password').value) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function checkUserId(inputField) {
+    if(checkNonEmpty(inputField)) {
+        if(validateLength(inputField)) {
+            if(validateUserId(inputField)) {
+                document.getElementById('errorMessage').innerHTML = "";
+                return true;
+            }
+            else {
+                document.getElementById('errorMessage').innerHTML = "请输入12位数字";
+                return false;
+            }
+        }else {
+            document.getElementById('errorMessage').innerHTML = "最小长度为12位";
+            return false;
+        }
+    }
+    else {
+        document.getElementById('errorMessage').innerHTML = "学号不能为空";
+        return false;
+    }
+}
+
+function checkName(inputField) {
+    if(checkNonEmpty(inputField)) {
+        document.getElementById('errorMessage').innerHTML = "";
+        return true;
+    }
+    else {
+        document.getElementById('errorMessage').innerHTML = "姓名不能为空";
+        return false;
+    }
+}
+
+function checkSex() {
+    if(checkNonEmpty(inputField)) {
+        document.getElementById('errorMessage').innerHTML = "";
+        return true;
+    }
+    else {
+        document.getElementById('errorMessage').innerHTML = "请选择性别";
+        return false;
+    }
+}
+
+function checkEmail(inputField) {
+    if(checkNonEmpty(inputField)) {
+        if(validateEmail(inputField)) {
+            document.getElementById('errorMessage').innerHTML = "";
+            return true;
+        }else {
+            document.getElementById('errorMessage').innerHTML = "请输入正确的邮箱地址";
+            return false;
+        }
+    }
+    else {
+        document.getElementById('errorMessage').innerHTML = "帐号不能为空";
+        return false;
+    }
+}
+
+function checkPhone(inputField) {
+    if(checkNonEmpty(inputField)) {
+        if(validatePhone(inputField)) {
+            document.getElementById('errorMessage').innerHTML = "";
+            return true;
+        }else {
+            document.getElementById('errorMessage').innerHTML = "请输入正确的手机号码";
+            return false;
+        }
+    }
+    else {
+        document.getElementById('errorMessage').innerHTML = "手机号码不能为空";
+        return false;
+    }
+}
+
+function checkPassword(inputField) {
+    if(checkNonEmpty(inputField)) {
+        if(validatePassword(inputField)) {
+            document.getElementById('errorMessage').innerHTML = "";
+            return true;
+        }else {
+            document.getElementById('errorMessage').innerHTML = "密码长度至少为6位";
+            return false;
+        }
+    }else {
+        document.getElementById('errorMessage').innerHTML = "密码不能为空";
+        return false;
+    }
+}
+
+function checkPass(inputField) {
+    if(checkNonEmpty(inputField)) {
+        if(validatePass(inputField)) {
+            document.getElementById('errorMessage').innerHTML = "";
+            return true;
+        }else {
+            document.getElementById('errorMessage').innerHTML = "两次密码不一致";
+            return false;
+        }
+    }else {
+        document.getElementById('errorMessage').innerHTML = "密码不能为空";
+        return false;
+    }
+}
+
 function checkRegister(form) {
-    if(checkNonEmpty(form['title'], form['title_help']) &&
-        checkNonEmpty(form['content'], form['content_help']) &&
-        checkNonEmpty(form['tagName'], form['tagName_help']) &&
-        checkNonEmpty(form['type'], form['type_help'])) {
+    if(checkUserId(form['userid']) &&
+        checkName(form['name']) &&
+        checkEmail(form['email']) &&
+        checkPhone(form['phone']) &&
+        checkPassword(form['password']) &&
+        checkPass(form['pass'])) {
         return true;
     }
     else {

@@ -37,23 +37,18 @@ public class Uploads extends Controller{
     }
     
     public static void uploadHelp(File photo, String title, String content) {
-    	    if(session.get("userId") != null) {
-                if(photo == null || title == null
-                    || content == null) {
-                  String message = "请把信息填写完整";
-    		      index(message);
-    	        }
-                String userId = session.get("userId");
-                User tempUser = User.find("byUserid", userId).first();
-                String author = tempUser.name;
-                String name = photo.getName();
-    	        Verify verify = new Verify(author,title,content,name);
-                Files.copy(photo, Play.getFile("public/images/"+name));
-                verify.save();
-                Uploads.showAllUploads(0);
-            }
-            else {
-            }
+	    if(session.get("userId") != null) {
+            String userId = session.get("userId");
+            User tempUser = User.find("byUserid", userId).first();
+            String author = tempUser.name;
+            String name = photo.getName();
+	        Verify verify = new Verify(author,title,content,name);
+            Files.copy(photo, Play.getFile("public/images/"+name));
+            verify.save();
+            Uploads.showAllUploads(0);
+        }
+        else {
+        }
     }
     
     public static void postComment(Long id, @Required String content) {

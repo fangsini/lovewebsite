@@ -3,13 +3,12 @@
     <div id="help_content">
         <h1 class="location">你现在的位置：首页><em>我要求助</em></h1>
         <div class="helpinfomation">
-            <form action="/uploads/uploadhelp" method="post" accept-charset="utf-8" enctype="multipart/form-data" >
-                <p>${message}</p>
+            <span id="errorMessage"></span>
+            <form action="/Uploads/uploadhelp" method="post" accept-charset="utf-8" enctype="multipart/form-data" onsubmit="return check_form(this)">
                 <ul>
                     <li>
                         <label for="title">标题:</label>
-                        <input type="text" class="helpform_input" id="title" onblur="checkValue(this);" name="title" placeholder="输入标题"/>  
-                        <span id="help_titleError"></span>
+                        <input type="text" class="helpform_input" id="title" onblur="checkTitle(this);" name="title" placeholder="输入标题"/>
                     </li>
                     <li>
                         <label for="content">求助资料:</label>
@@ -37,5 +36,6 @@
             K.editor = K.create('#content');
         });
     </script>
+    <script type="text/javascript" charset="utf-8" src="/public/javascripts/help.js"></script>
 </body>
 </html>
