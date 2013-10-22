@@ -12,6 +12,7 @@ import models.*;
 import java.util.*;
 
 public class Uploads extends Controller{
+    public static int MOD = 1;
 	public static void index(String message) {
     	if(session.get("userId") != null) {
             if(message == null) {
@@ -92,9 +93,21 @@ public class Uploads extends Controller{
 
     public static void showAllUploads(int startPosition) {
         int totalUpload=Upload.findAll().size();
-        String hql = "select u from Upload u order by u.postedAt desc";
+        String hql = "";
+        if(MOD == 0) {
+            hql = "select u from Upload u order by u.postedAt desc";
+        }else if(MOD == 1) {
+            hql = "select u from Upload u order by u.hits desc";
+        }else if(MOD == 2) {
+            hql = "select u from Upload u order by u.upNum desc";
+        }
         List<Upload> allUploads = Upload.find(hql).from(startPosition * 5).fetch(5);
         render(allUploads,startPosition,totalUpload);
+    }
+
+    public static void changeMod(int mod) {
+        MOD = mod;
+        showAllUploads(0);
     }
 
     public static void previousPage(int startPosition) {

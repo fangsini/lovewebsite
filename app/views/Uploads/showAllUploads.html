@@ -2,6 +2,9 @@
 #{set cssName:'help-news' /}
     <div id="help-news-box">
 		<h1 class="location">你现在的位置：首页><em>求助资讯</em></h1>
+        <a href="@{Uploads.changeMod(1)}">根据围观数排序</a>
+        <a href="@{Uploads.changeMod(2)}">根据顶数排序</a>
+        <a href="@{Uploads.changeMod(0)}">默认</a>
 	    #{if allUploads.size() >= 1}
         #{list items:allUploads, as:'allUploads'}
         <div class="row">
