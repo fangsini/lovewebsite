@@ -1,7 +1,7 @@
 #{extends 'menu.html' /}
 #{set cssName:'help' /}
     <div id="help_content">
-        <h1 class="location">你现在的位置：首页><em>我要求助</em></h1>
+        <h1 class="location">你现在的位置：<a href="@{Application.index()}">首页</a>><em><a href="@{Uploads.index()}">我要求助</a></em></h1>
         <div class="helpinfomation">
             <span id="errorMessage"></span>
             <form action="/Uploads/uploadhelp" method="post" accept-charset="utf-8" enctype="multipart/form-data" onsubmit="return check_form(this)">
@@ -13,7 +13,7 @@
                     <li>
                         <label for="content">求助资料:</label>
                         <br/>    
-                        <textarea id="content" name="content" style="width:500px;height:300px;" placeholder="请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！"></textarea>
+                        <textarea id="content" name="content" style="width:500px;height:300px;" placeholder="d"></textarea>
                     </li>
                     <li>
                         <input type="file" id="photo" name="photo" />

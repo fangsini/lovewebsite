@@ -1,7 +1,7 @@
 #{extends 'menu.html' /}
 #{set cssName:'Comments' /}
 	<div class="upload-box">
-		<h1 class="location">你现在的位置：首页><em>求助资讯</em></h1>
+		<h1 class="location">你现在的位置：<a href="@{Application.index()}">首页</a>><em><a href="@{Uploads.showAllUploads(0)}">求助资讯</a></em></h1>
 		<div class="upload_main">
 			<div class="upload_img">
 				<img class="imgcommon" src="/public/images/${oneUpload.photoUrl}" alt="lovers" width="180" height="135" >
