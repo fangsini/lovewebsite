@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 27, 2013 at 09:28 AM
+-- Generation Time: Oct 27, 2013 at 01:05 PM
 -- Server version: 5.5.34-0ubuntu0.13.04.1
 -- PHP Version: 5.4.9-4ubuntu2.3
 
@@ -212,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `Upload` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `author` varchar(255) DEFAULT NULL,
   `content` longtext,
-  `photoUrl` varchar(255) DEFAULT NULL,
+  `fileName` varchar(255) DEFAULT NULL,
   `postedAt` bigint(20) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `hits` int(11) NOT NULL,
@@ -226,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `Upload` (
 -- Dumping data for table `Upload`
 --
 
-INSERT INTO `Upload` (`id`, `author`, `content`, `photoUrl`, `postedAt`, `title`, `hits`, `upNum`, `upUserId`, `priority`) VALUES
+INSERT INTO `Upload` (`id`, `author`, `content`, `fileName`, `postedAt`, `title`, `hits`, `upNum`, `upUserId`, `priority`) VALUES
 (4, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', 1378094389000, '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 8, 1, 'null,201130720104', 0),
 (5, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', 1378094389000, '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 2, 0, NULL, 0),
 (6, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', 1378094389000, '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 1, 0, NULL, 3),
@@ -237,14 +237,14 @@ INSERT INTO `Upload` (`id`, `author`, `content`, `photoUrl`, `postedAt`, `title`
 (11, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', 1378094389000, '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 0, 0, NULL, 0),
 (12, '胡华泉', '核心提示：日前，广州电视台播出了一则新闻：患有先天性凹胸8岁的孤儿伍容容，在表哥的陪伴下到广州，寻找她几乎从未谋面的母亲，只为了让她在自己的手术单上签名。在得知这个消息后，南方医科大学第三附属医院（以下简称南医三院）联系到伍容容表哥，愿意减免费手术费用替容容治疗。', '1.jpg', 1378094389000, '沉默的孤儿 8岁先天性漏斗胸女孩等待救助', 0, 0, NULL, 0),
 (15, 'HHQ', '<pre class="brush:java;toolbar:false">class\nSystem.out.println();</pre><p><br/></p>', '1.jpg', 1378094389000, 'fdsf ', 6, 2, 'null,201130720104,201130720100', 0),
-(16, '胡华泉', '<p>drgdsfgdsgsvd</p>', '444.jpg', 1378094389000, 'ggrgdfgdsfg', 3, 1, 'null,201130720104', 4),
+(16, '胡华泉', '<p>drgdsfgdsgsvd</p>', '444.jpg', 1378094389000, 'ggrgdfgdsfg', 6, 1, 'null,201130720104', 4),
 (20, '胡华泉', 'hshgfh', '444.jpg', 1378094389000, 'hgfhfdh', 1, 0, NULL, 0),
 (21, '胡华泉', 'ksdhf请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！', 'board_logo.gif', 1378094389000, 'dsjkfhdsahfk', 17, 2, 'null,201130720104,201130720100', 0),
 (22, 'HHQ', '<span style="color:#006600;">请尽量书写清楚求规范大股东发送给发送给助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！</span>', 'banner9.jpg', 1378094389000, '郭德纲反对三个范德萨', 48, 2, '201130720104,201130690328', 0),
 (23, '叶志良', '求保养', 'body_back.png', 1378094389000, '没钱花，睡能帮我啊。。', 7, 1, ',201130690328', 0),
 (24, '胡华泉', '&nbsp; &nbsp;&nbsp;', '面向对象实验指导书.doc', 1378094389000, '      ', 0, 0, '', 0),
 (25, '胡华泉', '&lt;script type="text/javascript"&gt;alert(''test'');&lt;/script&gt;', '面向对象实验指导书.doc', 1378094389000, '非官方的', 1, 0, '', 0),
-(26, '胡华泉', 'gdfsgdfsgds', 'banner4.jpg', 1382835139430, 'fdgfsgf', 0, 0, '', 0);
+(26, '胡华泉', 'gdfsgdfsgds', 'banner4.jpg', 1382835139430, 'fdgfsgf', 1, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -286,17 +286,17 @@ CREATE TABLE IF NOT EXISTS `Verify` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `author` varchar(255) DEFAULT NULL,
   `content` longtext,
-  `photoUrl` varchar(255) DEFAULT NULL,
+  `fileName` varchar(255) DEFAULT NULL,
   `postedAt` bigint(20) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `Verify`
 --
 
-INSERT INTO `Verify` (`id`, `author`, `content`, `photoUrl`, `postedAt`, `title`) VALUES
+INSERT INTO `Verify` (`id`, `author`, `content`, `fileName`, `postedAt`, `title`) VALUES
 (5, 'huhuaquan', '<p>\r\n	哈哈哈哈哈哈哈哈好\r\n</p>', '444.jpg', 1378094389000, 'gsfsfsf'),
 (6, 'huhuaquan', '请尽量书写清楚求助人的姓名、性别、年龄以及基本情况，另标明联系方式，以便日后联系帮助！', '444.jpg', 1378094389000, 'fsdfdsfs'),
 (7, 'huhuaquan', '<p style="text-indent: 2em;">fdsfsfsafsdfsdfdsfsdfasfadsfs<br/></p>', '444.jpg', 1378094389000, 'asfdf'),
@@ -307,7 +307,9 @@ INSERT INTO `Verify` (`id`, `author`, `content`, `photoUrl`, `postedAt`, `title`
 (13, 'HHQ', 'dsfgfdgdfsgfdsgdsfgfdsg', 'banner1.jpg', 1378094389000, 'gfdgdfgsdfg'),
 (14, '胡华泉', '&nbsp; &nbsp; &nbsp;', '面向对象实验指导书.doc', 1378094389000, '低功耗复合肥'),
 (15, '胡华泉', '放松大幅度速发放松地方算', 'allupload.png', 1382765869875, '放松地方算的'),
-(16, '胡华泉', '发送段发多算', 'banner4.jpg', 1382766583842, '范德萨发撒旦');
+(16, '胡华泉', '发送段发多算', 'banner4.jpg', 1382766583842, '范德萨发撒旦'),
+(18, '胡华泉', '放松大幅度速发', 'body_left2.jpg', 1382849211673, '范德萨发打算'),
+(19, '胡华泉', 'xcvcxzfdfd', '面向对象实验指导书.doc', 1382849396005, 'gsfsfsf');
 
 --
 -- Constraints for dumped tables
