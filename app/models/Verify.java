@@ -10,7 +10,7 @@ public class Verify extends Model {
 	@Required
 	public String title;
 
-	public Date postedAt;
+	public Long postedAt;
 
 	@Required
 	public String photoUrl;
@@ -28,6 +28,6 @@ public class Verify extends Model {
 		this.title = title;
 		this.content = content;
 		this.photoUrl = photoUrl;
-		this.postedAt = new Date();
+		this.postedAt = new Date().getTime();
 	}
 }

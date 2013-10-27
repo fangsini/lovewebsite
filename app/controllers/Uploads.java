@@ -12,6 +12,7 @@ import models.*;
 import java.util.*;
 
 public class Uploads extends Controller{
+
 	public static void index(String message) {
     	if(session.get("userId") != null) {
             if(message == null) {
@@ -82,7 +83,8 @@ public class Uploads extends Controller{
     public static void allUploads() {
         String userId = session.get("userId");
         User user = User.find("byUserid",userId).first();
-        List<Upload> alluploads = Upload.findAll();
+        String hql = "select u from Upload u order by u.priority desc , u.postedAt desc";
+        List<Upload> alluploads = Upload.find(hql).fetch();
         if(User.find("byUserid", userId).<User>first().authority == 1) {
             render(alluploads);
         }
@@ -92,9 +94,9 @@ public class Uploads extends Controller{
 
     public static void showAllUploads(int startPosition) {
         int totalUpload=Upload.findAll().size();
-        String hql = "select u from Upload u order by u.hits desc";
-        List<Upload> allUploads = Upload.find(hql).from(startPosition * 5).fetch(5);
-        render(allUploads,startPosition,totalUpload);
+        String hql = "select u from Upload u order by u.priority desc , u.postedAt desc";
+        List<Upload> allUploads = Upload.find(hql).from(startPosition * 10).fetch(10);
+        render(allUploads, startPosition, totalUpload);
     }
 
     public static void previousPage(int startPosition) {
@@ -110,7 +112,7 @@ public class Uploads extends Controller{
 
     public static void nextPage(int startPosition) {
         int totalUpload = Upload.findAll().size();
-        if(startPosition >= (totalUpload/5 + 0.4)-1) {
+        if(startPosition >= (totalUpload/10 + 0.4)-1) {
             startPosition = startPosition;
         }
         else {
@@ -177,7 +179,7 @@ public class Uploads extends Controller{
     public static void myNext(int startPosition) {
         String userName = session.get("userName");
         int totalUpload = Upload.find("byAuthor", userName).fetch().size();
-        if(startPosition >= (totalUpload/5 + 0.4)-1) {
+        if(startPosition >= (totalUpload/10 + 0.4)-1) {
             startPosition = startPosition;
         }
         else {
@@ -204,5 +206,21 @@ public class Uploads extends Controller{
         upload.upUserId = upload.upUserId + "," + userId;
         upload.save();
         showOneUpload(uploadId);
+    }
+
+    public static void setTop(Long uploadId) {
+        Upload upload = Upload.findById(uploadId);
+        String hql = "select priority from Upload where priority = (select max(priority) from Upload)";
+        int maxNum = Upload.find(hql).first();
+        upload.priority = maxNum + 1;
+        upload.save();
+        showAllUploads(0);
+    }
+
+    public static void cancelTop(Long uploadId) {
+        Upload upload = Upload.findById(uploadId);
+        upload.priority = 0;
+        upload.save();
+        showAllUploads(0);
     }
 }

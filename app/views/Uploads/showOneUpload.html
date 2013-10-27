@@ -11,6 +11,9 @@
 
 				&{oneUpload.content}
 			</div>
+			<div class="upload_date">
+				${oneUpload.postedAt.asdate('y-M-dd HH:mm:ss', 'chs')}
+			</div>
 		</div>
 		<div class="up-hits">
 			围观数:${oneUpload.hits}

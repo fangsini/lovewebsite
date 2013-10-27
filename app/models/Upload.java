@@ -15,7 +15,7 @@ public class Upload extends Model {
 	public String title;
 	
 	@Required
-	public Date postedAt;
+	public Long postedAt;
 	
 	@Required
 	public String photoUrl;
@@ -32,11 +32,14 @@ public class Upload extends Model {
 	public int upNum;
 
 	public String upUserId;
+
+	public int priority;
 	
 	@OneToMany(mappedBy="upload", cascade=CascadeType.ALL)
 	public List<Comment> comments;
 	
-	public Upload(String author,String title,String content,String photoUrl, int hits, int upNum, String upUserId) {
+	public Upload(String author,String title,String content,
+		String photoUrl, int hits, int upNum, String upUserId, int priority) {
 		this.author = author;
 		this.title = title;
 		this.content = content;
@@ -44,7 +47,8 @@ public class Upload extends Model {
 		this.hits = hits;
 		this.upNum = upNum;
 		this.upUserId = upUserId;
-		this.postedAt = new Date();
+		this.priority = priority;
+		this.postedAt = new Date().getTime();
 	}
 	
 	public Upload addComments(String author, String content) {

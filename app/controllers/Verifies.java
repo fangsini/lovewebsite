@@ -8,7 +8,8 @@ import play.mvc.With;
 public class Verifies extends Controller {
 	public static void index() {
 		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
-			List<Verify> verifies = Verify.findAll();
+			String hql = "select v from Verify v order by v.postedAt desc";
+			List<Verify> verifies = Verify.find(hql).fetch();
 			if(verifies.size() >0) {
 				render(verifies);
 			}
@@ -36,7 +37,7 @@ public class Verifies extends Controller {
 		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
 			Verify verify = Verify.find("byId",id).first();
 			if(result.equals("admit")) {
-				Upload upload = new Upload(verify.author, verify.title, verify.content, verify.photoUrl, 0, 0, "");
+				Upload upload = new Upload(verify.author, verify.title, verify.content, verify.photoUrl, 0, 0, "", 0);
 				upload.save();
 				verify.delete();
 			}
