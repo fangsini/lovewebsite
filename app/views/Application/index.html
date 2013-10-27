@@ -52,7 +52,13 @@
                     #{list items:olderUploads, as:'oldUploads'}
                 <div class="body_left2_child">
                     <a class="body_left1_img" href="@{Uploads.showOneUpload(oldUploads.id)}">
-                        <img id="img" src="/public/images/${oldUploads.photoUrl}" alt="childrplen" />
+                        #{if oldUploads.fileName.matches("^.+\\.img")||
+                        oldUploads.fileName.matches("^.+\\.png")||
+                        oldUploads.fileName.matches("^.+\\.gif") ||
+                        oldUploads.fileName.matches("^.+\\.jpg") ||
+                        oldUploads.fineName.matches("^.+\\.jpeg")}
+                        <img id="img" src="/public/images/${oldUploads.fileName}" alt="childrplen" />
+                        #{/if}
                     </a>
                     <div class="body_left2_main">
                         <h4 class="body_left2_title">

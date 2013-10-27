@@ -13,7 +13,7 @@ public class Verify extends Model {
 	public Long postedAt;
 
 	@Required
-	public String photoUrl;
+	public String fileName;
 
 	@Lob
 	@Required
@@ -23,11 +23,11 @@ public class Verify extends Model {
 	@Required
 	public String author;
 	
-	public Verify(String author,String title,String content,String photoUrl) {
+	public Verify(String author,String title,String content,String fileName) {
 		this.author = author;
 		this.title = title;
 		this.content = content;
-		this.photoUrl = photoUrl;
+		this.fileName = fileName;
 		this.postedAt = new Date().getTime();
 	}
 }

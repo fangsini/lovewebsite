@@ -4,7 +4,13 @@
 		<h1 class="location">你现在的位置：<a href="@{Application.index()}">首页</a>><em><a href="@{Uploads.showAllUploads(0)}">求助资讯</a></em></h1>
 		<div class="upload_main">
 			<div class="upload_img">
-				<img class="imgcommon" src="/public/images/${oneUpload.photoUrl}" alt="lovers" width="180" height="135" >
+				#{if oneUpload.fileName.matches("^.+\\.img")||
+                    oneUpload.fileName.matches("^.+\\.png")||
+                    oneUpload.fileName.matches("^.+\\.gif") ||
+                    oneUpload.fileName.matches("^.+\\.jpg") ||
+                    oneUpload.fineName.matches("^.+\\.jpeg")}
+				<img class="imgcommon" src="/public/images/${oneUpload.fileName}" alt="lovers" width="180" height="135" >
+				#{/if}
 			</div>
 			<div class="upload_content">
 				<h2>&{oneUpload.title}</h2>

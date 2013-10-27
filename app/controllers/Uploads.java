@@ -36,17 +36,28 @@ public class Uploads extends Controller{
 
         }
     }
+
+    public static void downloadFile(long id) {
+
+    }
     
-    public static void uploadHelp(File photo, String title, String content) {
+    public static void uploadHelp(File file, String title, String content) {
 	    if(session.get("userId") != null) {
             String userId = session.get("userId");
             User tempUser = User.find("byUserid", userId).first();
             String author = tempUser.name;
-            String name = photo.getName();
-	        Verify verify = new Verify(author,title,content,name);
-            Files.copy(photo, Play.getFile("public/images/"+name));
-            verify.save();
-            Uploads.showAllUploads(0);
+            String name = file.getName();
+            if(name.matches("^.+\\.img") || name.matches("^.+\\.gif")
+                ||name.matches("^.+\\.png") || name.matches("^.+\\.jpg")
+                ||name.matches("^.+\\.jpeg") || name.matches("^.+\\.doc")
+                ||name.matches("^.+\\.docx")) {
+                Verify verify = new Verify(author,title,content,name);
+                Files.copy(file, Play.getFile("public/images/"+name));
+                verify.save();
+                Uploads.showAllUploads(0);
+            }else {
+                Uploads.index("文件格式不正确!!");
+            }
         }
         else {
         }

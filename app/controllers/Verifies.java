@@ -37,7 +37,7 @@ public class Verifies extends Controller {
 		if(User.find("byUserid", session.get("userId")).<User>first().authority == 1) {
 			Verify verify = Verify.find("byId",id).first();
 			if(result.equals("admit")) {
-				Upload upload = new Upload(verify.author, verify.title, verify.content, verify.photoUrl, 0, 0, "", 0);
+				Upload upload = new Upload(verify.author, verify.title, verify.content, verify.fileName, 0, 0, "", 0);
 				upload.save();
 				verify.delete();
 			}

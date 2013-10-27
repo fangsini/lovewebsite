@@ -18,7 +18,7 @@ public class Upload extends Model {
 	public Long postedAt;
 	
 	@Required
-	public String photoUrl;
+	public String fileName;
 	
 	@Lob
 	@Required
@@ -39,11 +39,11 @@ public class Upload extends Model {
 	public List<Comment> comments;
 	
 	public Upload(String author,String title,String content,
-		String photoUrl, int hits, int upNum, String upUserId, int priority) {
+		String fileName, int hits, int upNum, String upUserId, int priority) {
 		this.author = author;
 		this.title = title;
 		this.content = content;
-		this.photoUrl = photoUrl;
+		this.fileName = fileName;
 		this.hits = hits;
 		this.upNum = upNum;
 		this.upUserId = upUserId;
