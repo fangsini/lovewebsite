@@ -51,6 +51,7 @@ function validatePass(inputField) {
         return true;
     }
     else {
+        document.getElementById('confirm-tips').innerHTML = "密码错误";
         return false;
     }
 }
@@ -59,58 +60,58 @@ function checkUserId(inputField) {
     if(checkNonEmpty(inputField)) {
         if(validateLength(inputField)) {
             if(validateUserId(inputField)) {
-                document.getElementById('errorMessage').innerHTML = "";
+                document.getElementById('userid-tips').innerHTML = "";
                 return true;
             }
             else {
-                document.getElementById('errorMessage').innerHTML = "请输入12位数字";
+                document.getElementById('userid-tips').innerHTML = "请输入12位数字";
                 return false;
             }
         }else {
-            document.getElementById('errorMessage').innerHTML = "最小长度为12位";
+            document.getElementById('userid-tips').innerHTML = "最小长度为12位";
             return false;
         }
     }
     else {
-        document.getElementById('errorMessage').innerHTML = "学号不能为空";
+        document.getElementById('userid-tips').innerHTML = "学号不能为空";
         return false;
     }
 }
 
 function checkName(inputField) {
     if(checkNonEmpty(inputField)) {
-        document.getElementById('errorMessage').innerHTML = "";
+        document.getElementById('name-tips').innerHTML = "";
         return true;
     }
     else {
-        document.getElementById('errorMessage').innerHTML = "姓名不能为空";
+        document.getElementById('name-tips').innerHTML = "姓名不能为空";
         return false;
     }
 }
 
-function checkSex() {
-    if(checkNonEmpty(inputField)) {
-        document.getElementById('errorMessage').innerHTML = "";
-        return true;
-    }
-    else {
-        document.getElementById('errorMessage').innerHTML = "请选择性别";
-        return false;
-    }
-}
+// function checkSex() {
+//     if(checkNonEmpty(inputField)) {
+//         document.getElementById('errorMessage').innerHTML = "";
+//         return true;
+//     }
+//     else {
+//         document.getElementById('errorMessage').innerHTML = "请选择性别";
+//         return false;
+//     }
+// }
 
 function checkEmail(inputField) {
     if(checkNonEmpty(inputField)) {
         if(validateEmail(inputField)) {
-            document.getElementById('errorMessage').innerHTML = "";
+            document.getElementById('email-tips').innerHTML = "";
             return true;
         }else {
-            document.getElementById('errorMessage').innerHTML = "请输入正确的邮箱地址";
+            document.getElementById('email-tips').innerHTML = "邮箱地址有误";
             return false;
         }
     }
     else {
-        document.getElementById('errorMessage').innerHTML = "帐号不能为空";
+        document.getElementById('email-tips').innerHTML = "邮箱不能为空";
         return false;
     }
 }
@@ -118,15 +119,15 @@ function checkEmail(inputField) {
 function checkPhone(inputField) {
     if(checkNonEmpty(inputField)) {
         if(validatePhone(inputField)) {
-            document.getElementById('errorMessage').innerHTML = "";
+            document.getElementById('phone-tips').innerHTML = "";
             return true;
         }else {
-            document.getElementById('errorMessage').innerHTML = "请输入正确的手机号码";
+            document.getElementById('phone-tips').innerHTML = "手机号码有误";
             return false;
         }
     }
     else {
-        document.getElementById('errorMessage').innerHTML = "手机号码不能为空";
+        document.getElementById('phone-tips').innerHTML = "手机号码不能为空";
         return false;
     }
 }
@@ -134,14 +135,14 @@ function checkPhone(inputField) {
 function checkPassword(inputField) {
     if(checkNonEmpty(inputField)) {
         if(validatePassword(inputField)) {
-            document.getElementById('errorMessage').innerHTML = "";
+            document.getElementById('password-tips').innerHTML = "";
             return true;
         }else {
-            document.getElementById('errorMessage').innerHTML = "密码长度至少为6位";
+            document.getElementById('password-tips').innerHTML = "密码长度至少为6位";
             return false;
         }
     }else {
-        document.getElementById('errorMessage').innerHTML = "密码不能为空";
+        document.getElementById('password-tips').innerHTML = "密码不能为空";
         return false;
     }
 }
@@ -149,14 +150,14 @@ function checkPassword(inputField) {
 function checkPass(inputField) {
     if(checkNonEmpty(inputField)) {
         if(validatePass(inputField)) {
-            document.getElementById('errorMessage').innerHTML = "";
+            document.getElementById('confirm-tips').innerHTML = "";
             return true;
         }else {
-            document.getElementById('errorMessage').innerHTML = "两次密码不一致";
+            document.getElementById('confirm-tips').innerHTML = "两次密码不一致";
             return false;
         }
     }else {
-        document.getElementById('errorMessage').innerHTML = "密码不能为空";
+        document.getElementById('confirm-tips').innerHTML = "密码不能为空";
         return false;
     }
 }
@@ -171,7 +172,7 @@ function checkRegister(form) {
         return true;
     }
     else {
-        document.getElementById('errorMessage').innerHTML = '请输入完整信息';
+        document.getElementById('error').innerHTML = '请输入完整信息';
         return false;
     }
 }

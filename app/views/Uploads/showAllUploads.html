@@ -10,7 +10,7 @@
                     allUploads.fileName.matches("^.+\\.png")||
                     allUploads.fileName.matches("^.+\\.gif") ||
                     allUploads.fileName.matches("^.+\\.jpg") ||
-                    allUploads.fineName.matches("^.+\\.jpeg")}
+                    allUploads.fileName.matches("^.+\\.jpeg")}
                     <a class="thumbnail imgcommon" hrefs="#"><img src="/public/images/${allUploads.fileName}" alt="childrplen" width="180" height="150" />
                     </a>
                     #{/if}
@@ -37,7 +37,7 @@
             %{
                 for(int i = 0; i < totalUpload/10; i++) {
             }%
-                <li><a href="@{Uploads.showAllUploads(i)}">第${i+1}页</a></li>
+                <a href="@{Uploads.showAllUploads(i)}">第${i+1}页</a>
             %{
                 }
             }%

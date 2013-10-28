@@ -145,7 +145,8 @@ public class Users extends Controller {
 		
 		if(password.equals(pass)) {
 			password = encodeByMD5(password);
-			User user = new User(userid, name, password, email, sex, 0, college, phone, 0, encodeByMD5(email)).save();
+			String validatedCode = encodeByMD5(email);
+			User user = new User(userid, name, password, email, sex, 0, college, phone, 0, validatedCode).save();
 			String mailContent = "请点击以下链接进行验证" + " http://localhost:9000/users/validated?email=" + encodeByMD5(email);			
 			Email latestMail = new Email(email, "用户验证", mailContent);
 	        Mails.sendOut(email, "用户验证", mailContent);

@@ -4,16 +4,20 @@
         <form action="/Users/checkLogin" enctype="multipart/form-data" method="post" accept-charset="utf-8" onsubmit="return loginCheck(this)">
                 <span id="errorMessage">${message}</span>
                 <ul class="from-list">
-                    <li class="from-head">登录</li>
+                    <h3 class="from-head">登录</h3>
                     <li>
-                        <div class="input-name text-bg">
-                            <input type="text" name="email" class="input-text"placeholder="你的注册邮箱" onblur="checkEmail(this)"/>
-                        </div>
+                        <!-- <div class="input-name text-bg"> -->
+                        <label for="email">邮箱 </label>
+                        <input id="email" type="text" name="email" class="input-text" placeholder="你的注册邮箱" onblur="checkEmail(this)"/>
+                        <span id="email-tips" class="tips"></span>
+                        <!-- </div> -->
                     </li>
                     <li>
-                        <div class="input-password text-bg">
-                            <input type="password" name="password" class="input-text" placeholder="密码" onblur="checkPassword(this)"/>
-                        </div>
+                        <!-- <div class="input-password text-bg"> -->
+                        <label for="password">密码 </label>
+                        <input id="password" type="password" name="password" class="input-text" onblur="checkPassword(this)"/>
+                        <span id="password-tips" class="tips"></span>
+                        <!-- </div> -->
                     </li>
                     <li class="forgot-password">
 					<a href="@{Users.getPassword()}">忘记密码?</a>
