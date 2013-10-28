@@ -24,7 +24,7 @@ public class Reports extends Controller {
 	        Files.copy(photo, Play.getFile("public/images/"+fileUrl));
 	        Report report = new Report(title, content, fileUrl);
 	        report.save();
-	        render(content);
+	        showAllReports(0);
     	}
     	else {
     		

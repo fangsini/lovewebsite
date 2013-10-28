@@ -16,7 +16,14 @@ import java.util.List;
 public class Users extends Controller {
 	private final static String[] hexDigits = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
 	private final static char[] passTable = {'0', '1','2','3','4','5','6','7','8','9'};
-
+	private final static String[] hash = {"qq.com", "gmail.com", "sina.com", "163.com", "126.com", "yeah.net", "sohu.com", "tom.com"
+											, "sogou.com", "139.com", "hotmail.com", "live.cn", "live.com.cn", "189.com", "yahoo.com.cn"
+											, "yahoo.cn", "foxmail.coom"};
+	private final static String[] host = {"http://mail.qq.com", "http://mail.google.com", "http://mail.sina.com.cn", "http://mail.163.com"
+											, "http://mail.126.com", "http://www.yeah.net/", "http://mail.sohu.com/", "http://mail.tom.com/"
+											, "http://mail.sogou.com/", "http://mail.10086.cn/", "http://www.hotmail.com", "http://login.live.com/"
+											, "http://login.live.cn/", "http://login.live.com.cn", "http://webmail16.189.cn/webmail/", "http://mail.cn.yahoo.com/"
+											, "http://mail.cn.yahoo.com/", "http://www.foxmail.com"};
 	public static void userMessage() {
 		String userId = session.get("userId");
 		User existUser = User.find("byUserid",userId).first();
@@ -129,34 +136,41 @@ public class Users extends Controller {
 		Application.index();
 	}
 
-	public static void registerPage(String message) {
-		render(message);
+	public static void registerPage(String message, String userid, String name, String email, String phone) {
+		render(message, userid, name, email, phone);
 	}
 
 	public static void register(String userid, String name, String password, String pass,
 			String email, String sex, String college, String phone) {
 		List<User> uid = User.find("order by userid desc").from(0).fetch();
 		for(int i = 0;i<uid.size();i++) {
-			String a = uid.get(i).userid;
-			if(a.equals(userid)) {
-				registerPage("此学号已注册");
+			String userId = uid.get(i).userid;
+			String existEmail = uid.get(i).email;
+			if(userId.equals(userid)) {
+				registerPage("此学号已注册", "", name, email, phone);
+			}
+			else if(existEmail.equals(email)) {
+				registerPage("此邮箱已注册", userid, name, "", phone);
 			}
 		}
 		
-		if(password.equals(pass)) {
-			password = encodeByMD5(password);
-			String validatedCode = encodeByMD5(email);
-			User user = new User(userid, name, password, email, sex, 0, college, phone, 0, validatedCode).save();
-			String mailContent = "请点击以下链接进行验证" + " http://localhost:9000/users/validated?email=" + encodeByMD5(email);			
-			Email latestMail = new Email(email, "用户验证", mailContent);
-	        Mails.sendOut(email, "用户验证", mailContent);
-			latestMail.save();
-			Application.index();
+		password = encodeByMD5(password);
+		String validatedCode = encodeByMD5(email);
+		User user = new User(userid, name, password, email, sex, 0, college, phone, 0, validatedCode).save();
+		String mailContent = "请点击以下链接进行验证" + " http://localhost:9000/users/validated?email=" + encodeByMD5(email);			
+		Email latestMail = new Email(email, "用户验证", mailContent);
+        Mails.sendOut(email, "用户验证", mailContent);
+		latestMail.save();
+		String hostName = email.split("@")[1];
+		int hostIndex = 0;
+		for(int i = 0; i < hash.length; i++) {
+			if(hash[i].equals(hostName)) {
+				hostIndex = i;
+				break;
+			}
 		}
-		else {
-			String message = "your password is wrong...please register again...";
-			registerPage(message);
-		}
+		String emailUrl = host[hostIndex];
+		render(emailUrl);
 	}
 
 	public static void validated(String email) {
