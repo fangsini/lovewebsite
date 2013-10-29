@@ -1,6 +1,27 @@
+<<<<<<< HEAD
 #{extends 'adminMenu.html' /}
 #{set cssName:'mail' /}
 
+=======
+<html>
+<head>
+ <title>后台主页</title>
+ <link rel="stylesheet" type="text/css" href="/public/stylesheets/mail.css" />
+</head>
+<body>
+ <div class="page">
+        <p class="logo"><img src="/public/images/home.png" alt="首页"/ id="logo1"><strong>管理员</strong></p>
+        <p class="txt_right"><strong>华南农业大学管理员</strong>  <span class="v_line"> | </span> <a href="@{Secure.logout()}">退出</a></p>
+     <div class="menu1">
+        <a href="@{Application.index()}">前台主页</a>
+        <a href="@{Uploads.allUploads()}">所有上传信息</a>
+        <a href="@{Verifies.index()}">审核信息</a>
+        <a href="@{Emails.index()}">发送邮件</a>
+        <a href="@{MNews.index()}">发布信息</a>
+        <a href="@{Reports.index()}">后续报道</a>
+        <!--<span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>-->
+    </div>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 	<div class="right">
 		<div class="calen">
 			<img src="/public/images/cal3.png" alt="日历"/>
@@ -21,8 +42,12 @@
 	
 	<div class="content">
 		<div class="intro">
+<<<<<<< HEAD
 			<img class="img1" src="/public/images/email.png" alt="邮件发送"/>
 			<img class="img2" src="/public/images/email2.png" alt="邮件发送"/>
+=======
+			<p><img src="/public/images/email.png" alt="邮件发送"/>&nbsp;发送邮件</p>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 		</div>
 		<div class="line">
 		</div>
@@ -38,12 +63,20 @@
 				<li id="allt">所有用户</li>
 			</ul>
 		</div>
+<<<<<<< HEAD
 		<div class="detail">
 			<p>选择一个方式发送邮件给用户</p>
 		</div>
 		<div class="line">
 		</div>
 		
+=======
+		<div class="line">
+		</div>
+		<div class="detail">
+			<p>选择一个方式发送邮件给用户</p>
+		</div>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 
 	</div>
 	<div class="footer">

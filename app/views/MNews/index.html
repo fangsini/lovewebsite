@@ -1,6 +1,28 @@
+<<<<<<< HEAD
 #{extends 'adminMenu.html' /}
 #{set cssName:'news' /}
 
+=======
+<html>
+<head>
+ <title>后台主页</title>
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+ <link rel="stylesheet" type="text/css" href="/public/stylesheets/news.css" />
+</head>
+<body>
+ <div class="page">
+        <p class="logo"><img src="/public/images/home.png" alt="首页"/ id="logo1"><strong>管理员</strong></p>
+        <p class="txt_right"><strong>华南农业大学管理员</strong>  <span class="v_line"> | </span> <a href="@{Secure.logout()}">退出</a></p>
+     <div class="menu1">
+        <a href="@{Application.index()}">前台主页</a>
+        <a href="@{Uploads.allUploads()}">所有上传信息</a>
+        <a href="@{Verifies.index()}">审核信息</a>
+        <a href="@{Emails.index()}">发送邮件</a>
+        <a href="@{MNews.index()}">发布信息</a>
+        <a href="@{Reports.index()}">后续报道</a>
+        <!--<span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>-->
+    </div>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 	<div class="right">
 		<div class="calen">
 			<img src="/public/images/cal3.png" alt="日历"/>
@@ -10,8 +32,13 @@
 					</script>
 		</div>
 		<div class="decoration">
+<<<<<<< HEAD
 			<img  src="/public/images/latestnews.png">
 			
+=======
+			<img src="/public/images/latestnews.png">
+			<p>发布信息</p>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 		</div>
 		<div class="server">	
 			<img src="/public/images/server2.png" alt="服务器"/>
@@ -21,6 +48,7 @@
 	
 	<div class="content">
 		<div class="intro">
+<<<<<<< HEAD
 			<img class="img1" src="/public/images/Release.png" alt="新闻发布"/>
 			<img class="img2" src="/public/images/mnew.png" alt="新闻发布"/>
 		</div>
@@ -29,6 +57,13 @@
 		</div>
 		<div class="form">
 		<div class="form_mnew">
+=======
+			<p>发布信息&nbsp;<img src="/public/images/Release.png" alt="新闻发布"/></p>
+		</div>
+		<div class="line">
+		</div>
+		<div class="form">
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 			#{form @MNews.releaseNews(), enctype:'multipart/form-data'}	
       			<p>
 					<strong>时间</strong><br />
@@ -38,20 +73,34 @@
 					<strong>地点</strong><br/>
 					<input type="text" name="address" class="box" />
 				</p>
+<<<<<<< HEAD
 				
 				<p>
 					<strong>内容</strong><br />
 					<textarea name="content" id="content" rows="5" cols="30" class="box" ></textarea>
 				</p> 
+=======
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 				<p>
 					<strong>上传文件</strong><br />
 					<input type="file" id="photo" name="photo" />
 				</p>
 				<p>
+<<<<<<< HEAD
 					<input name="submit" type="submit" tabindex="5" value="发布" id="button"/>
 				</p>
 			#{/form}
 		</div></div>
+=======
+					<strong>内容</strong><br />
+					<textarea name="content" id="content" rows="5" cols="30" class="box" ></textarea>
+				</p> 
+				<p>
+					<input name="submit" type="submit" tabindex="5" value="发布" id="button"/>
+				</p>
+			#{/form}
+		</div>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 	</div>
 	<div class="footer">
 		<p>Copyright ? 2013 All Rights Reserved</p>

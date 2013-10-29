@@ -1,28 +1,69 @@
+<<<<<<< HEAD
 #{extends 'adminMenu.html' /}
 #{set cssName:'showUpload' /}
 
     <div class="content">
+=======
+<html>
+<head>
+  <title>后台主页</title>
+  <link rel="stylesheet" type="text/css" href="/public/stylesheets/upload.css" />
+</head>
+<body>
+  <div class="page">
+        <p class="logo"><img src="/public/images/home.png" alt="首页"/ id="logo1"><strong>管理员</strong></p>
+        <p class="txt_right"><strong>华南农业大学管理员</strong>  <span class="v_line"> | </span> <a href="@{Secure.logout()}">退出</a></p>
+     <div class="menu1">
+        <a href="@{Application.index()}">前台主页</a>
+        <a href="@{Uploads.allUploads()}">所有上传信息</a>
+        <a href="@{Verifies.index()}">审核信息</a>
+        <a href="@{Emails.index()}">发送邮件</a>
+        <a href="@{MNews.index()}">发布信息</a>
+        <a href="@{Reports.index()}">后续报道</a>
+        <span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>
+    </div>
+    <div class="content">
+      <div class="intro">
+        <p><img src="/public/images/upload3.png" alt="用户上传信息"/>&nbsp;</p>
+      </div>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
       <div class="line">
       </div>
         <div class="uploadinfo">
           <table>
             <tr>
               <td>
+<<<<<<< HEAD
                 <span class="desc">上传者:&nbsp;</span><font face="楷体">${upload.author}</font>
+=======
+                <span class="desc">上传者:</span><font face="楷体">${upload.author}</font>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
               </td>
             </tr>
             <tr>
                 <td>
+<<<<<<< HEAD
                     <span class="title">标题:&nbsp;</span><font face="楷体">${upload.title}</font>
+=======
+                    <span class="title">标题:</span><font face="楷体">${upload.title}</font>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
                 </td>
             </tr>
             <tr>
               <td>
+<<<<<<< HEAD
                 <span class="photo"><img src="/public/images/${upload.fileName}" width="200" height="200" align="center"/></span>
               </td>
             </tr>
             <tr>
               <td><span class="desc">内容:&nbsp;</span><font face="楷体">${upload.content.nl2br()}</font></td>
+=======
+                <span class="photo"><img src="/public/images/${upload.photoUrl}" width="200" height="200" align="center"/></span>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="desc">内容:</span><font face="楷体">${upload.content.nl2br()}</font></td>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
             </tr>
             <tr>
               <td><span class="date">
@@ -41,11 +82,19 @@
                 <tr> 
                     <td>${comments.size()} comments: </td>
                     #{list items:comments, as:'comments'}
+<<<<<<< HEAD
                     <span class="comment-author">评论者:</span>${comments.author}<br>
                     <span class="comment-date">
                         Comment at:</span>${comments.postedAt.format('dd MMM yy')}
                     <span class="comment-content">
                         Content:${comments.content}<br>
+=======
+                    <span class="comment-author">评论者:</span>${comments.author}
+                    <span class="comment-date">
+                        Comment at:</span>${comments.postedAt.format('dd MMM yy')}
+                    <span class="comment-content">
+                        Content:${comments.content.nl2br()}
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
                     </span>
                     #{/list}
                 </tr>

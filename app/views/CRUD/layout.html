@@ -3,7 +3,13 @@
     <link rel="stylesheet" type="text/css" media="screen" 
         href="@{'/public/stylesheets/crud.css'}" />
 #{/set}
+<<<<<<< HEAD
 <div id="crud">
+=======
+ 
+<div id="crud">
+ 
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
     #{if flash.success}
         <div class="crudFlash flashSuccess">
             ${flash.success}
@@ -14,7 +20,15 @@
             ${error ?: flash.error}
         </div>
     #{/if}
+<<<<<<< HEAD
     <div id="crudContent">
         #{doLayout /}
     </div>
+=======
+ 
+    <div id="crudContent">
+        #{doLayout /}
+    </div>
+ 
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 </div>

@@ -1,5 +1,26 @@
+<<<<<<< HEAD
 #{extends 'adminMenu.html' /}
 #{set cssName:'home' /}
+=======
+<html>
+<head>
+ <title>后台主页</title>
+ <link rel="stylesheet" type="text/css" href="/public/stylesheets/home.css" />
+</head>
+<body>
+ <div class="page">
+        <p class="logo"><img src="/public/images/home.png" alt="首页"/ id="logo1"><strong>管理员</strong></p>
+        <p class="txt_right"><strong>华南农业大学管理员</strong>  <span class="v_line"> | </span> <a href="@{Secure.logout()}">退出</a></p>
+     <div class="menu1">
+        <a href="@{Application.index()}">前台主页</a>
+        <a href="@{Uploads.allUploads()}">所有上传信息</a>
+        <a href="@{Verifies.index()}">审核信息</a>
+        <a href="@{Emails.index()}">发送邮件</a>
+        <a href="@{MNews.index()}">发布信息</a>
+        <a href="@{Reports.index()}">后续报道</a>
+        <span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>
+    </div>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 
     <div class="main">
         <h1>欢迎回来</h1>
@@ -12,6 +33,10 @@
             <ul>
                 <li id="release"><a href="@{MNews.index()}"></a></li>
                 <li id="info"><a href="@{Users.userMessage()}"></a></li>
+<<<<<<< HEAD
+=======
+                <li id="lovers"><a href="@{LovePersons.index()}"></a></li>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
                 <li id="about"><a href="@{Reports.index()}"></a></li>
                 <li id="upload"><a href="@{Uploads.allUploads()}"></a></li> 
                 <li id="mail"><a href="@{Emails.index()}"></a></li> 
@@ -21,6 +46,10 @@
             <ul>
                 <li>发布信息</li>
                 <li>用户信息</li>
+<<<<<<< HEAD
+=======
+                <li>爱心人物</li> 
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
                 <li>后续报道</li> 
                 <li>所有上传信息</li>
                 <li>发送邮件</li>

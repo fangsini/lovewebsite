@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 # you describe your data using the YAML notation here
 # and then load them using Fixtures.load("data.yml")
 
 User(hhq):
    email: woai12346@qq.com
    password: hhq
+=======
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+User(hhq):
+   email: woai12346@qq.com
+   password: hhq
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
    name: hhq

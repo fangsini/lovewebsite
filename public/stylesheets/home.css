@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body,div,h1,p,ul,li,span{
 	padding: 0;
 	margin: 0;
@@ -217,4 +218,319 @@ body
 	margin:10px 0px 20px 0px;
 	background-color:#464646;	
 	clear:left;
+=======
+/*............................... 页面背景...............................*/
+body 
+{
+	background-color:#EBEBEB;
+	font-size:17px;
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
+	padding:0px;
+	margin:0px;
+	text-align:center;
+}
+
+/*............................... 网页Logo...............................*/
+.logo
+{
+	font-size:30px;
+	color:#464646;
+	float:left; 
+	margin:15px 0px 30px 0px;
+}
+#logo1
+{
+	width:50px;
+	height:50px;
+}
+/*............................... 登录信息...............................*/
+
+.txt_right
+{ 
+	font-size:14px;
+	float:right;
+	
+}
+
+.txt_right a:visited,.txt_right a:link
+{
+	color:#30A4B1;
+	text-decoration:none;
+}
+
+.txt_right a:hover
+{
+	color:#F7941D;
+}
+
+.login_out
+{
+	color:#30A4B1;
+}
+	
+.v_line
+{
+	padding:0 5px; 
+	color:#999999;
+}
+
+/*................................页面主体内容...............................*/
+.page
+{
+	width:925px;
+	margin:0 auto;
+}
+
+
+/*............................... 菜单栏...............................*/
+
+.menu1
+{
+	font-size:17px;	
+	line-height:40px;
+	text-align:center;
+	width:925px;
+	height:60px;
+	margin:0px 0px 15px 0px;
+	background-color:#464646;
+	clear:left;
+}
+
+/*...............................菜单栏点击效果...............................*/
+.menu1 a
+{
+	display:block;
+	float:left;
+}
+
+.menu1 a:link,.menu1 a:visited
+{
+	color:#FFFFFF;						/*链接文字的颜色*/			
+	background-color:#464646;			/*设置链接块的颜色*/
+	text-decoration:none;				/*链接文字去掉下划线*/
+	padding:10px 16px 10px 16px;		/*添加补白*/
+}
+
+.menu1 a:hover,.menu1 a:active
+{
+	background-color:#30A4B1;
+	color:#FFFFFF;							
+}
+/*...............................菜单栏搜索框...............................*/
+#search
+{
+	height:28px;
+	margin-top:15px;
+	font-size:18px;
+}
+
+#button
+{
+	color:#FFFFFF;
+	background-color:#F7941D;
+	height:30px;
+	border:none;
+	font-size:17px;
+	font-family:"Arial","Tahoma","微软雅黑","雅黑";
+	margin-left:7px;
+	margin-right:10px;
+	cursor:pointer;
+}
+
+#searchspan
+{
+	float:right;
+}
+/*...............................网页主模块....................................*/
+.main
+{
+	text-align:center;
+	width:925px;
+	height:400px;
+	background-color:#FFFFFF;
+	border:1px solid #464646;
+}
+
+
+.main h1
+{
+	text-align:left;
+	font-size:28px;
+	margin-left:40px;
+	margin-right:40px;
+	margin-bottom:0px;
+}
+
+.main p
+{
+	text-align:left;
+	font-size:15px;
+	margin-top:5px;
+	margin-left:40px;
+	margin-right:40px;
+}
+
+/*..............................2、分割线部分....................................*/
+.line
+{
+	border-top:1px solid #bab9b9; 
+	height:1px; 
+}
+
+.nav
+{	 width:800px;
+	 height:110px; 
+} 
+
+.nav ul li
+{ 
+	list-style-type:none;
+	float:left;
+	width:100px;
+	padding-left:12px;
+	padding-right:12px;
+}
+
+
+/*...........................邮件发送图标................................///*/
+.nav ul #mail a:link,a:visited
+{
+	display:block; 
+	width:110px; 
+	height:110px; 
+	background:url(../images/mail.png);
+	background-size:80px 80px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.nav ul #mail a:hover,.nav ul #mail a:active
+{
+	background:url(../images/mail2.0.png);
+	background-size:110px 110px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+/*..............................新闻发布图标..................................*/
+.nav ul #release a:link,a:visited
+{
+	display:block; 
+	width:110px; 
+	height:110px; 
+	background:url(../images/Release.png);
+	background-size:80px 80px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.nav ul #release a:hover,.nav ul #release a:active
+{
+	background:url(../images/Release2.0.png);
+	background-size:110px 110px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+/*..............................爱心人物图标..................................*/
+.nav ul #lovers a:link,a:visited
+{
+	display:block; 
+	width:110px; 
+	height:110px; 
+	background:url(../images/kindPerson.png);
+	background-size:80px 80px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.nav ul #lovers a:hover,.nav ul #lovers a:active
+{
+	background:url(../images/kindPerson2.0.png);
+	background-size:100px 100px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+/*..............................信息上传图标..................................*/
+.nav ul #upload a:link,a:visited
+{
+	display:block; 
+	width:110px; 
+	height:110px; 
+	background:url(../images/upload.png);
+	background-size:80px 80px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.nav ul #upload a:hover,.nav ul #upload a:active
+{
+	background:url(../images/upload2.0.png);
+	background-size:110px 110px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+/*..............................用户信息图标..................................*/
+.nav ul #info a:link,a:visited
+{
+	display:block; 
+	width:110px; 
+	height:110px; 
+	background:url(../images/user.png);
+	background-size:80px 80px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.nav ul #info a:hover,.nav ul #info a:active
+{
+	background:url(../images/user2.png);
+	background-size:110px 110px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+/*..............................report图标..................................*/
+.nav ul #about a:link,a:visited
+{
+	display:block; 
+	width:110px; 
+	height:110px; 
+	background:url(../images/report.png);
+	background-size:80px 80px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+.nav ul #about a:hover,.nav ul #about a:active
+{
+	background:url(../images/report1.png);
+	background-size:110px 110px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+.description
+{	 width:800px;
+	 height:50px; 
+	 font-family:"Arial","Tahoma","微软雅黑","雅黑";
+	 font-weight:bold;
+} 
+
+.description ul li
+{ 
+	list-style-type:none;
+	float:left;
+	width:100px;
+	padding-left:13px;
+	padding-right:12px;
+	
+}
+
+/*...............................网页底部....................................*/
+.footer
+{
+	font-size:17px;	
+	color:#FFFFFF;
+	line-height:40px;
+	text-align:center;
+	width:925px;
+	height:50px;
+	margin:10px 0px 20px 0px;
+	background-color:#464646;	
+	clear:left;
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 }

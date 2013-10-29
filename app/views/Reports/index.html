@@ -1,6 +1,28 @@
+<<<<<<< HEAD
 #{extends 'adminMenu.html' /}
 #{set cssName:'news' /}
 
+=======
+<html>
+<head>
+ <title>后台主页</title>
+ <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+ <link rel="stylesheet" type="text/css" href="/public/stylesheets/news.css" />
+</head>
+<body>
+ <div class="page">
+        <p class="logo"><img src="/public/images/home.png" alt="首页"/ id="logo1"><strong>管理员</strong></p>
+        <p class="txt_right"><strong>华南农业大学管理员</strong>  <span class="v_line"> | </span> <a href="@{Secure.logout()}">退出</a></p>
+     <div class="menu1">
+        <a href="@{Application.index()}">前台主页</a>
+        <a href="@{Uploads.allUploads()}">所有上传信息</a>
+        <a href="@{Verifies.index()}">审核信息</a>
+        <a href="@{Emails.index()}">发送邮件</a>
+        <a href="@{MNews.index()}">发布信息</a>
+        <a href="@{Reports.index()}">后续报道</a>
+        <!--<span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>-->
+    </div>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
     <div class="right">
         <div class="calen">
             <img src="/public/images/cal3.png" alt="日历"/>
@@ -21,13 +43,20 @@
     
     <div class="content">
         <div class="intro">
+<<<<<<< HEAD
             <img class="img1"src="/public/images/report.png" alt="后续报道"/>
             <img class="img2"src="/public/images/news.png" alt="后续报道"/>
+=======
+            <p><img src="/public/images/report.png" alt="后续报道"/>&nbsp;后续报道</p>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
         </div>
         <div class="line">
         </div>
         <div class="form">
+<<<<<<< HEAD
             <div class="form_report"> 
+=======
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
             #{form @Reports.postReport(), enctype:"multipart/form-data"}  
                 <p>
                     <strong>标题</strong><br />
@@ -44,7 +73,11 @@
                     <input name="submit" type="submit" tabindex="5" value="发布" id="button"/>
                 </p>
             #{/form}
+<<<<<<< HEAD
         </div></div>
+=======
+        </div>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
     </div>
     <div class="footer">
         <p>Copyright ? 2013 All Rights Reserved</p>

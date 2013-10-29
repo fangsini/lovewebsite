@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package controllers;
 
 import models.*;
@@ -233,3 +234,17 @@ public class Users extends Controller {
 	}
 
 }
+=======
+package controllers;
+
+import play.mvc.With;
+import models.*;
+@With(Secure.class)
+public class Users extends CRUD{
+	public static void userMessage() {
+		String name = session.get("user");
+		User existUser = User.find("byName",name).first();
+		render(existUser);
+	}
+}
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3

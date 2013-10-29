@@ -9,17 +9,24 @@ body,div,span,td,th{
     
 }
 body{
+<<<<<<< HEAD
 	background-color:#f0f0f0; 
+=======
+	background: url(img/body_bg.jpg);
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 }
 
 a{color:black;text-decoration: none;}
 a:hover{color:#DC0000;}
 a:link{text-decoration: none;}
 a:active{text-decoration: none;}
+<<<<<<< HEAD
 em{
 	color: #74b157;
 	font-weight: bolder;
 }
+=======
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 ul,li{
 	list-style: none;
 }
@@ -135,7 +142,14 @@ h2{color: #DC0000;font-size: 20px;padding-bottom: 10px;}
 .span2 h2{
 	padding-bottom: 10px;
 }
+<<<<<<< HEAD
 
+=======
+a:hover {
+border-color: #007d52;
+text-decoration: none;
+}
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 
 .more-load{
 	width: 980px;
@@ -210,6 +224,7 @@ h2{color: #DC0000;font-size: 20px;padding-bottom: 10px;}
 	border-style: solid;
 	border-color: #9A9A9A transparent transparent transparent;
 }
+<<<<<<< HEAD
 .page-box{
 	clear: both;
 	*position: relative;
@@ -237,6 +252,22 @@ h2{color: #DC0000;font-size: 20px;padding-bottom: 10px;}
     border-radius: 6px;
     border:1px solid white;
     box-shadow: 3px 3px 4px #DCDCDC;
+=======
+.next-page-btn{
+	width: 80px;
+	height: 30px;
+	font-weight: bolder;
+	border: none;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	background: black;
+	color: #fff;
+	cursor:pointer;
+}
+.next-page-btn:hover{
+	background-color: #74b157;
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 }
 .footer{
 	height: 50px;

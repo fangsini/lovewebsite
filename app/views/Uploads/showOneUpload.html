@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #{extends 'menu.html' /}
 #{set cssName:'Comments' /}
 	<div class="upload-box">
@@ -56,15 +57,90 @@
 		<div class="comment-title">评论(&nbsp;
 			${existComments.size()}
 			&nbsp;)</div>
+=======
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title></title>
+	<link rel="stylesheet" href="/public/stylesheets/help-news-exam.css" type="text/css"/>
+</head>
+<body>
+	
+    <!--header begin-->
+	<div id="header">
+		<ul>
+            <li class="home nav-item"><a href="@{Application.index()}" class="home_icon">首页</a></li>
+            <li class="helpnews nav-item"><a href="@{Uploads.showAllUploads()}">求助资讯</a></li>
+            <li class="helpme nav-item">
+                #{if session.get("user") != null}
+                <a href="@{Uploads.index()}">我要求助</a>
+                #{/if}
+                #{else}
+                    <a href="@{Admin.index()}">我要求助</a>
+                #{/else}  
+                </li>
+            <li class="lovers nav-item"><a href="@{LovePersons.allLoveperson()}">爱心人物</a></li>
+            <li class="laternews nav-item"><a href="@{Reports.showAllReports()}">后续报道</a></li>
+            <li class="aboutus nav-item"><a href="@{Application.about()}">关于我们</a></li>
+            #{if session.get("user") == null}
+                <li class="login nav-item"><a href="@{Admin.index()}">登录</a></li>
+                <li class="register nav-item"><a href="@{Register.index()}">注册</a></li>
+            #{/if}
+            #{else}
+                <li class="logout nav-item"><a href="@{Secure.logout()}">注销</a>
+            #{/else}
+        </ul>
+	</div>
+	<!--header end-->
+
+	<div class="upload-box">
+		<h1 class="location">你现在的位置：首页>求助资讯>
+		<div class="upload_main">
+			<div class="upload_img">
+				<img class="imgcommon" src="/public/images/${oneUpload.photoUrl}" alt="lovers" width="180" height="135" />
+                <img class="imgcommon" src="/public/images/${oneUpload.photoUrl}" alt="lovers" width="180" height="135" />
+			</div>
+			<div class="upload_content">
+				<h2>${oneUpload.title}</h2>
+				<p>${oneUpload.content}</p>
+			</div>
+		</div>
+		<!-- Baidu Button BEGIN -->
+        <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+        <span class="bds_more">分享到：</span>
+        <a class="bds_qzone"></a>
+        <a class="bds_tsina"></a>
+        <a class="bds_tqq"></a>
+        <a class="bds_renren"></a>
+        <a class="bds_t163"></a>
+        <a class="shareCount"></a>
+        </div>
+        <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0" ></script>
+        <script type="text/javascript" id="bdshell_js"></script>
+        <script type="text/javascript">
+        document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+        </script>
+        <!-- Baidu Button END -->
+		<br>${existComments.size()}Comments:
+
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 		#{if existComments.size() >= 1}
         #{list items:existComments, as:'existComments'}
         <div class="row">
 	    	<div class="comments">
 				<div class="author">
+<<<<<<< HEAD
 					<span>用户</span>:&nbsp;${existComments.author} 
 				</div>
 				<div class="content">
 					<p>${existComments.content}</p>
+=======
+					by:<h2>${existComments.author}</h2>
+				</div>
+				<div class="content">
+					content:<p>${existComments.content}</p>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 				</div>
 			</div>
         </div>
@@ -73,6 +149,7 @@
 		#{else}
 			暂时没有评论...
 		#{/else}
+<<<<<<< HEAD
 	</div>
 	<div class="footer">
             <p>Copyright ? 2013 All Rights Reserved</p>
@@ -85,5 +162,20 @@
         <script type="text/javascript">
         document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
     </script>
+=======
+		
+		<div class="postcomment">
+			#{if session.get("user") != null}
+				<form action="@{Uploads.postComment(oneUpload.id)}" method="post" >
+				<textarea name="content" row="20"></textarea>
+				<input type="submit" value="评论" name="sub" />
+				</form>
+			#{/if}
+			#{else}
+				<a href="@{Admin.index()}">登录后可评论</a>
+			#{/else}
+		</div>
+	</div>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 </body>
 </html>

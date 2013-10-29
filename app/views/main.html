@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html >
 <html>
     <head>
@@ -49,4 +50,57 @@
             #{doLayout /} 
         </div>
     </body>
+=======
+<!DOCTYPE html >
+<html>
+    <head>
+        <title>#{get 'title' /}</title>		
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" type="text/css" href="public/stylesheets/main.css" />
+    </head>
+    <body>
+        
+        <div id="header">
+            <div id="logo" align="center">
+            	<font color="red" size="15">LoveWebsite</font>
+            	
+            </div>
+            
+            <ul id="tools">
+                #{if session.get("user") == null}
+                    <li>
+                        <a href="@{Admin.index()}">Log in...</a>
+                    </li>
+                #{/if}
+                #{else}
+                    Welcome <a href="@{Users.userMessage(session.get("user"))}">${session.get("user")}</a>
+                    <li>
+                        <a href="@{EditPassword.index()}">Edit password</a><br>
+                        <a href="@{Secure.logout()}">Log out</a>
+                    <li>
+                #{/else}
+                
+                #{if session.get("user") == null}
+                <li>
+                	<a href="@{Register.index()}">Register</a>
+                </li>
+                #{/if}
+            </ul>
+            
+            </div>
+            <div id="menu">
+                <ul>
+            	   <li><a href="@{Application.index()}">Home</a></li>
+            	   <li><a href="@{Admin.index()}">Manage</a></li>
+                    <li>
+                    <a href="@{LovePersons.viewLoveperson()}">View LovePerson</a>
+                    </li>
+            	   <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        <div id="main">
+            #{doLayout /} 
+        </div>
+    </body>
+>>>>>>> 98595e8eb3aff674d0888e3f8dd73f03a47ce8b3
 </html>

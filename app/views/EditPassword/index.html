@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>重设密码</title>
+	<link rel="stylesheet" href="/public/stylesheets/editpassword.css" />
+</head>
+<body>
+	<div class="main">
+		<form action="">
+
+			<p>
+				<label for="previous">原始密码:</label>
+				<input type="password" name="previous" id="previous" class="input-pwd"/>
+			</p>
+
+			<p>
+				<label for="newpass">新的密码:</label>
+				<input type="password" name="newpass" id="newpass" class="input-pwd"/>
+			</p>
+
+			<p>
+				<label for="newpass2">确认密码:</label>
+				<input type="password" name="newpass2" id="newpass2" class="input-pwd"/>
+			</p>
+
+			<p>
+				<input type="hidden" name="username" value="${session.get("user")}"/>
+				<input type="submit" name="sub" value="确定" class="sub-button"/>
+			</p>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<html>
+<head>
+ <title>后台主页</title>
+ <link rel="stylesheet" type="text/css" href="/public/stylesheets/kind.css" />
+</head>
+<body>
+ <div class="page">
+        <p class="logo"><img src="/public/images/home.png" alt="首页"/ id="logo1"><strong>管理员</strong></p>
+        <p class="txt_right"><strong>华南农业大学管理员</strong>  <span class="v_line"> | </span> <a href="@{Secure.logout()}">退出</a></p>
+     <div class="menu1">
+        <a href="@{Application.index()}">前台主页</a>
+        <a href="@{Uploads.allUploads()}">所有上传信息</a>
+        <a href="@{Verifies.index()}">审核信息</a>
+        <a href="@{Emails.index()}">发送邮件</a>
+        <a href="@{MNews.index()}">发布信息</a>
+        <a href="@{Reports.index()}">后续报道</a>
+        <!--<span id="searchspan"><input type="text" name="search" id="search"/><input type="submit" name="submit" value="搜索" id="button"/></span>-->
+    </div>
+    <div class="right">
+        <div class="calen">
+            <img src="/public/images/cal3.png" alt="日历"/>
+            <div id="time">加载中</div>
+                    <script >
+                        setInterval("time.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
+                    </script>
+        </div>
+        <div class="decoration1">
+            <a href="@{LovePersons.index()}"></a>
+            <p>发布爱心人物</p>
+        </div>
+        <div class="server">    
+            <img src="/public/images/server2.png" alt="服务器"/>
+            <strong><p>S<span id="gray">C</span><span id="orange">A</span><span id="blue">U</span> <span id="gray">L</span><span id="orange">O</span><span id="blue">V</span>E <span id="orange">T</span><span id="gray">E</span><span id="blue">A</span>M</p></strong>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="intro">
+            <p><img src="/public/images/person.png" alt="爱心人物"/>&nbsp;爱心人物</p>
+        </div>
+        <div class="line">
+        </div>
+        <div class="scroll">
+        <div class="kindinfo">
+            <table>
+                #{if lovePersons.size() >= 1}
+                #{list items:lovePersons, as:'lovePersons'}
+                <tr>
+                    <td><span class="desc">姓名:<br></span><a href="@{LovePersons.showLovePerson(lovePersons.id)}">
+                    <font face="楷体">${lovePersons.name}</font></a></td>
+                    #{secure.check 'admin'} 
+                    <td>
+                        <a href="@{LovePersons.deleteLovePerson(lovePersons.id)}">删除</a>
+                    </td>
+                    <td>
+                        <a href="@{LovePersons.editPage(lovePersons.id)}">编辑</a>
+                    </td>
+                    #{/secure.check}
+                </tr>
+                <tr>
+                    <td>
+                        <div class="line">
+                        </div>
+                    </td>
+                </tr>
+                #{/list}
+                #{/if}
+                #{else}
+                    There has not any lovePerson...
+                #{/else}
+            </table>
+        </div>
+        </div>
+        
+    </div>
+    <div class="footer">
+        <p>Copyright ? 2013 All Rights Reserved</p>
+    </div>
+ </div>
+</body>
+</html>
