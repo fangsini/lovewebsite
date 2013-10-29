@@ -1,5 +1,5 @@
 #{extends 'menu.html' /}
-#{set cssName:'register' /}
+#{set cssName:'registerPage' /}
 
 <div class="content">
 	<h2 id="title">注册</h2>	
@@ -33,7 +33,7 @@
 			</li>
 		</ul>
 	</div>
-	<span id="errorMessage">${message}</span>
+	
 	<form action="/Users/register" enctype="multipart/form-data" method="post" onsubmit="return checkRegister(this)">
 	<div class="table">
 		<table>
@@ -61,8 +61,8 @@
 				<td>性别:</td>
 				<td>
 					<input type="radio" name="sex" id="sex" value="男" checked="checked">	
-					男&nbsp;&nbsp;
-					<input type="radio" name="sex" id="sex" value="女">
+					&nbsp;&nbsp;男&nbsp;&nbsp;
+					<input type="radio" name="sex" id="sex" value="女">&nbsp;&nbsp;女
 				</td>
 			</tr>
 			<tr>
@@ -103,11 +103,11 @@
 				</td>
 			</tr>
 			<tr>
-				<!-- <td id="submit-form"></td> -->
 				<td colspan="2">
-					<div id="error"></div>
+					<div id="errorMessage">${message}</div>
 					<input type="submit" value="注   册" class="button"/>	
-					<input type="Reset" value="重   置" class="button"></td>
+					<input type="Reset" value="重   置" class="button">
+				</td>
 			</tr>
 		</table>
 	</div>

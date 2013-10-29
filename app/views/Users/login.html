@@ -5,19 +5,15 @@
                 <span id="errorMessage">${message}</span>
                 <ul class="from-list">
                     <h3 class="from-head">登录</h3>
-                    <li>
-                        <!-- <div class="input-name text-bg"> -->
+                    <li class="first-child">
                         <label for="email">邮箱 </label>
                         <input id="email" type="text" name="email" class="input-text" placeholder="你的注册邮箱" onblur="checkEmail(this)"/>
                         <span id="email-tips" class="tips"></span>
-                        <!-- </div> -->s
                     </li>
                     <li>
-                        <!-- <div class="input-password text-bg"> -->
                         <label for="password">密码 </label>
                         <input id="password" type="password" name="password" class="input-text" onblur="checkPassword(this)"/>
                         <span id="password-tips" class="tips"></span>
-                        <!-- </div> -->
                     </li>
                     <li class="forgot-password">
 					<a href="@{Users.getPassword()}">忘记密码?</a>
