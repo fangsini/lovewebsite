@@ -12,7 +12,7 @@ body{
 .form-body{
 	position: relative;
 	top: 100px;
-	width: 500px;
+	width: 450px;
 	height: 305px;
 	margin: auto;
 	padding-top: 10px;
@@ -41,15 +41,10 @@ body{
 li label{
 	color: #7B7B7B;
 }
-/*.input-name{
-	background: url(../images/userLogin.png) 3px 5px no-repeat;
-}
-.input-password{
-	background: url(../images/password.png) 3px 5px no-repeat;
-}*/
+
 .input-text{
 	height: 40px;
-	width: 250px;
+	width: 200px;
 	border-radius: 4px;
 	-wiki-border-radius: 4px;
 	border:  1px solid rgb(122, 112, 112);
@@ -64,7 +59,6 @@ li label{
 .forgot-password{
 	font-size: 14px;
 	line-height: 3.0;
-
 }
 .forgot-password a{
 	color: #7B7B7B;
